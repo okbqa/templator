@@ -13,6 +13,7 @@ import org.json.simple.parser.JSONParser;
 import org.okbqa.tripletempeh.graph.Color;
 import org.okbqa.tripletempeh.graph.Edge;
 import org.okbqa.tripletempeh.graph.Graph;
+import org.okbqa.tripletempeh.graph.Node;
 import org.okbqa.tripletempeh.interpreter.Interpreter;
 
 /**
@@ -24,14 +25,17 @@ public class RuleEngine {
     String path_SRL;
     String path_map;
     
+    List<Rule> SRL_rules;
+    List<Rule> map_rules;
+    
     JSONParser parser;
     Interpreter interpreter;
 
     
-    public RuleEngine() {
+    public RuleEngine(String language) {
     
-        path_SRL = "rules/SRL_rules.json";
-        path_map = "map_rules.json";
+        path_SRL = "rules/SRL_rules_"+language+".json";
+        path_map = "rules/map_rules_"+language+".json";
         
         parser = new JSONParser();
         interpreter = new Interpreter();
@@ -79,7 +83,9 @@ public class RuleEngine {
     
     public void apply(Rule rule,Graph g) {
         
-        if (rule.getTarget().subGraphOf(g)) { 
+        Graph target = rule.getTarget();
+        
+        if (target.subGraphOf(g)) { 
         
            switch (rule.getTodoType()) {
                 // SRL rules
@@ -89,8 +95,16 @@ public class RuleEngine {
                      while (matcher.find()) {
                             String role = matcher.group(1);
                             int    head = Integer.parseInt(matcher.group(2));
-                            int    dep  = Integer.parseInt(matcher.group(3));
-                            g.addEdge(new Edge(Color.SRL,head,role,dep));                            
+                            int    depd = Integer.parseInt(matcher.group(3));
+                            // TODO Fix this!
+                            for (Edge e : g.getEdges(role)) {
+                                 Node ghead = g.getNode(e.getHead());
+                                 Node gdepd = g.getNode(e.getDependent());
+                                 if (ghead.matches(target.getNode(head)) && gdepd.matches(target.getNode(depd))) {
+                                     g.addEdge(new Edge(Color.SRL,ghead.getId(),role,gdepd.getId()));
+                                     break;
+                                 }
+                            }                         
                      }
                      break;
                 // mapping rules

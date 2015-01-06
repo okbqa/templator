@@ -17,19 +17,6 @@ public class DependenciesBaseListener implements DependenciesListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterId(@NotNull DependenciesParser.IdContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitId(@NotNull DependenciesParser.IdContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterGraph(@NotNull DependenciesParser.GraphContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -37,6 +24,19 @@ public class DependenciesBaseListener implements DependenciesListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitGraph(@NotNull DependenciesParser.GraphContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterRoles(@NotNull DependenciesParser.RolesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRoles(@NotNull DependenciesParser.RolesContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -69,13 +69,13 @@ public class DependenciesBaseListener implements DependenciesListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterShead(@NotNull DependenciesParser.SheadContext ctx) { }
+	@Override public void enterRole(@NotNull DependenciesParser.RoleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitShead(@NotNull DependenciesParser.SheadContext ctx) { }
+	@Override public void exitRole(@NotNull DependenciesParser.RoleContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -89,19 +89,6 @@ public class DependenciesBaseListener implements DependenciesListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitFeature(@NotNull DependenciesParser.FeatureContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterSheads(@NotNull DependenciesParser.SheadsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitSheads(@NotNull DependenciesParser.SheadsContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

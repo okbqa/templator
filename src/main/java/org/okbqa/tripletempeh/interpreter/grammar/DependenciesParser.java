@@ -24,10 +24,10 @@ public class DependenciesParser extends Parser {
 		"NUMBER", "STRING", "NEWLINE", "WHITESPACE"
 	};
 	public static final int
-		RULE_graph = 0, RULE_conll = 1, RULE_stanford = 2, RULE_id = 3, RULE_features = 4, 
-		RULE_feature = 5, RULE_sheads = 6, RULE_shead = 7;
+		RULE_graph = 0, RULE_conll = 1, RULE_stanford = 2, RULE_features = 3, 
+		RULE_feature = 4, RULE_roles = 5, RULE_role = 6;
 	public static final String[] ruleNames = {
-		"graph", "conll", "stanford", "id", "features", "feature", "sheads", "shead"
+		"graph", "conll", "stanford", "features", "feature", "roles", "role"
 	};
 
 	@Override
@@ -85,23 +85,23 @@ public class DependenciesParser extends Parser {
 		enterRule(_localctx, 0, RULE_graph);
 		int _la;
 		try {
-			setState(32);
+			setState(30);
 			switch (_input.LA(1)) {
 			case NUMBER:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(16); conll();
-				setState(21);
+				setState(14); conll();
+				setState(19);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==NEWLINE) {
 					{
 					{
-					setState(17); match(NEWLINE);
-					setState(18); conll();
+					setState(15); match(NEWLINE);
+					setState(16); conll();
 					}
 					}
-					setState(23);
+					setState(21);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
@@ -110,18 +110,18 @@ public class DependenciesParser extends Parser {
 			case STRING:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(24); stanford();
-				setState(29);
+				setState(22); stanford();
+				setState(27);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==NEWLINE) {
 					{
 					{
-					setState(25); match(NEWLINE);
-					setState(26); stanford();
+					setState(23); match(NEWLINE);
+					setState(24); stanford();
 					}
 					}
-					setState(31);
+					setState(29);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
@@ -143,19 +143,19 @@ public class DependenciesParser extends Parser {
 	}
 
 	public static class ConllContext extends ParserRuleContext {
+		public RolesContext roles() {
+			return getRuleContext(RolesContext.class,0);
+		}
 		public TerminalNode STRING(int i) {
 			return getToken(DependenciesParser.STRING, i);
-		}
-		public IdContext id() {
-			return getRuleContext(IdContext.class,0);
 		}
 		public FeaturesContext features() {
 			return getRuleContext(FeaturesContext.class,0);
 		}
-		public SheadsContext sheads() {
-			return getRuleContext(SheadsContext.class,0);
+		public TerminalNode NUMBER(int i) {
+			return getToken(DependenciesParser.NUMBER, i);
 		}
-		public TerminalNode NUMBER() { return getToken(DependenciesParser.NUMBER, 0); }
+		public List<TerminalNode> NUMBER() { return getTokens(DependenciesParser.NUMBER); }
 		public List<TerminalNode> STRING() { return getTokens(DependenciesParser.STRING); }
 		public ConllContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -177,15 +177,15 @@ public class DependenciesParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(34); id();
+			setState(32); match(NUMBER);
+			setState(33); match(STRING);
+			setState(34); match(STRING);
 			setState(35); match(STRING);
-			setState(36); match(STRING);
-			setState(37); match(STRING);
-			setState(38); features();
-			setState(39); match(NUMBER);
-			setState(40); match(STRING);
+			setState(36); features();
+			setState(37); match(NUMBER);
+			setState(38); match(STRING);
 			{
-			setState(41); sheads();
+			setState(39); roles();
 			}
 			}
 		}
@@ -229,52 +229,16 @@ public class DependenciesParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
+			setState(41); match(STRING);
+			setState(42); match(T__4);
 			setState(43); match(STRING);
-			setState(44); match(T__4);
-			setState(45); match(STRING);
-			setState(46); match(T__5);
-			setState(47); match(NUMBER);
-			setState(48); match(T__7);
-			setState(49); match(STRING);
-			setState(50); match(T__5);
-			setState(51); match(NUMBER);
-			setState(52); match(T__8);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class IdContext extends ParserRuleContext {
-		public TerminalNode NUMBER() { return getToken(DependenciesParser.NUMBER, 0); }
-		public IdContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_id; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DependenciesListener ) ((DependenciesListener)listener).enterId(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DependenciesListener ) ((DependenciesListener)listener).exitId(this);
-		}
-	}
-
-	public final IdContext id() throws RecognitionException {
-		IdContext _localctx = new IdContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_id);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(54); match(NUMBER);
+			setState(44); match(T__5);
+			setState(45); match(NUMBER);
+			setState(46); match(T__7);
+			setState(47); match(STRING);
+			setState(48); match(T__5);
+			setState(49); match(NUMBER);
+			setState(50); match(T__8);
 			}
 		}
 		catch (RecognitionException re) {
@@ -311,32 +275,32 @@ public class DependenciesParser extends Parser {
 
 	public final FeaturesContext features() throws RecognitionException {
 		FeaturesContext _localctx = new FeaturesContext(_ctx, getState());
-		enterRule(_localctx, 8, RULE_features);
+		enterRule(_localctx, 6, RULE_features);
 		int _la;
 		try {
-			setState(65);
+			setState(61);
 			switch (_input.LA(1)) {
 			case T__6:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(56); match(T__6);
+				setState(52); match(T__6);
 				}
 				break;
 			case STRING:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(57); feature();
-				setState(62);
+				setState(53); feature();
+				setState(58);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==T__1) {
 					{
 					{
-					setState(58); match(T__1);
-					setState(59); feature();
+					setState(54); match(T__1);
+					setState(55); feature();
 					}
 					}
-					setState(64);
+					setState(60);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
@@ -378,13 +342,13 @@ public class DependenciesParser extends Parser {
 
 	public final FeatureContext feature() throws RecognitionException {
 		FeatureContext _localctx = new FeatureContext(_ctx, getState());
-		enterRule(_localctx, 10, RULE_feature);
+		enterRule(_localctx, 8, RULE_feature);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(67); match(STRING);
-			setState(68); match(T__2);
-			setState(69); match(STRING);
+			setState(63); match(STRING);
+			setState(64); match(T__2);
+			setState(65); match(STRING);
 			}
 		}
 		catch (RecognitionException re) {
@@ -398,55 +362,55 @@ public class DependenciesParser extends Parser {
 		return _localctx;
 	}
 
-	public static class SheadsContext extends ParserRuleContext {
-		public SheadContext shead(int i) {
-			return getRuleContext(SheadContext.class,i);
+	public static class RolesContext extends ParserRuleContext {
+		public List<RoleContext> role() {
+			return getRuleContexts(RoleContext.class);
 		}
-		public List<SheadContext> shead() {
-			return getRuleContexts(SheadContext.class);
+		public RoleContext role(int i) {
+			return getRuleContext(RoleContext.class,i);
 		}
-		public SheadsContext(ParserRuleContext parent, int invokingState) {
+		public RolesContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_sheads; }
+		@Override public int getRuleIndex() { return RULE_roles; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DependenciesListener ) ((DependenciesListener)listener).enterSheads(this);
+			if ( listener instanceof DependenciesListener ) ((DependenciesListener)listener).enterRoles(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DependenciesListener ) ((DependenciesListener)listener).exitSheads(this);
+			if ( listener instanceof DependenciesListener ) ((DependenciesListener)listener).exitRoles(this);
 		}
 	}
 
-	public final SheadsContext sheads() throws RecognitionException {
-		SheadsContext _localctx = new SheadsContext(_ctx, getState());
-		enterRule(_localctx, 12, RULE_sheads);
+	public final RolesContext roles() throws RecognitionException {
+		RolesContext _localctx = new RolesContext(_ctx, getState());
+		enterRule(_localctx, 10, RULE_roles);
 		int _la;
 		try {
-			setState(80);
+			setState(76);
 			switch (_input.LA(1)) {
 			case T__6:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(71); match(T__6);
+				setState(67); match(T__6);
 				}
 				break;
 			case NUMBER:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(72); shead();
-				setState(77);
+				setState(68); role();
+				setState(73);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==T__0) {
 					{
 					{
-					setState(73); match(T__0);
-					setState(74); shead();
+					setState(69); match(T__0);
+					setState(70); role();
 					}
 					}
-					setState(79);
+					setState(75);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
@@ -467,36 +431,45 @@ public class DependenciesParser extends Parser {
 		return _localctx;
 	}
 
-	public static class SheadContext extends ParserRuleContext {
+	public static class RoleContext extends ParserRuleContext {
 		public TerminalNode STRING(int i) {
 			return getToken(DependenciesParser.STRING, i);
 		}
 		public TerminalNode NUMBER() { return getToken(DependenciesParser.NUMBER, 0); }
 		public List<TerminalNode> STRING() { return getTokens(DependenciesParser.STRING); }
-		public SheadContext(ParserRuleContext parent, int invokingState) {
+		public RoleContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_shead; }
+		@Override public int getRuleIndex() { return RULE_role; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DependenciesListener ) ((DependenciesListener)listener).enterShead(this);
+			if ( listener instanceof DependenciesListener ) ((DependenciesListener)listener).enterRole(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DependenciesListener ) ((DependenciesListener)listener).exitShead(this);
+			if ( listener instanceof DependenciesListener ) ((DependenciesListener)listener).exitRole(this);
 		}
 	}
 
-	public final SheadContext shead() throws RecognitionException {
-		SheadContext _localctx = new SheadContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_shead);
+	public final RoleContext role() throws RecognitionException {
+		RoleContext _localctx = new RoleContext(_ctx, getState());
+		enterRule(_localctx, 12, RULE_role);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(82); match(NUMBER);
-			setState(83); match(T__3);
-			setState(84); match(STRING);
+			setState(78); match(NUMBER);
+			setState(79); match(T__3);
+			setState(80); match(STRING);
+			setState(83);
+			_la = _input.LA(1);
+			if (_la==T__5) {
+				{
+				setState(81); match(T__5);
+				setState(82); match(STRING);
+				}
+			}
+
 			setState(87);
 			_la = _input.LA(1);
 			if (_la==T__2) {
@@ -521,27 +494,27 @@ public class DependenciesParser extends Parser {
 
 	public static final String _serializedATN =
 		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\17\\\4\2\t\2\4\3"+
-		"\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\3\2\3\2\3\2\7\2\26"+
-		"\n\2\f\2\16\2\31\13\2\3\2\3\2\3\2\7\2\36\n\2\f\2\16\2!\13\2\5\2#\n\2\3"+
-		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4"+
-		"\3\4\3\4\3\5\3\5\3\6\3\6\3\6\3\6\7\6?\n\6\f\6\16\6B\13\6\5\6D\n\6\3\7"+
-		"\3\7\3\7\3\7\3\b\3\b\3\b\3\b\7\bN\n\b\f\b\16\bQ\13\b\5\bS\n\b\3\t\3\t"+
-		"\3\t\3\t\3\t\5\tZ\n\t\3\t\2\2\n\2\4\6\b\n\f\16\20\2\2[\2\"\3\2\2\2\4$"+
-		"\3\2\2\2\6-\3\2\2\2\b8\3\2\2\2\nC\3\2\2\2\fE\3\2\2\2\16R\3\2\2\2\20T\3"+
-		"\2\2\2\22\27\5\4\3\2\23\24\7\16\2\2\24\26\5\4\3\2\25\23\3\2\2\2\26\31"+
-		"\3\2\2\2\27\25\3\2\2\2\27\30\3\2\2\2\30#\3\2\2\2\31\27\3\2\2\2\32\37\5"+
-		"\6\4\2\33\34\7\16\2\2\34\36\5\6\4\2\35\33\3\2\2\2\36!\3\2\2\2\37\35\3"+
-		"\2\2\2\37 \3\2\2\2 #\3\2\2\2!\37\3\2\2\2\"\22\3\2\2\2\"\32\3\2\2\2#\3"+
-		"\3\2\2\2$%\5\b\5\2%&\7\r\2\2&\'\7\r\2\2\'(\7\r\2\2()\5\n\6\2)*\7\f\2\2"+
-		"*+\7\r\2\2+,\5\16\b\2,\5\3\2\2\2-.\7\r\2\2./\7\7\2\2/\60\7\r\2\2\60\61"+
-		"\7\6\2\2\61\62\7\f\2\2\62\63\7\4\2\2\63\64\7\r\2\2\64\65\7\6\2\2\65\66"+
-		"\7\f\2\2\66\67\7\3\2\2\67\7\3\2\2\289\7\f\2\29\t\3\2\2\2:D\7\5\2\2;@\5"+
-		"\f\7\2<=\7\n\2\2=?\5\f\7\2><\3\2\2\2?B\3\2\2\2@>\3\2\2\2@A\3\2\2\2AD\3"+
-		"\2\2\2B@\3\2\2\2C:\3\2\2\2C;\3\2\2\2D\13\3\2\2\2EF\7\r\2\2FG\7\t\2\2G"+
-		"H\7\r\2\2H\r\3\2\2\2IS\7\5\2\2JO\5\20\t\2KL\7\13\2\2LN\5\20\t\2MK\3\2"+
-		"\2\2NQ\3\2\2\2OM\3\2\2\2OP\3\2\2\2PS\3\2\2\2QO\3\2\2\2RI\3\2\2\2RJ\3\2"+
-		"\2\2S\17\3\2\2\2TU\7\f\2\2UV\7\b\2\2VY\7\r\2\2WX\7\t\2\2XZ\7\r\2\2YW\3"+
-		"\2\2\2YZ\3\2\2\2Z\21\3\2\2\2\n\27\37\"@CORY";
+		"\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\3\2\3\2\3\2\7\2\24\n\2\f"+
+		"\2\16\2\27\13\2\3\2\3\2\3\2\7\2\34\n\2\f\2\16\2\37\13\2\5\2!\n\2\3\3\3"+
+		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4"+
+		"\3\4\3\5\3\5\3\5\3\5\7\5;\n\5\f\5\16\5>\13\5\5\5@\n\5\3\6\3\6\3\6\3\6"+
+		"\3\7\3\7\3\7\3\7\7\7J\n\7\f\7\16\7M\13\7\5\7O\n\7\3\b\3\b\3\b\3\b\3\b"+
+		"\5\bV\n\b\3\b\3\b\5\bZ\n\b\3\b\2\2\t\2\4\6\b\n\f\16\2\2]\2 \3\2\2\2\4"+
+		"\"\3\2\2\2\6+\3\2\2\2\b?\3\2\2\2\nA\3\2\2\2\fN\3\2\2\2\16P\3\2\2\2\20"+
+		"\25\5\4\3\2\21\22\7\16\2\2\22\24\5\4\3\2\23\21\3\2\2\2\24\27\3\2\2\2\25"+
+		"\23\3\2\2\2\25\26\3\2\2\2\26!\3\2\2\2\27\25\3\2\2\2\30\35\5\6\4\2\31\32"+
+		"\7\16\2\2\32\34\5\6\4\2\33\31\3\2\2\2\34\37\3\2\2\2\35\33\3\2\2\2\35\36"+
+		"\3\2\2\2\36!\3\2\2\2\37\35\3\2\2\2 \20\3\2\2\2 \30\3\2\2\2!\3\3\2\2\2"+
+		"\"#\7\f\2\2#$\7\r\2\2$%\7\r\2\2%&\7\r\2\2&\'\5\b\5\2\'(\7\f\2\2()\7\r"+
+		"\2\2)*\5\f\7\2*\5\3\2\2\2+,\7\r\2\2,-\7\7\2\2-.\7\r\2\2./\7\6\2\2/\60"+
+		"\7\f\2\2\60\61\7\4\2\2\61\62\7\r\2\2\62\63\7\6\2\2\63\64\7\f\2\2\64\65"+
+		"\7\3\2\2\65\7\3\2\2\2\66@\7\5\2\2\67<\5\n\6\289\7\n\2\29;\5\n\6\2:8\3"+
+		"\2\2\2;>\3\2\2\2<:\3\2\2\2<=\3\2\2\2=@\3\2\2\2><\3\2\2\2?\66\3\2\2\2?"+
+		"\67\3\2\2\2@\t\3\2\2\2AB\7\r\2\2BC\7\t\2\2CD\7\r\2\2D\13\3\2\2\2EO\7\5"+
+		"\2\2FK\5\16\b\2GH\7\13\2\2HJ\5\16\b\2IG\3\2\2\2JM\3\2\2\2KI\3\2\2\2KL"+
+		"\3\2\2\2LO\3\2\2\2MK\3\2\2\2NE\3\2\2\2NF\3\2\2\2O\r\3\2\2\2PQ\7\f\2\2"+
+		"QR\7\b\2\2RU\7\r\2\2ST\7\6\2\2TV\7\r\2\2US\3\2\2\2UV\3\2\2\2VY\3\2\2\2"+
+		"WX\7\t\2\2XZ\7\r\2\2YW\3\2\2\2YZ\3\2\2\2Z\17\3\2\2\2\13\25\35 <?KNUY";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

@@ -6,16 +6,15 @@ grammar Dependencies;
 graph : conll    (NEWLINE conll)* 
       | stanford (NEWLINE stanford)*;
 
-conll    : id STRING STRING STRING features NUMBER STRING (sheads) ;
+conll    : NUMBER STRING STRING STRING features NUMBER STRING (roles) ;
 stanford : STRING '(' STRING '-' NUMBER ',' STRING '-' NUMBER ')' ;
 
-id : NUMBER;
 
 features : '_' | feature ('|' feature)* ; 
 feature  : STRING '=' STRING ;
 
-sheads   : '_' | shead (';' shead)* ; 
-shead    : NUMBER ':' STRING ('=' STRING)? ;
+roles : '_' | role (';' role)* ; 
+role  : NUMBER ':' STRING ('-' STRING)? ('=' STRING )? ;
 
 
 NUMBER : [0-9]+ ;

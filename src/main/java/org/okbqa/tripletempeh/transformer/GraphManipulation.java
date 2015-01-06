@@ -14,10 +14,10 @@ public class GraphManipulation {
 
     RuleEngine engine;
     List<Rule> SRL_rules;
-    List<Rule> map_rules;
     
-    public GraphManipulation() {
-        engine    = new RuleEngine();
+    public GraphManipulation(RuleEngine e) {
+        
+        engine    = e;
         SRL_rules = engine.SRL_rules();
     }
     

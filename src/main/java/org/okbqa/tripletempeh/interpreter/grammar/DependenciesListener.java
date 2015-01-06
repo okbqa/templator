@@ -9,17 +9,6 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface DependenciesListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link DependenciesParser#id}.
-	 * @param ctx the parse tree
-	 */
-	void enterId(@NotNull DependenciesParser.IdContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DependenciesParser#id}.
-	 * @param ctx the parse tree
-	 */
-	void exitId(@NotNull DependenciesParser.IdContext ctx);
-
-	/**
 	 * Enter a parse tree produced by {@link DependenciesParser#graph}.
 	 * @param ctx the parse tree
 	 */
@@ -29,6 +18,17 @@ public interface DependenciesListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitGraph(@NotNull DependenciesParser.GraphContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link DependenciesParser#roles}.
+	 * @param ctx the parse tree
+	 */
+	void enterRoles(@NotNull DependenciesParser.RolesContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DependenciesParser#roles}.
+	 * @param ctx the parse tree
+	 */
+	void exitRoles(@NotNull DependenciesParser.RolesContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link DependenciesParser#features}.
@@ -53,15 +53,15 @@ public interface DependenciesListener extends ParseTreeListener {
 	void exitConll(@NotNull DependenciesParser.ConllContext ctx);
 
 	/**
-	 * Enter a parse tree produced by {@link DependenciesParser#shead}.
+	 * Enter a parse tree produced by {@link DependenciesParser#role}.
 	 * @param ctx the parse tree
 	 */
-	void enterShead(@NotNull DependenciesParser.SheadContext ctx);
+	void enterRole(@NotNull DependenciesParser.RoleContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link DependenciesParser#shead}.
+	 * Exit a parse tree produced by {@link DependenciesParser#role}.
 	 * @param ctx the parse tree
 	 */
-	void exitShead(@NotNull DependenciesParser.SheadContext ctx);
+	void exitRole(@NotNull DependenciesParser.RoleContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link DependenciesParser#feature}.
@@ -73,17 +73,6 @@ public interface DependenciesListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitFeature(@NotNull DependenciesParser.FeatureContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link DependenciesParser#sheads}.
-	 * @param ctx the parse tree
-	 */
-	void enterSheads(@NotNull DependenciesParser.SheadsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DependenciesParser#sheads}.
-	 * @param ctx the parse tree
-	 */
-	void exitSheads(@NotNull DependenciesParser.SheadsContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link DependenciesParser#stanford}.

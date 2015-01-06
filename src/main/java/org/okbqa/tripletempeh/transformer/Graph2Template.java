@@ -9,9 +9,12 @@ import com.hp.hpl.jena.sparql.syntax.ElementTriplesBlock;
 import com.hp.hpl.jena.vocabulary.RDF;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import org.okbqa.tripletempeh.graph.Edge;
 import org.okbqa.tripletempeh.graph.Graph;
 import org.okbqa.tripletempeh.graph.Node;
+import org.okbqa.tripletempeh.rules.Rule;
+import org.okbqa.tripletempeh.rules.RuleEngine;
 import org.okbqa.tripletempeh.template.Slot;
 import org.okbqa.tripletempeh.template.Template;
 
@@ -23,11 +26,13 @@ public class Graph2Template {
        
     int i = 0; // for supply of fresh variables
     
-    
-    public Graph2Template() {
+    RuleEngine engine;
+    List<Rule> map_rules;
+        
+    public Graph2Template(RuleEngine e) {
 
-        // get filters and mappings
-        // ...
+        engine = e;
+        map_rules = engine.map_rules();
     }
     
     

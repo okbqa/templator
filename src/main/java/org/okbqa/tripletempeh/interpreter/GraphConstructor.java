@@ -15,9 +15,7 @@ import org.okbqa.tripletempeh.interpreter.grammar.DependenciesParser;
 public class GraphConstructor extends DependenciesBaseListener {
     
     Graph graph = new Graph();
-    
-    int index = 0;
-        
+            
     public GraphConstructor() {
     }
     
@@ -35,8 +33,8 @@ public class GraphConstructor extends DependenciesBaseListener {
     public void exitConll(DependenciesParser.ConllContext ctx) {
         // conll : id STRING STRING STRING features NUMBER STRING (sheads) ;
 
-        int i1 = index;
-        int i2 = Integer.parseInt(ctx.NUMBER().getText());
+        int i1 = Integer.parseInt(ctx.NUMBER(0).getText());
+        int i2 = Integer.parseInt(ctx.NUMBER(1).getText());
         
         String form  = ctx.STRING(0).getText();
         String lemma = ctx.STRING(1).getText();
@@ -61,23 +59,6 @@ public class GraphConstructor extends DependenciesBaseListener {
         graph.addNode(new Node(i1,form1));
         graph.addNode(new Node(i2,form2));
         graph.addEdge(new Edge(Color.DEPENDENCY,i2,rel,i1));
-    }
-    
-    @Override
-    public void enterId(DependenciesParser.IdContext ctx) {
-        index = Integer.parseInt(ctx.NUMBER().getText());
-    }
-    
-    @Override
-    public void exitShead(DependenciesParser.SheadContext ctx) {
-        
-        int    i   = Integer.parseInt(ctx.NUMBER().getText());
-        String rel = ctx.STRING(0).getText();
-        
-        if (ctx.STRING(1) == null) {
-           graph.addEdge(new Edge(Color.SRL,i,rel,index));
-        }
-        
     }
     
 }

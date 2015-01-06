@@ -1,6 +1,7 @@
 package org.okbqa.tripletempeh.graph;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -45,6 +46,19 @@ public class Graph {
             }
         }
         return null;
+    }
+    
+    public List<Edge> getEdges(String label) {
+        
+        List<Edge> results = new ArrayList<>();
+        
+        for (Edge e : edges) {
+             if (e.getLabel().equals(label)) {
+                 results.add(e);
+             }
+        }
+        
+        return results;
     }
     
     public int getMaxId() {
