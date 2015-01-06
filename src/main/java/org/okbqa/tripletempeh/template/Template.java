@@ -1,8 +1,8 @@
 package org.okbqa.tripletempeh.template;
 
 import com.hp.hpl.jena.query.Query;
-import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map.Entry;
 
 /**
@@ -12,13 +12,21 @@ import java.util.Map.Entry;
 public class Template {
     
     Query query;
-    HashMap slots;
+    List<Slot> slots;
     
-    public Template(Query q, HashMap s) {
+    public Template(Query q, List<Slot> s) {
         query = q;
         slots = s;
     }
     
+    // Getter 
+    
+    public Query getQuery() {
+        return query;
+    }
+    public List<Slot> getSlots() {
+        return slots;
+    }
     
     // Show 
     
@@ -28,10 +36,8 @@ public class Template {
         String out = "";
         
         out += query.toString();
-        Iterator iter = slots.entrySet().iterator();
-        while (iter.hasNext()) {
-            Entry entry = (Entry)iter.next();
-            out += "\n " + entry.getKey() + " --> " + entry.getValue().toString();
+        for (Slot slot : slots) {
+            out += "\n " + slot.toString();
         }
         
         return out;

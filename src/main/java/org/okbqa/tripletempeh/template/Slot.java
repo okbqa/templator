@@ -1,28 +1,23 @@
 package org.okbqa.tripletempeh.template;
 
-// TODO Enum for slot type?
-    // * Resource (or Literal)
-    // * Class
-    // * Path (undirected)
-    // * Unknown
-
 /**
  *
  * @author cunger
  */
 public class Slot {
     
+    String var;
     String form;
-    String type;
+    String annotation;
     
-    public Slot(String f) {
-        form = f;
-        type = "UNKOWN";
+    public Slot(String v,String f) {
+        this(v,f,"");
     }
     
-    public Slot(String f, String t) {
+    public Slot(String v,String f, String a) {
+        var  = v;
         form = f;
-        type = t;
+        annotation = a;
     }
     
     
@@ -30,7 +25,7 @@ public class Slot {
     
     @Override
     public String toString() {
-        return form + " (" + type + ")";
+        return var + " " + form + " (" + annotation + ")";
     }
     
 }

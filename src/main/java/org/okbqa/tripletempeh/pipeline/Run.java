@@ -1,9 +1,11 @@
 package org.okbqa.tripletempeh.pipeline;
 
 import java.io.IOException;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.okbqa.tripletempeh.template.Template;
 
 /**
  *
@@ -29,19 +31,30 @@ public class Run {
         String input = "{ \"string\": \"Which rivers flow through Daejeon?\", \"language\": \"en\" }";
         
         try {
+            // parse input JSON object
             JSONParser parser = new JSONParser();
             JSONObject json   = (JSONObject) parser.parse(input);
             
             String string   = (String) json.get("string");
             String language = (String) json.get("language");
             
+            // process
             Pipeline pipeline = new Pipeline(language);
+            Template template = pipeline.run(string);
             
-            pipeline.run(string);
-
-        } catch (ParseException ex) {
+            // construct ouput JSON object
+            JSONObject t = new JSONObject();
+            t.put("query",template.getQuery());
+            t.put("slots",null);  // TODO
+            t.put("score","0.5"); // TODO
+            JSONArray out = new JSONArray();
+            out.add(t);
+            
+            System.out.println(out.toJSONString());
+        } 
+        catch (ParseException ex) {
             System.out.println("Failed to parse input as JSON:\n" + input);
-        }        
+        }
     }
     
 }

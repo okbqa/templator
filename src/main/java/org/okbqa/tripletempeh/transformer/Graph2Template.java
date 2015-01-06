@@ -41,7 +41,7 @@ public class Graph2Template {
         
         i = graph.getMaxId();
         
-        HashMap<String,Slot> slots = new HashMap();
+        List<Slot> slots = new ArrayList<>();
         
         // Collect heads with their arguments
         HashMap<Integer,ArrayList<Integer>> heads = new HashMap();
@@ -82,8 +82,8 @@ public class Graph2Template {
                     // triple
                     block.addTriple(new Triple(Var.alloc(vx), RDF.type.asNode(), Var.alloc(vh)));
                     // slots
-                    slots.put(vx,new Slot(x.getForm()));
-                    slots.put(vh,new Slot(h.getForm()));
+                    slots.add(new Slot(vx,x.getForm()));
+                    slots.add(new Slot(vh,h.getForm()));
                     break;
                     
                 // In:  S <--A0-- H; O <--A1-- H;
@@ -96,9 +96,9 @@ public class Graph2Template {
                     // triple
                     block.addTriple(new Triple(Var.alloc("v"+s.getId()), Var.alloc("v"+head), Var.alloc("v"+o.getId())));
                     // slots 
-                    slots.put(vs,new Slot(s.getForm()));
-                    slots.put(vo,new Slot(o.getForm()));
-                    slots.put(vh,new Slot(h.getForm()));
+                    slots.add(new Slot(vs,s.getForm()));
+                    slots.add(new Slot(vo,o.getForm()));
+                    slots.add(new Slot(vh,h.getForm()));
                     break;
                     
                 // In:  X <--A0-- H; Y <--A1-- H; Z <--A2-- H; ...
