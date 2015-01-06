@@ -1,7 +1,9 @@
 package org.okbqa.tripletempeh.graph;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -95,32 +97,41 @@ public class Graph {
         return null;
     }
     
-    public boolean subGraphOf(Graph g) {
+    public Map<Integer,Integer> subGraphMatch(Graph g) {
                         
+        Map<Integer,Integer> indexmap = new HashMap<>();
+        
         for (Edge e_sub : edges) {
+            
+            int head_sub = e_sub.getHead();
+            int depd_sub = e_sub.getDependent();
             
             // find corresponding edge in g
             boolean found = false;
 
             for (Edge e_super : g.edges) {
-                                 
-                Node head_match = g.getMatchingNode(getNode(e_sub.getHead()));
-                Node depd_match = g.getMatchingNode(getNode(e_sub.getDependent()));
+                
+                int head_super = e_super.getHead();
+                int depd_super = e_super.getDependent();
             
-                if (head_match != null && depd_match != null
-                    && e_super.getLabel().equals(e_sub.getLabel())) { 
+                if (e_super.getLabel().equals(e_sub.getLabel())
+                    && g.getNode(head_super).matches(getNode(head_sub))
+                    && g.getNode(depd_super).matches(getNode(depd_sub))) {
+                    
                     found = true;
+                    indexmap.put(head_sub,head_super);
+                    indexmap.put(depd_sub,depd_super);
                     break;
                 }
             }
             
             // if there is an edge for which no corresponding edge was found, fail
             if (!found) { 
-                return false;
+                return null;
             }                        
         }
                 
-        return true;
+        return indexmap;
     }
 
     

@@ -31,7 +31,7 @@ public class GraphConstructor extends DependenciesBaseListener {
     
     @Override
     public void exitConll(DependenciesParser.ConllContext ctx) {
-        // conll : id STRING STRING STRING features NUMBER STRING (sheads) ;
+        // conll : NUMBER STRING STRING STRING features NUMBER STRING (sheads) ;
 
         int i1 = Integer.parseInt(ctx.NUMBER(0).getText());
         int i2 = Integer.parseInt(ctx.NUMBER(1).getText());
@@ -58,7 +58,7 @@ public class GraphConstructor extends DependenciesBaseListener {
        
         graph.addNode(new Node(i1,form1));
         graph.addNode(new Node(i2,form2));
-        graph.addEdge(new Edge(Color.DEPENDENCY,i2,rel,i1));
+        graph.addEdge(new Edge(Color.DEPENDENCY,i1,rel,i2));
     }
     
 }

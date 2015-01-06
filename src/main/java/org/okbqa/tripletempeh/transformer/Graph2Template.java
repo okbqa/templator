@@ -10,6 +10,7 @@ import com.hp.hpl.jena.vocabulary.RDF;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import org.okbqa.tripletempeh.graph.Color;
 import org.okbqa.tripletempeh.graph.Edge;
 import org.okbqa.tripletempeh.graph.Graph;
 import org.okbqa.tripletempeh.graph.Node;
@@ -46,16 +47,18 @@ public class Graph2Template {
         HashMap<Integer,ArrayList<Integer>> heads = new HashMap();
         
         for (Edge e : graph.getEdges()) {
+            if (e.getColor() == Color.SRL) {
             
-            int head = e.getHead();
+                int head = e.getHead();
             
-            if (head != 0) { // i.e.don't do this with root
-               ArrayList<Integer> args = heads.get(head);              
-               if (args == null) {
-                   args = new ArrayList<>();
-               }
-               args.add(e.getDependent());
-               heads.put(head,args);
+                if (head != 0) { // i.e.don't do this with root
+                    ArrayList<Integer> args = heads.get(head);              
+                    if (args == null) {
+                        args = new ArrayList<>();
+                    }
+                    args.add(e.getDependent());
+                    heads.put(head,args);
+                }
             }
         }
                 

@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.simple.JSONArray;
@@ -84,9 +85,10 @@ public class RuleEngine {
     public void apply(Rule rule,Graph g) {
         
         Graph target = rule.getTarget();
+        Map<Integer,Integer> map = target.subGraphMatch(g);
         
-        if (target.subGraphOf(g)) { 
-        
+        if (map != null) { 
+           System.out.println(">>>>>"+map.toString());
            switch (rule.getTodoType()) {
                 // SRL rules
                 case "role": 
@@ -96,15 +98,7 @@ public class RuleEngine {
                             String role = matcher.group(1);
                             int    head = Integer.parseInt(matcher.group(2));
                             int    depd = Integer.parseInt(matcher.group(3));
-                            // TODO Fix this!
-                            for (Edge e : g.getEdges(role)) {
-                                 Node ghead = g.getNode(e.getHead());
-                                 Node gdepd = g.getNode(e.getDependent());
-                                 if (ghead.matches(target.getNode(head)) && gdepd.matches(target.getNode(depd))) {
-                                     g.addEdge(new Edge(Color.SRL,ghead.getId(),role,gdepd.getId()));
-                                     break;
-                                 }
-                            }                         
+                            g.addEdge(new Edge(Color.SRL,map.get(head),role,map.get(depd)));
                      }
                      break;
                 // mapping rules
