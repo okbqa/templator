@@ -19,7 +19,7 @@ shead    : NUMBER ':' STRING ('=' STRING)? ;
 
 
 NUMBER : [0-9]+ ;
-STRING : [a-zA-Z0-9'-.,?!*#]+ ; 
+STRING : [a-zA-Z0-9'.?!*#]+ ; 
 
 NEWLINE    : '\r'? '\n' ; 
 WHITESPACE : [ \t]+ -> skip ; 

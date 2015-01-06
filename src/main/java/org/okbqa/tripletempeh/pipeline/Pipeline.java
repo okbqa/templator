@@ -7,6 +7,7 @@ import org.okbqa.tripletempeh.parsing.ClearNLP;
 import org.okbqa.tripletempeh.parsing.Parser;
 import org.okbqa.tripletempeh.template.Template;
 import org.okbqa.tripletempeh.transformer.Graph2Template;
+import org.okbqa.tripletempeh.transformer.GraphManipulation;
 
 /**
  *
@@ -43,7 +44,8 @@ public class Pipeline {
         Graph g = interpreter.interpret(parse);
         
         // 3. Semantic role labeling
-        // TODO
+        GraphManipulation manipulator = new GraphManipulation();
+        manipulator.doSRL(g);
         
         // 4. Mapping: Graph -> Template       
         Template t = transformer.transform(g);

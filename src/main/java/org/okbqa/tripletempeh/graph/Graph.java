@@ -68,6 +68,46 @@ public class Graph {
     public void addEdge(Edge e) {
         edges.add(e);
     }
+    
+    // Matching
+    
+    public Node getMatchingNode(Node node) {
+                            
+        for (Node n : nodes) {
+             if (n.matches(node)) {
+                 return n;
+             }
+        }
+        return null;
+    }
+    
+    public boolean subGraphOf(Graph g) {
+                        
+        for (Edge e_sub : edges) {
+            
+            // find corresponding edge in g
+            boolean found = false;
+
+            for (Edge e_super : g.edges) {
+                                 
+                Node head_match = g.getMatchingNode(getNode(e_sub.getHead()));
+                Node depd_match = g.getMatchingNode(getNode(e_sub.getDependent()));
+            
+                if (head_match != null && depd_match != null
+                    && e_super.getLabel().equals(e_sub.getLabel())) { 
+                    found = true;
+                    break;
+                }
+            }
+            
+            // if there is an edge for which no corresponding edge was found, fail
+            if (!found) { 
+                return false;
+            }                        
+        }
+                
+        return true;
+    }
 
     
     // Show 

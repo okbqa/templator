@@ -48,4 +48,12 @@ public class Edge {
         return color;
     }
     
+    // Matching 
+    
+    public boolean matches(Edge e) {
+        
+        return (head == e.getHead() && dependent == e.getDependent()
+             && label.equals(e.getLabel()) && color == e.getColor());
+    }
+    
 }

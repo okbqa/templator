@@ -14,7 +14,7 @@ public class Node {
         
     
     public Node(int i, String f) {
-        this(i, f, "", "");
+        this(i, f, null, null);
     }
     
     public Node(int i, String f, String l, String p) {
@@ -41,6 +41,37 @@ public class Node {
 
     public String getPOS() {
         return POS;   
+    }
+    
+    // Matching 
+    
+    public boolean matches(Node n) {
+                            
+        if (getPOS() != null && n.getPOS() != null && !getPOS().equals(n.getPOS())) {
+            return false;
+        }
+        if (getForm().equals("*") || n.getForm().equals("*")) {
+            return true;
+        }
+        return (getForm().toLowerCase().equals(n.getForm().toLowerCase()));
+    }
+    
+    
+    // Show 
+    
+    @Override
+    public String toString() {
+        
+        String out = id + "-" + form;
+        
+        if (lemma != null) {
+            out += "-" + lemma;
+        }
+        if (POS != null) {
+            out += "(" + POS + ")";
+        }
+        
+        return out;
     }
     
 }
