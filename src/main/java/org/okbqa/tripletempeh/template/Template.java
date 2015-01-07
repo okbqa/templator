@@ -1,9 +1,9 @@
 package org.okbqa.tripletempeh.template;
 
 import com.hp.hpl.jena.query.Query;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map.Entry;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -26,6 +26,23 @@ public class Template {
     }
     public List<Slot> getSlots() {
         return slots;
+    }
+    
+    
+    public JSONObject toJSON() {
+        
+        JSONObject template = new JSONObject();
+        
+        template.put("query",query.toString());
+        
+        JSONArray slotlist = new JSONArray();
+        for (Slot slot : slots) {
+             slotlist.add(slot.toJSON());
+        }
+        template.put("slots",slotlist);
+        template.put("score",0); // TODO
+        
+        return template;
     }
     
     // Show 

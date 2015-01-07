@@ -6,19 +6,18 @@ grammar Dependencies;
 graph : conll    (NEWLINE conll)* 
       | stanford (NEWLINE stanford)*;
 
-conll    : NUMBER STRING STRING STRING features NUMBER STRING (roles) ;
-stanford : STRING '(' STRING '-' NUMBER ',' STRING '-' NUMBER ')' ;
+conll    : STRING STRING STRING STRING features STRING STRING (roles) ;
+stanford : STRING '(' STRING '-' STRING ';' STRING '-' STRING ')' ;
 
 
 features : '_' | feature ('|' feature)* ; 
 feature  : STRING '=' STRING ;
 
 roles : '_' | role (';' role)* ; 
-role  : NUMBER ':' STRING ('-' STRING)? ('=' STRING )? ;
+role  : STRING ':' STRING ('-' STRING)? ('=' STRING )? ;
 
 
-NUMBER : [0-9]+ ;
-STRING : [a-zA-Z0-9'.?!*#]+ ; 
+STRING : [a-zA-Z0-9'.,?!*#]+ ; 
 
 NEWLINE    : '\r'? '\n' ; 
 WHITESPACE : [ \t]+ -> skip ; 

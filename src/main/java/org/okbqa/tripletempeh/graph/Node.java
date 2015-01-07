@@ -32,11 +32,9 @@ public class Node {
     }
 
     public String getForm() {
-        if (lemma != null && !lemma.contains("#")) {
-            return lemma;
-        } else { 
-            return form;
-        }
+        return form;
+        // would be nice to return the lemma (if available), 
+        // but the lemma is something non-sensical in the case of numbers
     }
 
     public String getPOS() {

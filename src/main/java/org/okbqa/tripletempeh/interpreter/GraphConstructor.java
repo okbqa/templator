@@ -31,15 +31,15 @@ public class GraphConstructor extends DependenciesBaseListener {
     
     @Override
     public void exitConll(DependenciesParser.ConllContext ctx) {
-        // conll : NUMBER STRING STRING STRING features NUMBER STRING (sheads) ;
+        // conll : STRING STRING STRING STRING features STRING STRING (sheads) ;
 
-        int i1 = Integer.parseInt(ctx.NUMBER(0).getText());
-        int i2 = Integer.parseInt(ctx.NUMBER(1).getText());
+        int i1 = Integer.parseInt(ctx.STRING(0).getText());
+        int i2 = Integer.parseInt(ctx.STRING(4).getText());
         
-        String form  = ctx.STRING(0).getText();
-        String lemma = ctx.STRING(1).getText();
-        String pos   = ctx.STRING(2).getText();
-        String rel   = ctx.STRING(3).getText();
+        String form  = ctx.STRING(1).getText();
+        String lemma = ctx.STRING(2).getText();
+        String pos   = ctx.STRING(3).getText();
+        String rel   = ctx.STRING(5).getText();
        
         graph.addNode(new Node(i1,form,lemma,pos));
         graph.addEdge(new Edge(Color.DEPENDENCY,i2,rel,i1));
@@ -47,13 +47,13 @@ public class GraphConstructor extends DependenciesBaseListener {
     
     @Override
     public void exitStanford(DependenciesParser.StanfordContext ctx) {
-        // stanford : STRING '(' STRING '-' NUMBER ',' STRING '-' NUMBER ')' ;
+        // stanford : STRING '(' STRING '-' STRING ',' STRING '-' STRING ')' ;
         
-        int i1 = Integer.parseInt(ctx.NUMBER(0).getText());
-        int i2 = Integer.parseInt(ctx.NUMBER(1).getText());
+        int i1 = Integer.parseInt(ctx.STRING(2).getText());
+        int i2 = Integer.parseInt(ctx.STRING(4).getText());
         
         String form1 = ctx.STRING(1).getText();
-        String form2 = ctx.STRING(2).getText();
+        String form2 = ctx.STRING(3).getText();
         String rel   = ctx.STRING(0).getText();
        
         graph.addNode(new Node(i1,form1));

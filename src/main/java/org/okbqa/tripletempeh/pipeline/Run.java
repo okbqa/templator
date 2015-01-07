@@ -1,11 +1,10 @@
 package org.okbqa.tripletempeh.pipeline;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-import org.okbqa.tripletempeh.template.Template;
 
 /**
  *
@@ -19,42 +18,59 @@ public class Run {
      * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
+                                
+        if (args.length != 1) {
+            System.out.println("Expected exactly one argument...");
+            System.exit(1);
+        }
                 
-//        if (args.length != 1) {
-//            System.out.println("Expected exactly one argument...");
-//            System.exit(1);
-//        }
-//                
-//        String input = args[0];
+        String mode = args[0];
         
-        // mimicking command line argument
-        String input = "{ \"string\": \"Which rivers flow through Daejeon?\", \"language\": \"en\" }";
-        
-        try {
-            // parse input JSON object
-            JSONParser parser = new JSONParser();
-            JSONObject json   = (JSONObject) parser.parse(input);
-            
-            String string   = (String) json.get("string");
-            String language = (String) json.get("language");
-            
-            // process
-            Pipeline pipeline = new Pipeline(language);
-            Template template = pipeline.run(string);
-            
-            // construct ouput JSON object
-            JSONObject t = new JSONObject();
-            t.put("query",template.getQuery());
-            t.put("slots",null);  // TODO
-            t.put("score","0.5"); // TODO
-            JSONArray out = new JSONArray();
-            out.add(t);
-            
-            System.out.println(out.toJSONString());
-        } 
-        catch (ParseException ex) {
-            System.out.println("Failed to parse input as JSON:\n" + input);
+        switch (mode) {
+            case "test":
+                test();
+                break;
         }
     }
+    
+    public static void test() throws IOException {
+        
+        List<String> test = Arrays.asList(
+                "Which rivers flow through Daejeon?",
+                // OKBQA sample questions
+                "What is the name of national high educational organization in the Goryeo Dynasty?",
+                "What is the organization of a specific numbers and more of legislators to discuss main agenda in proceeding in the Parliament?",
+                "What is the international organization representing international petroleum and gas, opened as a council in 1933?",
+                "What is the international environmental organization established by green activists in 1970?",
+                "Who is the Korean first baseball player won World Series in American professional baseball?",
+                "What was a trigger to divide Namin and Bukin in late Joseon Dynasty?",
+                "List the nations which the subordinate bodies of the United Nations is located in.",
+                "What are the main 8 countries in so-called G8, a summit meeting of main 8 countries?",
+                "What is the name of the organization to improve laborer’s various interests, referring to independent organization of laborers?",
+                "Present national metropolitan cities in order of size from the biggest to the smallest.",
+                "List two countries hosted jointly the17th FIFA World Cup Game, as the first time in the World Cup history.",
+                "2004 Olympic was held in Athens, Greece. Then, in which city was 2008 Olympic held?",
+                "What is the foundation belonging to the Ministry of Culture, Sports and Tourism, established in May, 1973 to develop national performance art and contribute to cultivation of national sentiment through chorus music?",
+                "List all current Seoul subway operators.",
+                "When was the year which all 51 members of UN attended in regular general meeting at the first time?",
+                "List the subtitle of Harry Potter, the main novel of J.K. Rowling.",
+                "What is the name of government office in the Goryeo and Joseon Dynasty to undertake Astronomy and Geography?",
+                "Who is the person born in Daegu, a founder of Man of Korea and committed suicide by jumping from the Mapo Bridge?");
+                
+        Pipeline pipeline = new Pipeline(true);
+        Scanner  scanner  = new Scanner(System.in);
+        
+        for (String question : test) {
+            
+            JSONArray output = pipeline.run("{ \"string\": \"" + question + "\", \"language\": \"en\" }");
+            
+            System.out.println("\n\nContinue? y/n");
+            String response = scanner.nextLine();
+            if (response.equals("n")) {
+                System.exit(0);
+            }
+        }
+    }
+    
     
 }

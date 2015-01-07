@@ -12,6 +12,18 @@
     </properties>
     <dependencies>
         <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-grizzly2-http</artifactId>
+            <version>2.14</version>
+        </dependency>
+<!--
+ uncomment this to get JSON support:
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-moxy</artifactId>
+        </dependency>
+-->
+        <dependency>
 	  <groupId>com.googlecode.json-simple</groupId>
 	  <artifactId>json-simple</artifactId>
 	  <version>1.1</version>
@@ -60,6 +72,12 @@
           <groupId>org.apache.jena</groupId>
           <artifactId>jena-arq</artifactId>
           <version>2.12.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.grizzly</groupId>
+            <artifactId>grizzly-http-server</artifactId>
+            <version>2.3.16</version>
+            <type>jar</type>
         </dependency>
     </dependencies>
     <name>tripletempeh</name>

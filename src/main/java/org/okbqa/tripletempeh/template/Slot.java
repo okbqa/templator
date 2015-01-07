@@ -1,5 +1,7 @@
 package org.okbqa.tripletempeh.template;
 
+import org.json.simple.JSONObject;
+
 /**
  *
  * @author cunger
@@ -20,6 +22,17 @@ public class Slot {
         annotation = a;
     }
     
+    
+    public JSONObject toJSON() {
+        
+        JSONObject slot = new JSONObject();
+        
+        slot.put("var",var);
+        slot.put("form",form);
+        slot.put("annotation",annotation);
+        
+        return slot;
+    }
     
     // Show 
     

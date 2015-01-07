@@ -143,13 +143,20 @@ public class Graph {
         String out = "";
                 
         for (Edge e : edges) {
-             out += " " + e.getDependent() + " <--"+e.getLabel()+"-- " + e.getHead() + ";";
+            if (e.getColor() == Color.DEPENDENCY) {
+                out += " " + e.getDependent() + " <--"+e.getLabel()+"-- " + e.getHead() + ";";
+            }
+        }
+        for (Edge e : edges) {
+            if (e.getColor() == Color.SRL) {
+                out += " " + e.getDependent() + " <--"+e.getLabel()+"-- " + e.getHead() + ";";
+            }
         }
         
         out += "\nTokens:";
         
         for (Node n : nodes) {
-            out += "\n" + n.getId() + " " + n.getForm() + " (" + n.getPOS() + ")";
+            out += "\n* " + n.getId() + " " + n.getForm() + " (" + n.getPOS() + ")";
         }
         
         return out;

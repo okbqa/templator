@@ -6,8 +6,6 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
 import org.okbqa.tripletempeh.graph.Graph;
@@ -22,6 +20,11 @@ public class Interpreter {
     }
     
     public Graph interpret(String dependency) {
+        
+        // if Stanford, then replace "," by ";" (in order to comply with grammar)
+        if (dependency.contains("(") && dependency.contains(")") && dependency.contains(",")) {
+            dependency = dependency.replaceAll(",",";");
+        }
         
         try {
             // Parse dependency string
@@ -43,8 +46,8 @@ public class Interpreter {
             
             return(constructor.graph);
 
-        } catch (IOException ex) {
-            Logger.getLogger(Interpreter.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         
         return null;

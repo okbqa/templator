@@ -17,11 +17,11 @@ public class DependenciesParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__8=1, T__7=2, T__6=3, T__5=4, T__4=5, T__3=6, T__2=7, T__1=8, T__0=9, 
-		NUMBER=10, STRING=11, NEWLINE=12, WHITESPACE=13;
+		T__7=1, T__6=2, T__5=3, T__4=4, T__3=5, T__2=6, T__1=7, T__0=8, STRING=9, 
+		NEWLINE=10, WHITESPACE=11;
 	public static final String[] tokenNames = {
-		"<INVALID>", "')'", "','", "'_'", "'-'", "'('", "':'", "'='", "'|'", "';'", 
-		"NUMBER", "STRING", "NEWLINE", "WHITESPACE"
+		"<INVALID>", "')'", "'_'", "'-'", "'('", "':'", "'='", "';'", "'|'", "STRING", 
+		"NEWLINE", "WHITESPACE"
 	};
 	public static final int
 		RULE_graph = 0, RULE_conll = 1, RULE_stanford = 2, RULE_features = 3, 
@@ -86,8 +86,8 @@ public class DependenciesParser extends Parser {
 		int _la;
 		try {
 			setState(30);
-			switch (_input.LA(1)) {
-			case NUMBER:
+			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
+			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(14); conll();
@@ -107,7 +107,8 @@ public class DependenciesParser extends Parser {
 				}
 				}
 				break;
-			case STRING:
+
+			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(22); stanford();
@@ -127,8 +128,6 @@ public class DependenciesParser extends Parser {
 				}
 				}
 				break;
-			default:
-				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -152,10 +151,6 @@ public class DependenciesParser extends Parser {
 		public FeaturesContext features() {
 			return getRuleContext(FeaturesContext.class,0);
 		}
-		public TerminalNode NUMBER(int i) {
-			return getToken(DependenciesParser.NUMBER, i);
-		}
-		public List<TerminalNode> NUMBER() { return getTokens(DependenciesParser.NUMBER); }
 		public List<TerminalNode> STRING() { return getTokens(DependenciesParser.STRING); }
 		public ConllContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -177,12 +172,12 @@ public class DependenciesParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(32); match(NUMBER);
+			setState(32); match(STRING);
 			setState(33); match(STRING);
 			setState(34); match(STRING);
 			setState(35); match(STRING);
 			setState(36); features();
-			setState(37); match(NUMBER);
+			setState(37); match(STRING);
 			setState(38); match(STRING);
 			{
 			setState(39); roles();
@@ -204,10 +199,6 @@ public class DependenciesParser extends Parser {
 		public TerminalNode STRING(int i) {
 			return getToken(DependenciesParser.STRING, i);
 		}
-		public TerminalNode NUMBER(int i) {
-			return getToken(DependenciesParser.NUMBER, i);
-		}
-		public List<TerminalNode> NUMBER() { return getTokens(DependenciesParser.NUMBER); }
 		public List<TerminalNode> STRING() { return getTokens(DependenciesParser.STRING); }
 		public StanfordContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -233,12 +224,12 @@ public class DependenciesParser extends Parser {
 			setState(42); match(T__4);
 			setState(43); match(STRING);
 			setState(44); match(T__5);
-			setState(45); match(NUMBER);
-			setState(46); match(T__7);
+			setState(45); match(STRING);
+			setState(46); match(T__1);
 			setState(47); match(STRING);
 			setState(48); match(T__5);
-			setState(49); match(NUMBER);
-			setState(50); match(T__8);
+			setState(49); match(STRING);
+			setState(50); match(T__7);
 			}
 		}
 		catch (RecognitionException re) {
@@ -293,10 +284,10 @@ public class DependenciesParser extends Parser {
 				setState(58);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				while (_la==T__1) {
+				while (_la==T__0) {
 					{
 					{
-					setState(54); match(T__1);
+					setState(54); match(T__0);
 					setState(55); feature();
 					}
 					}
@@ -396,17 +387,17 @@ public class DependenciesParser extends Parser {
 				setState(67); match(T__6);
 				}
 				break;
-			case NUMBER:
+			case STRING:
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(68); role();
 				setState(73);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				while (_la==T__0) {
+				while (_la==T__1) {
 					{
 					{
-					setState(69); match(T__0);
+					setState(69); match(T__1);
 					setState(70); role();
 					}
 					}
@@ -435,7 +426,6 @@ public class DependenciesParser extends Parser {
 		public TerminalNode STRING(int i) {
 			return getToken(DependenciesParser.STRING, i);
 		}
-		public TerminalNode NUMBER() { return getToken(DependenciesParser.NUMBER, 0); }
 		public List<TerminalNode> STRING() { return getTokens(DependenciesParser.STRING); }
 		public RoleContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -458,7 +448,7 @@ public class DependenciesParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(78); match(NUMBER);
+			setState(78); match(STRING);
 			setState(79); match(T__3);
 			setState(80); match(STRING);
 			setState(83);
@@ -493,28 +483,29 @@ public class DependenciesParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\17\\\4\2\t\2\4\3"+
-		"\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\3\2\3\2\3\2\7\2\24\n\2\f"+
-		"\2\16\2\27\13\2\3\2\3\2\3\2\7\2\34\n\2\f\2\16\2\37\13\2\5\2!\n\2\3\3\3"+
-		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4"+
-		"\3\4\3\5\3\5\3\5\3\5\7\5;\n\5\f\5\16\5>\13\5\5\5@\n\5\3\6\3\6\3\6\3\6"+
-		"\3\7\3\7\3\7\3\7\7\7J\n\7\f\7\16\7M\13\7\5\7O\n\7\3\b\3\b\3\b\3\b\3\b"+
-		"\5\bV\n\b\3\b\3\b\5\bZ\n\b\3\b\2\2\t\2\4\6\b\n\f\16\2\2]\2 \3\2\2\2\4"+
-		"\"\3\2\2\2\6+\3\2\2\2\b?\3\2\2\2\nA\3\2\2\2\fN\3\2\2\2\16P\3\2\2\2\20"+
-		"\25\5\4\3\2\21\22\7\16\2\2\22\24\5\4\3\2\23\21\3\2\2\2\24\27\3\2\2\2\25"+
-		"\23\3\2\2\2\25\26\3\2\2\2\26!\3\2\2\2\27\25\3\2\2\2\30\35\5\6\4\2\31\32"+
-		"\7\16\2\2\32\34\5\6\4\2\33\31\3\2\2\2\34\37\3\2\2\2\35\33\3\2\2\2\35\36"+
-		"\3\2\2\2\36!\3\2\2\2\37\35\3\2\2\2 \20\3\2\2\2 \30\3\2\2\2!\3\3\2\2\2"+
-		"\"#\7\f\2\2#$\7\r\2\2$%\7\r\2\2%&\7\r\2\2&\'\5\b\5\2\'(\7\f\2\2()\7\r"+
-		"\2\2)*\5\f\7\2*\5\3\2\2\2+,\7\r\2\2,-\7\7\2\2-.\7\r\2\2./\7\6\2\2/\60"+
-		"\7\f\2\2\60\61\7\4\2\2\61\62\7\r\2\2\62\63\7\6\2\2\63\64\7\f\2\2\64\65"+
-		"\7\3\2\2\65\7\3\2\2\2\66@\7\5\2\2\67<\5\n\6\289\7\n\2\29;\5\n\6\2:8\3"+
-		"\2\2\2;>\3\2\2\2<:\3\2\2\2<=\3\2\2\2=@\3\2\2\2><\3\2\2\2?\66\3\2\2\2?"+
-		"\67\3\2\2\2@\t\3\2\2\2AB\7\r\2\2BC\7\t\2\2CD\7\r\2\2D\13\3\2\2\2EO\7\5"+
-		"\2\2FK\5\16\b\2GH\7\13\2\2HJ\5\16\b\2IG\3\2\2\2JM\3\2\2\2KI\3\2\2\2KL"+
-		"\3\2\2\2LO\3\2\2\2MK\3\2\2\2NE\3\2\2\2NF\3\2\2\2O\r\3\2\2\2PQ\7\f\2\2"+
-		"QR\7\b\2\2RU\7\r\2\2ST\7\6\2\2TV\7\r\2\2US\3\2\2\2UV\3\2\2\2VY\3\2\2\2"+
-		"WX\7\t\2\2XZ\7\r\2\2YW\3\2\2\2YZ\3\2\2\2Z\17\3\2\2\2\13\25\35 <?KNUY";
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\r\\\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\3\2\3\2\3\2\7\2\24\n\2\f\2"+
+		"\16\2\27\13\2\3\2\3\2\3\2\7\2\34\n\2\f\2\16\2\37\13\2\5\2!\n\2\3\3\3\3"+
+		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3"+
+		"\4\3\5\3\5\3\5\3\5\7\5;\n\5\f\5\16\5>\13\5\5\5@\n\5\3\6\3\6\3\6\3\6\3"+
+		"\7\3\7\3\7\3\7\7\7J\n\7\f\7\16\7M\13\7\5\7O\n\7\3\b\3\b\3\b\3\b\3\b\5"+
+		"\bV\n\b\3\b\3\b\5\bZ\n\b\3\b\2\2\t\2\4\6\b\n\f\16\2\2]\2 \3\2\2\2\4\""+
+		"\3\2\2\2\6+\3\2\2\2\b?\3\2\2\2\nA\3\2\2\2\fN\3\2\2\2\16P\3\2\2\2\20\25"+
+		"\5\4\3\2\21\22\7\f\2\2\22\24\5\4\3\2\23\21\3\2\2\2\24\27\3\2\2\2\25\23"+
+		"\3\2\2\2\25\26\3\2\2\2\26!\3\2\2\2\27\25\3\2\2\2\30\35\5\6\4\2\31\32\7"+
+		"\f\2\2\32\34\5\6\4\2\33\31\3\2\2\2\34\37\3\2\2\2\35\33\3\2\2\2\35\36\3"+
+		"\2\2\2\36!\3\2\2\2\37\35\3\2\2\2 \20\3\2\2\2 \30\3\2\2\2!\3\3\2\2\2\""+
+		"#\7\13\2\2#$\7\13\2\2$%\7\13\2\2%&\7\13\2\2&\'\5\b\5\2\'(\7\13\2\2()\7"+
+		"\13\2\2)*\5\f\7\2*\5\3\2\2\2+,\7\13\2\2,-\7\6\2\2-.\7\13\2\2./\7\5\2\2"+
+		"/\60\7\13\2\2\60\61\7\t\2\2\61\62\7\13\2\2\62\63\7\5\2\2\63\64\7\13\2"+
+		"\2\64\65\7\3\2\2\65\7\3\2\2\2\66@\7\4\2\2\67<\5\n\6\289\7\n\2\29;\5\n"+
+		"\6\2:8\3\2\2\2;>\3\2\2\2<:\3\2\2\2<=\3\2\2\2=@\3\2\2\2><\3\2\2\2?\66\3"+
+		"\2\2\2?\67\3\2\2\2@\t\3\2\2\2AB\7\13\2\2BC\7\b\2\2CD\7\13\2\2D\13\3\2"+
+		"\2\2EO\7\4\2\2FK\5\16\b\2GH\7\t\2\2HJ\5\16\b\2IG\3\2\2\2JM\3\2\2\2KI\3"+
+		"\2\2\2KL\3\2\2\2LO\3\2\2\2MK\3\2\2\2NE\3\2\2\2NF\3\2\2\2O\r\3\2\2\2PQ"+
+		"\7\13\2\2QR\7\7\2\2RU\7\13\2\2ST\7\5\2\2TV\7\13\2\2US\3\2\2\2UV\3\2\2"+
+		"\2VY\3\2\2\2WX\7\b\2\2XZ\7\13\2\2YW\3\2\2\2YZ\3\2\2\2Z\17\3\2\2\2\13\25"+
+		"\35 <?KNUY";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

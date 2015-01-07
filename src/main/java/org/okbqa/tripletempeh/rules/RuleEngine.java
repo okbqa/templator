@@ -14,7 +14,6 @@ import org.json.simple.parser.JSONParser;
 import org.okbqa.tripletempeh.graph.Color;
 import org.okbqa.tripletempeh.graph.Edge;
 import org.okbqa.tripletempeh.graph.Graph;
-import org.okbqa.tripletempeh.graph.Node;
 import org.okbqa.tripletempeh.interpreter.Interpreter;
 
 /**
@@ -88,7 +87,6 @@ public class RuleEngine {
         Map<Integer,Integer> map = target.subGraphMatch(g);
         
         if (map != null) { 
-           System.out.println(">>>>>"+map.toString());
            switch (rule.getTodoType()) {
                 // SRL rules
                 case "role": 
