@@ -35,18 +35,20 @@ public class Pipeline {
     
     boolean verbose;
     
-    public Pipeline() throws IOException {
+    public Pipeline() {
         this(true);
     }
     
-    public Pipeline(boolean b) throws IOException {
+    public Pipeline(boolean b) {
       
         verbose  = b;
           
         interpreter = new Interpreter();
         
         // English
+        try {
         parser_en      = new ClearNLP();
+        } catch (IOException e) { parser_en = null; }; // TODO
         engine_en      = new RuleEngine("en");
         manipulator_en = new GraphManipulation(engine_en);
         transformer_en = new Graph2Template(engine_en);
@@ -79,7 +81,7 @@ public class Pipeline {
             return output;
         } 
         catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(System.out);
         }
         return null;
     }
@@ -115,7 +117,7 @@ public class Pipeline {
             System.out.println(string);
             System.out.println("------------PARSE----------------");
             System.out.println(parse);
-            System.out.println("------------GRAPH ("+(g.getFormat())+")----------------");
+            System.out.println("------------GRAPH----------------");
             System.out.println(g.toString());
             System.out.println("------------TEMPLATE-------------");
             System.out.println(t.toString()); 

@@ -47,7 +47,7 @@ public class Interpreter {
             return(constructor.graph);
 
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(System.out);
         }
         
         return null;

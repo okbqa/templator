@@ -64,7 +64,7 @@ public class RuleEngine {
                    rules.add(new Rule(dep,srlString,"role"));
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(System.out);
         }
         
         return rules;

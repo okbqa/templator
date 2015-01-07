@@ -5,7 +5,6 @@ import java.util.List;
 import org.okbqa.tripletempeh.graph.Graph;
 import org.okbqa.tripletempeh.rules.RuleEngine;
 
-        
 /**
  *
  * @author cunger

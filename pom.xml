@@ -9,6 +9,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
+        <jersey.version>2.14</jersey.version>
     </properties>
     <dependencies>
         <dependency>
@@ -16,23 +17,11 @@
             <artifactId>jersey-container-grizzly2-http</artifactId>
             <version>2.14</version>
         </dependency>
-<!--
- uncomment this to get JSON support:
-        <dependency>
-            <groupId>org.glassfish.jersey.media</groupId>
-            <artifactId>jersey-media-moxy</artifactId>
-        </dependency>
--->
         <dependency>
 	  <groupId>com.googlecode.json-simple</groupId>
 	  <artifactId>json-simple</artifactId>
 	  <version>1.1</version>
         </dependency>
-    <!--<dependency>
-          <groupId>edu.emory.clir</groupId>
-          <artifactId>clearnlp</artifactId>
-          <version>3.0.0</version>
-        </dependency>-->
         <dependency>
           <groupId>com.clearnlp</groupId>
           <artifactId>clearnlp</artifactId>
@@ -81,4 +70,33 @@
         </dependency>
     </dependencies>
     <name>tripletempeh</name>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <inherited>true</inherited>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                <mainClass>org.okbqa.tripletempeh.pipeline.Main</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
