@@ -1,7 +1,7 @@
 package org.okbqa.tripletempeh.template;
 
 import com.hp.hpl.jena.query.Query;
-import java.util.List;
+import java.util.Set;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -12,9 +12,9 @@ import org.json.simple.JSONObject;
 public class Template {
     
     Query query;
-    List<Slot> slots;
+    Set<Slot> slots;
     
-    public Template(Query q, List<Slot> s) {
+    public Template(Query q, Set<Slot> s) {
         query = q;
         slots = s;
     }
@@ -24,10 +24,11 @@ public class Template {
     public Query getQuery() {
         return query;
     }
-    public List<Slot> getSlots() {
+    public Set<Slot> getSlots() {
         return slots;
     }
     
+    // JSON
     
     public JSONObject toJSON() {
         

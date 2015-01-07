@@ -8,8 +8,9 @@ import com.hp.hpl.jena.sparql.syntax.ElementGroup;
 import com.hp.hpl.jena.sparql.syntax.ElementTriplesBlock;
 import com.hp.hpl.jena.vocabulary.RDF;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import org.okbqa.tripletempeh.graph.Color;
 import org.okbqa.tripletempeh.graph.Edge;
 import org.okbqa.tripletempeh.graph.Graph;
@@ -25,10 +26,14 @@ import org.okbqa.tripletempeh.template.Template;
  */
 public class Graph2Template {
        
-    int i = 0; // for supply of fresh variables
+    int i = 0; // for supply of fresh variables (see fresh())
     
     RuleEngine engine;
     List<Rule> map_rules;
+    
+    String PROPERTY   = "owl:Property";
+    String CLASS      = "owl:Class";
+    String INDIVIDUAL = "owl:NamedIndividual";
         
     public Graph2Template(RuleEngine e) {
 
@@ -39,75 +44,49 @@ public class Graph2Template {
     
     public Template transform(Graph graph) {
         
+        Set<Slot> slots = new HashSet<>();
+        ElementTriplesBlock block = new ElementTriplesBlock();
+
         i = graph.getMaxId();
         
-        List<Slot> slots = new ArrayList<>();
-        
-        // Collect heads with their arguments
-        HashMap<Integer,ArrayList<Integer>> heads = new HashMap();
-        
-        for (Edge e : graph.getEdges()) {
-            if (e.getColor() == Color.SRL) {
-            
-                int head = e.getHead();
-            
-                if (head != 0) { // i.e.don't do this with root
-                    ArrayList<Integer> args = heads.get(head);              
-                    if (args == null) {
-                        args = new ArrayList<>();
-                    }
-                    args.add(e.getDependent());
-                    heads.put(head,args);
+        for (List<Edge> edges : collectEdgeLists(graph,Color.SRL)) {
+            if (edges.size() == 1) {
+                Edge edge = edges.get(0);
+                Node    x = graph.getNode(edge.getDependent());
+                Node    h = graph.getNode(edge.getHead());
+                String vx = varString(x);
+                String vh = varString(h);
+                // A0 -> rdf:type
+                if (edge.getLabel().equals("A0")) {    
+                    block.addTriple(new Triple(Var.alloc(vx), RDF.type.asNode(), Var.alloc(vh)));
+                    slots.add(new Slot(vx,x.getForm(),INDIVIDUAL));
+                    slots.add(new Slot(vh,h.getForm(),CLASS));
+                }
+                // otherwise: triple with unknown subject
+                // TODO try to unify subject with some other node?
+                else {
+                    block.addTriple(new Triple(Var.alloc("v"+fresh()), Var.alloc(vh), Var.alloc(vx)));
+                    slots.add(new Slot(vx,x.getForm(),INDIVIDUAL));
+                    slots.add(new Slot(vh,h.getForm(),PROPERTY));
                 }
             }
-        }
-                
-        // Build triples 
-        ElementTriplesBlock block = new ElementTriplesBlock();
-        
-        for (int head : heads.keySet()) {
-            
-            Node   h = graph.getNode(head);
-            String vh = "v" + h.getId();
-            
-            ArrayList<Integer> args = heads.get(head);
-                          
-            switch (args.size()) {
-                
-                // In:  H <--A0-- X; 
-                // Out: ?X rdf:type ?H .
-                case 1:
-                    Node   x = graph.getNode(args.get(0));
-                    String vx = "v" + x.getId();
-                    // triple
-                    block.addTriple(new Triple(Var.alloc(vx), RDF.type.asNode(), Var.alloc(vh)));
-                    // slots
-                    slots.add(new Slot(vx,x.getForm()));
-                    slots.add(new Slot(vh,h.getForm()));
-                    break;
-                    
-                // In:  S <--A0-- H; O <--A1-- H;
-                // Out: ?S ?H ?O .
-                case 2:
-                    Node   s = graph.getNode(args.get(0));
-                    Node   o = graph.getNode(args.get(1));
-                    String vs = "v" + s.getId();
-                    String vo = "v" + o.getId();
-                    // triple
-                    block.addTriple(new Triple(Var.alloc("v"+s.getId()), Var.alloc("v"+head), Var.alloc("v"+o.getId())));
-                    // slots 
-                    slots.add(new Slot(vs,s.getForm()));
-                    slots.add(new Slot(vo,o.getForm()));
-                    slots.add(new Slot(vh,h.getForm()));
-                    break;
-                    
-                // In:  X <--A0-- H; Y <--A1-- H; Z <--A2-- H; ...
-                // Out: reified triples?
-                default:
-                    break;
+            else if (edges.size() == 2) {
+                Edge edge1 = edges.get(0);
+                Edge edge2 = edges.get(1);
+                Node     h = graph.getNode(edge1.getHead());
+                Node     x = graph.getNode(edge1.getDependent());
+                Node     y = graph.getNode(edge2.getDependent());
+                String  vh = varString(h);
+                String  vx = varString(x);
+                String  vy = varString(y);
+                //
+                block.addTriple(new Triple(Var.alloc(vx), Var.alloc(vh), Var.alloc(vy)));
+                slots.add(new Slot(vh,h.getForm(),PROPERTY));
+                slots.add(new Slot(vx,x.getForm(),INDIVIDUAL));
+                slots.add(new Slot(vy,y.getForm(),INDIVIDUAL));
             }
         }
-                
+                       
         // Build query
         ElementGroup body = new ElementGroup();
         body.addElement(block);
@@ -115,10 +94,49 @@ public class Graph2Template {
         Query query = QueryFactory.make();
         query.setQueryPattern(body);
         query.setQuerySelectType();
-        query.addResultVar("v"); // TODO
+        query.addResultVar("*"); // TODO
         
-        return new Template(query, slots);
+        return new Template(query,slots);
     }
+    
+    
+    private String varString(Node node) {
+        return "v" + node.getId();
+    }
+    
+    private List<List<Edge>> collectEdgeLists(Graph graph,Color color) {
+    // collect SRL edges in equivalence classes depending on shared heads
+        
+        List<List<Edge>> edgeLists = new ArrayList<>();
+        
+        for (Edge edge : graph.getEdges(color)) {
+            int head  = edge.getHead();
+            int index = -1;
+            search:
+            for (int n = 0; n < edgeLists.size(); n++) {
+                List<Edge> list = edgeLists.get(n);
+                for (Edge e : list) {
+                    if (e.getHead() == head) {
+                       index = n;
+                       break search;
+                    }
+                }
+            }
+            if (index >= 0) {
+                edgeLists.get(index).add(edge);
+            }
+            else {
+                List<Edge> newone = new ArrayList<>();
+                newone.add(edge);
+                edgeLists.add(newone);
+            }
+        }
+        
+        return edgeLists;
+    }
+        
+        
+    // Fresh variable supply
     
     public int fresh() {
         i++;

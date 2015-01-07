@@ -19,18 +19,7 @@ public class Run {
      */
     public static void main(String[] args) throws IOException {
                                 
-        if (args.length != 1) {
-            System.out.println("Expected exactly one argument...");
-            System.exit(1);
-        }
-                
-        String mode = args[0];
-        
-        switch (mode) {
-            case "test":
-                test();
-                break;
-        }
+        test();
     }
     
     public static void test() throws IOException {

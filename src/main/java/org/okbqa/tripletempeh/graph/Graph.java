@@ -63,6 +63,19 @@ public class Graph {
         return results;
     }
     
+    public List<Edge> getEdges(Color color) {
+
+        List<Edge> results = new ArrayList<>();
+        
+        for (Edge e : edges) {
+             if (e.getColor() == color) {
+                 results.add(e);
+             }
+        }
+        
+        return results;
+    }
+    
     public int getMaxId() {
         
         int max = 0;
@@ -144,12 +157,13 @@ public class Graph {
                 
         for (Edge e : edges) {
             if (e.getColor() == Color.DEPENDENCY) {
-                out += " " + e.getDependent() + " <--"+e.getLabel()+"-- " + e.getHead() + ";";
+                out += " " + e.toString() + ";";
             }
         }
+        out += "\n";
         for (Edge e : edges) {
             if (e.getColor() == Color.SRL) {
-                out += " " + e.getDependent() + " <--"+e.getLabel()+"-- " + e.getHead() + ";";
+                out += " " + e.toString() + ";";
             }
         }
         

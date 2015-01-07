@@ -41,4 +41,19 @@ public class Slot {
         return var + " " + form + " (" + annotation + ")";
     }
     
+    // hash and equals
+    
+    @Override
+    public int hashCode() {
+        return var.hashCode()+form.hashCode()+annotation.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object other){
+           if (!(other instanceof Slot)) return false;
+           if (other == this) return true;
+           Slot s = (Slot) other;
+           return (var.equals(s.var) && form.equals(s.form) && annotation.equals(s.annotation));
+    }
+    
 }

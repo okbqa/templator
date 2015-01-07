@@ -56,4 +56,11 @@ public class Edge {
              && label.equals(e.getLabel()) && color == e.getColor());
     }
     
+    // Show 
+    
+    @Override
+    public String toString() {
+           return " " + dependent + " <--"+label+"-- " + head;
+    }
+    
 }

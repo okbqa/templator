@@ -12,11 +12,13 @@ import java.net.URI;
  *
  */
 public class Main {
+
     // Base URI the Grizzly HTTP server will listen on
-    //   OKBQA server:
-    //   public static final String BASE_URI = "http://110.45.246.131/templategeneration/";
-    //   Local:
-    public static final String BASE_URI = "http://localhost:8080/templategeneration/";
+    // OKBQA server:
+    public static final String BASE_URI = "http://110.45.246.131/opt/okbqa/templategeneration/";
+    // Local:
+    // public static final String BASE_URI = "http://localhost:8080/";
+    
     // Init template generation pipeline
     public static final Pipeline pipeline = new Pipeline(false);
     
