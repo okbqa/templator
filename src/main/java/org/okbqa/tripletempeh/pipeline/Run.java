@@ -25,7 +25,7 @@ public class Run {
     public static void test() throws IOException {
         
         List<String> test = Arrays.asList(
-            //"{ \"string\": \"Which rivers flow through Gunsan?\", \"language\":\"en\" }",
+            "{ \"string\": \"Which rivers flow through Gunsan?\", \"language\":\"en\" }",
             "{ \"string\": \"스티브 잡스는 애니메이션 영화 《인크레더블》과 《토이 스토리》 등을 제작한 컴퓨터 애니메이션 제작사인 픽사의 소유주이자 CEO였다.\", \"language\":\"ko\" }"
 
 //                // OKBQA sample questions

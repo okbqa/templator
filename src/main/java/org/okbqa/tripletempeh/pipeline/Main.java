@@ -13,11 +13,10 @@ import java.net.URI;
  */
 public class Main {
 
+    public static final String host = "http://110.45.246.131:1555/"; // OKBQA server
+    //public static final String host = "http://localhost:8080/"; 
     // Base URI the Grizzly HTTP server will listen on
-    // OKBQA server:
-    public static final String BASE_URI = "http://110.45.246.131/opt/okbqa/templategeneration/";
-    // Local:
-    // public static final String BASE_URI = "http://localhost:8080/";
+    public static final URI BASE_URI = URI.create(host+"templategeneration/");
     
     // Init template generation pipeline
     public static final Pipeline pipeline = new Pipeline(false);
@@ -29,11 +28,11 @@ public class Main {
     public static HttpServer startServer() {
         // create a resource config that scans for JAX-RS resources and providers
         // in org.okbqa.tripletempeh.pipeline
-        final ResourceConfig rc = new ResourceConfig().packages("org.okbqa.tripletempeh.pipeline");
+        final ResourceConfig rconf = new ResourceConfig().packages("org.okbqa.tripletempeh.pipeline");
 
         // create and start a new instance of grizzly http server
         // exposing the Jersey application at BASE_URI
-        return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), rc);
+        return GrizzlyHttpServerFactory.createHttpServer(BASE_URI,rconf);
     }
 
     /**
