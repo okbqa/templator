@@ -1,5 +1,6 @@
-package org.okbqa.tripletempeh.rules;
+package org.okbqa.tripletempeh.transformer.rules;
 
+import org.okbqa.tripletempeh.transformer.rules.Rule;
 import java.io.FileReader;
 import java.net.URL;
 import java.util.ArrayList;

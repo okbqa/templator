@@ -1,9 +1,9 @@
 package org.okbqa.tripletempeh.transformer;
 
-import org.okbqa.tripletempeh.rules.Rule;
+import org.okbqa.tripletempeh.transformer.rules.Rule;
 import java.util.List;
 import org.okbqa.tripletempeh.graph.Graph;
-import org.okbqa.tripletempeh.rules.RuleEngine;
+import org.okbqa.tripletempeh.transformer.rules.RuleEngine;
 
 /**
  *

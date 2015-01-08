@@ -15,8 +15,8 @@ import org.okbqa.tripletempeh.graph.Color;
 import org.okbqa.tripletempeh.graph.Edge;
 import org.okbqa.tripletempeh.graph.Graph;
 import org.okbqa.tripletempeh.graph.Node;
-import org.okbqa.tripletempeh.rules.Rule;
-import org.okbqa.tripletempeh.rules.RuleEngine;
+import org.okbqa.tripletempeh.transformer.rules.Rule;
+import org.okbqa.tripletempeh.transformer.rules.RuleEngine;
 import org.okbqa.tripletempeh.template.Slot;
 import org.okbqa.tripletempeh.template.Template;
 

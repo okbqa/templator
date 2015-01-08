@@ -1,6 +1,6 @@
 grammar Dependencies;
 
-@header {package org.okbqa.tripletempeh.interpreter.grammar;}
+@header  {package org.okbqa.tripletempeh.interpreter.grammar;}
 
 
 graph : conll    (NEWLINE conll)* 
@@ -17,7 +17,7 @@ roles : '_' | role (';' role)* ;
 role  : STRING ':' STRING ('-' STRING)? ('=' STRING )? ;
 
 
-STRING : [a-zA-Z0-9'.,?!*#]+ ; 
+STRING : [a-zA-Z0-9\u0080-\uFFFE'.,?!*#]+ ; 
 
 NEWLINE    : '\r'? '\n' ; 
 WHITESPACE : [ \t]+ -> skip ; 

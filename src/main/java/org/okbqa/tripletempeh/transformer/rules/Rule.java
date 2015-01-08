@@ -1,4 +1,4 @@
-package org.okbqa.tripletempeh.rules;
+package org.okbqa.tripletempeh.transformer.rules;
 
 import org.okbqa.tripletempeh.graph.Graph;
 

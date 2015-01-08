@@ -7,8 +7,9 @@ import org.json.simple.parser.JSONParser;
 import org.okbqa.tripletempeh.graph.Graph;
 import org.okbqa.tripletempeh.interpreter.Interpreter;
 import org.okbqa.tripletempeh.parsing.ClearNLP;
+import org.okbqa.tripletempeh.parsing.ETRI;
 import org.okbqa.tripletempeh.parsing.Parser;
-import org.okbqa.tripletempeh.rules.RuleEngine;
+import org.okbqa.tripletempeh.transformer.rules.RuleEngine;
 import org.okbqa.tripletempeh.template.Template;
 import org.okbqa.tripletempeh.transformer.Graph2Template;
 import org.okbqa.tripletempeh.transformer.GraphManipulation;
@@ -54,10 +55,10 @@ public class Pipeline {
         transformer_en = new Graph2Template(engine_en);
         
         // Korean 
-        //parser_ko      = new ...();
-        //engine_ko      = new RuleEngine("ko");        
-        //manipulator_ko = new GraphManipulation(engine_ko);
-        //transformer_ko = new Graph2Template(engine_ko);
+        parser_ko      = new ETRI();
+        engine_ko      = new RuleEngine("ko");        
+        manipulator_ko = new GraphManipulation(engine_ko);
+        transformer_ko = new Graph2Template(engine_ko);
     }
     
  
@@ -82,8 +83,8 @@ public class Pipeline {
         } 
         catch (Exception e) {
             e.printStackTrace(System.out);
+            return null;
         }
-        return null;
     }
     
     public Template process(String string,String language) {
@@ -92,6 +93,11 @@ public class Pipeline {
         // 2. Reading: Parse -> Graph
         // 3. Semantic role labeling
         // 4. Mapping: Graph -> Template       
+        
+        if (verbose) {
+            System.out.println("------------INPUT----------------");
+            System.out.println(string);
+        }
         
         String parse = null;
         Graph g      = null;
@@ -106,6 +112,7 @@ public class Pipeline {
                 break;
             case "ko":
                 parse = parser_ko.parse(string);
+                System.out.println(parse.toString()); // DEBUG
                 g = interpreter.interpret(parse);
                 manipulator_ko.doSRL(g);
                 t = transformer_ko.transform(g);
@@ -113,8 +120,6 @@ public class Pipeline {
         }
                    
         if (verbose) {
-            System.out.println("------------INPUT----------------");
-            System.out.println(string);
             System.out.println("------------PARSE----------------");
             System.out.println(parse);
             System.out.println("------------GRAPH----------------");

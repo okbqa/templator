@@ -32,7 +32,7 @@ public class GraphConstructor extends DependenciesBaseListener {
     @Override
     public void exitConll(DependenciesParser.ConllContext ctx) {
         // conll : STRING STRING STRING STRING features STRING STRING (sheads) ;
-
+        
         int i1 = Integer.parseInt(ctx.STRING(0).getText());
         int i2 = Integer.parseInt(ctx.STRING(4).getText());
         
