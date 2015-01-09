@@ -238,7 +238,7 @@ public class RuleEngine {
                            // add slots
                            template.addSlot(new Slot(vs,subgraph.getNode(s,true).getForm(),RESOURCE));
                            template.addSlot(new Slot(vp,subgraph.getNode(p,true).getForm(),PROPERTY));
-                           template.addSlot(new Slot(vo,subgraph.getNode(o,true).getForm(),CLASS));
+                           template.addSlot(new Slot(vo,subgraph.getNode(o,true).getForm(),RESOURCE));
                         }
                         // forward(1->2)
                         Pattern map_pattern = Pattern.compile("forward\\((\\d+)->(\\d+)\\)");
