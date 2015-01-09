@@ -40,9 +40,9 @@ public class RuleEngine {
     Interpreter interpreter;
 
     // slot annotations
-    public String PROPERTY   = "owl:Property";
-    public String CLASS      = "owl:Class";
-    public String INDIVIDUAL = "owl:NamedIndividual";
+    public String PROPERTY   = "rdf:Property";
+    public String CLASS      = "rdf:Class";
+    public String INDIVIDUAL = "rdf:Resource";
     
     // fresh variable counter (see fresh())
     int i = 0; 
