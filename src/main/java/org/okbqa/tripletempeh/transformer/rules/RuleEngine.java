@@ -35,7 +35,7 @@ public class RuleEngine {
     
     List<Rule> SRL_rules;
     List<Rule> map_rules;
-    
+        
     JSONParser parser;
     Interpreter interpreter;
 

@@ -5,6 +5,7 @@ import java.util.List;
 import org.okbqa.tripletempeh.graph.Color;
 import org.okbqa.tripletempeh.graph.Edge;
 import org.okbqa.tripletempeh.graph.Graph;
+import org.okbqa.tripletempeh.graph.Node;
 import org.okbqa.tripletempeh.transformer.rules.Rule;
 import org.okbqa.tripletempeh.transformer.rules.RuleEngine;
 import org.okbqa.tripletempeh.template.Template;
@@ -17,11 +18,13 @@ public class Graph2Template {
            
     RuleEngine engine;
     List<Rule> map_rules;
+    List<String> slot_blacklist;
         
     public Graph2Template(RuleEngine e) {
 
         engine = e;
         map_rules = engine.map_rules();
+        slot_blacklist = new ArrayList<>();
     }
     
     
@@ -35,11 +38,18 @@ public class Graph2Template {
         
         // 2. apply rules
         for (Rule rule : map_rules) {
+            // add edge forms to slot backlist
+             for (Node n : rule.getTarget().getNodes()) {
+                 if (!n.getForm().equals("*")) {
+                     slot_blacklist.add(n.getForm().toLowerCase());
+                 }
+             }
+             // apply rule
              engine.apply(rule,graph,template);
         }
         
         // 4. assemble and return template
-        template.assemble();
+        template.assemble(slot_blacklist);
         return template;
     }
     

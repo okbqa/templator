@@ -5,7 +5,9 @@ import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.sparql.syntax.Element;
 import com.hp.hpl.jena.sparql.syntax.ElementGroup;
 import com.hp.hpl.jena.sparql.syntax.ElementTriplesBlock;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -71,7 +73,7 @@ public class Template {
     
     // Assembly
     
-    public void assemble() {
+    public void assemble(List<String> slot_blacklist) {
         // query body
         query.setQueryPattern(query_body);
         // projection variables
@@ -83,6 +85,14 @@ public class Template {
         else {
             query.setQuerySelectType();
         }
+        // delete slots that are on the blacklist
+        List<Slot> blacklisted = new ArrayList<>();
+        for (Slot s : slots) {
+            if (slot_blacklist.contains(s.getForm().toLowerCase())) {
+                blacklisted.add(s);
+            }
+        }
+        slots.removeAll(blacklisted);
     }
     
     // JSON
