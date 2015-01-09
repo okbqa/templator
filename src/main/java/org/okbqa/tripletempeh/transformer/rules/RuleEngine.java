@@ -3,7 +3,6 @@ package org.okbqa.tripletempeh.transformer.rules;
 import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.sparql.core.Var;
 import com.hp.hpl.jena.sparql.syntax.ElementTriplesBlock;
-import com.hp.hpl.jena.vocabulary.RDF;
 import java.io.FileReader;
 import java.net.URL;
 import java.util.ArrayList;
@@ -32,6 +31,7 @@ public class RuleEngine {
     
     String path_SRL;
     String path_map;
+    String path_map_common;
     
     List<Rule> SRL_rules;
     List<Rule> map_rules;
@@ -40,9 +40,9 @@ public class RuleEngine {
     Interpreter interpreter;
 
     // slot annotations
-    public String PROPERTY   = "rdf:Property";
-    public String CLASS      = "rdf:Class";
-    public String INDIVIDUAL = "rdf:Resource";
+    public String PROPERTY = "rdf:Property";
+    public String CLASS    = "rdf:Class";
+    public String RESOURCE = "rdf:Resource";
     
     // fresh variable counter (see fresh())
     int i = 0; 
@@ -52,6 +52,7 @@ public class RuleEngine {
     
         path_SRL = "rules/SRL_rules_"+language+".json";
         path_map = "rules/map_rules_"+language+".json";
+        path_map_common = "rules/map_rules_common.json";
         
         parser = new JSONParser();
         interpreter = new Interpreter();
@@ -93,10 +94,21 @@ public class RuleEngine {
         List<Rule> rules = new ArrayList<>();
 
         try {
-            // read path_SRL file (JSON)
-            URL url = this.getClass().getClassLoader().getResource(path_map);
-            String file = url.toString().replace("file:","");
-            JSONArray json = (JSONArray) parser.parse(new FileReader(file));
+            // read path_SRL files (JSON)
+            URL url;
+            String file;
+            JSONArray json;
+            // language-specific one
+            url  = this.getClass().getClassLoader().getResource(path_map);
+            file = url.toString().replace("file:","");
+            json = (JSONArray) parser.parse(new FileReader(file));
+            // common one
+            url = this.getClass().getClassLoader().getResource(path_map_common);
+            file = url.toString().replace("file:","");
+            JSONArray json_common = (JSONArray) parser.parse(new FileReader(file));
+            // merge 
+            json.addAll(json_common);
+            // => language-specific rules are applied before common rules
         
             // get each rule and add it to rules
             Iterator<JSONObject> iterator = json.iterator();
@@ -162,6 +174,7 @@ public class RuleEngine {
         if (subgraphmatch != null && subgraphmatch.getLeft() != null) {
             
             Graph subgraph = subgraphmatch.getLeft();
+            Map<Integer,Integer> forward = subgraph.getForward();
             Map<Integer,Integer> map = subgraphmatch.getRight();
            
             switch (rule.getTodoType()) {
@@ -176,28 +189,62 @@ public class RuleEngine {
                             int projvar = map.get(Integer.parseInt(projvar_matcher.group(1)));
                             template.addProjVar(varString(projvar));
                         }
-                        // triple(1,rdf:type,2)
-                        Pattern triple_pattern = Pattern.compile("triple\\((\\d+),SORTAL,(\\d+)\\)");
-                        Matcher triple_matcher = triple_pattern.matcher(todo);
-                        while  (triple_matcher.find()) {
-                           // add rdf:type triple
-                           int     s = map.get(Integer.parseInt(triple_matcher.group(1)));
-                           int     o = map.get(Integer.parseInt(triple_matcher.group(2)));
+                        // triple(1,SORTAL,2)
+                        Pattern sortal_pattern = Pattern.compile("triple\\((\\d+),SORTAL,(\\d+)\\)");
+                        Matcher sortal_matcher = sortal_pattern.matcher(todo);
+                        while  (sortal_matcher.find()) {
+                           // add triple
+                           int     s = map.get(Integer.parseInt(sortal_matcher.group(1)));
+                           int     o = map.get(Integer.parseInt(sortal_matcher.group(2)));
+                           if (forward.containsKey(s)) {
+                                   s = forward.get(s);
+                           }
+                           if (forward.containsKey(o)) {
+                                   o = forward.get(o);
+                           }
                            String vs = varString(s);
                            String vo = varString(o);
                            String v  = varString(fresh());
                            ElementTriplesBlock triples = new ElementTriplesBlock();
                            triples.addTriple(new Triple(Var.alloc(vs),Var.alloc(v),Var.alloc(vo)));
                            template.addTriples(triples);
-                           // add class slot
-                           template.addSlot(new Slot(vo,subgraph.getNode(o).getForm(),CLASS));
+                           // add slots
+                           template.addSlot(new Slot(vo,subgraph.getNode(o,true).getForm(),CLASS));
                            template.addSlot(new Slot(v,"",PROPERTY,"SORTAL"));
                         }
+                        // triple(1,2,3)
+                        Pattern triple_pattern = Pattern.compile("triple\\((\\d+),(\\d+),(\\d+)\\)");
+                        Matcher triple_matcher = triple_pattern.matcher(todo);
+                        while  (triple_matcher.find()) {
+                           // add triple
+                           int     s = map.get(Integer.parseInt(triple_matcher.group(1)));
+                           int     p = map.get(Integer.parseInt(triple_matcher.group(2)));
+                           int     o = map.get(Integer.parseInt(triple_matcher.group(3)));
+                           if (forward.containsKey(s)) {
+                                   s = forward.get(s);
+                           }
+                           if (forward.containsKey(p)) {
+                                   p = forward.get(p);
+                           }
+                           if (forward.containsKey(o)) {
+                                   o = forward.get(o);
+                           }
+                           String vs = varString(s);
+                           String vp = varString(p);
+                           String vo = varString(o);
+                           ElementTriplesBlock triples = new ElementTriplesBlock();
+                           triples.addTriple(new Triple(Var.alloc(vs),Var.alloc(vp),Var.alloc(vo)));
+                           template.addTriples(triples);
+                           // add slots
+                           template.addSlot(new Slot(vs,subgraph.getNode(s,true).getForm(),RESOURCE));
+                           template.addSlot(new Slot(vp,subgraph.getNode(p,true).getForm(),PROPERTY));
+                           template.addSlot(new Slot(vo,subgraph.getNode(o,true).getForm(),CLASS));
+                        }
                         // forward(1->2)
-                        Pattern map_pattern = Pattern.compile("rename\\((\\d+)->(\\d+)\\)");
+                        Pattern map_pattern = Pattern.compile("forward\\((\\d+)->(\\d+)\\)");
                         Matcher map_matcher = map_pattern.matcher(todo);
                         while  (map_matcher.find()) {
-                            // rename graph node
+                            // forward graph node
                             int old_i = map.get(Integer.parseInt(map_matcher.group(1)));
                             int new_i = map.get(Integer.parseInt(map_matcher.group(2)));
                             graph.addForward(old_i,map.get(new_i));

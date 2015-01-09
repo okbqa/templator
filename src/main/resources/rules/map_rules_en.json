@@ -1,10 +1,12 @@
 [
     {
         "struct": [ "attr(is-2,what-1)" ],
-        "action": [ "projvar(1)" ]
+        "action": [ "projvar(1)",
+                    "forward(2->1)" ]
     },
     {   "struct": [ "attr(is-2,who-1)" ],
-        "action": [ "projvar(1)" ]
+        "action": [ "projvar(1)",
+                    "forward(2->1)" ]
     },
     {   "struct": [ "det(*-2,which-1) \n #SRL#(*-3,*-2) " ],
         "action": [ "projvar(1)",

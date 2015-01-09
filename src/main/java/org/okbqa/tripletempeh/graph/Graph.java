@@ -51,9 +51,9 @@ public class Graph {
         return nodes;
     }
     
-    public Node getNode(int i) {
+    public Node getNode(int i,boolean pleaseforward) {
         
-        if (forward.containsKey(i)) {
+        if (pleaseforward && forward.containsKey(i)) {
             i = forward.get(i);
         }
         
@@ -91,6 +91,10 @@ public class Graph {
         return results;
     }
     
+    public Map<Integer,Integer> getForward() {
+        return forward;
+    }
+    
     public int getMaxId() {
         
         int max = 0;
@@ -118,6 +122,9 @@ public class Graph {
     public void addForward(int i, int j) {
         forward.put(i,j);
     }
+    public void setForward(Map<Integer,Integer> m) {
+        forward = m;
+    }
     
     // Manipulate graph 
     
@@ -139,6 +146,16 @@ public class Graph {
     
     // Matching
     
+    public boolean containsEdge(Edge edge) {
+        
+        for (Edge e : edges) {
+            if (e.equals(edge)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public Node getMatchingNode(Node node) {
                             
         for (Node n : nodes) {
@@ -158,25 +175,37 @@ public class Graph {
             
             int head_sub = e_sub.getHead();
             int depd_sub = e_sub.getDependent();
-            Node head_sub_node = getNode(head_sub);
-            Node depd_sub_node = getNode(depd_sub);
+            Node head_sub_node = getNode(head_sub,true);
+            Node depd_sub_node = getNode(depd_sub,true);
             
             // find corresponding edge in g
             boolean found = false;
 
             for (Edge e_super : g.edges) {
                 
+                if (match.containsEdge(e_super)) {
+                    continue;
+                }
+                
                 int head_super = e_super.getHead();
                 int depd_super = e_super.getDependent();
+                Node head_super_node = g.getNode(head_super,true);
+                Node depd_super_node = g.getNode(depd_super,true);
                 
-                Node head_super_node = g.getNode(head_super);
-                Node depd_super_node = g.getNode(depd_super);
+                boolean match_head = head_sub_node.matches(head_super_node);
+                if (indexmap.containsKey(head_sub) 
+                && (indexmap.get(head_sub) != head_super)) {
+                        match_head = false;
+                } 
+                boolean match_depd = depd_sub_node.matches(depd_super_node);
+                if (indexmap.containsKey(depd_sub) 
+                && (indexmap.get(depd_sub) != depd_super)) {
+                        match_depd = false;
+                } 
+                boolean match_label = (e_sub.getLabel().equals("#SRL#") && e_super.getColor() == Color.SRL)
+                                    || e_sub.getLabel().equals(e_super.getLabel());
                 
-                if (head_super_node.matches(head_sub_node)
-                 && depd_super_node.matches(depd_sub_node)) {
-                   
-                    if ((e_sub.getLabel().equals("#SRL#") && e_super.getColor() == Color.SRL)
-                        || e_sub.getLabel().equals(e_super.getLabel())) {
+                if (match_head && match_depd && match_label) {
                     
                         found = true;
                         match.addEdge(e_super);
@@ -185,16 +214,17 @@ public class Graph {
                         indexmap.put(head_sub,head_super);
                         indexmap.put(depd_sub,depd_super);
                         break;
-                    }
                 }
             }
             
             // if there is an edge for which no corresponding edge was found, fail
             if (!found) { 
                 return null;
-            }                        
+            }            
         }
                
+        match.setForward(g.getForward());
+        
         return new Pair<>(match,indexmap);
     }
 
