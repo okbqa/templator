@@ -101,7 +101,7 @@ public class Template {
         
         JSONObject template = new JSONObject();
         
-        template.put("query",query.toString());
+        template.put("query",sanityCheck(query.toString()));
         
         JSONArray slotlist = new JSONArray();
         for (Slot slot : slots) {
@@ -114,6 +114,12 @@ public class Template {
         template.put("score",1); // TODO
         
         return template;
+    }
+    
+    // Sanity check 
+    private String sanityCheck(String querystring) {
+        // double dots // TODO empty triple? (query_body says no...)
+        return querystring.replaceAll("\\.\\s*\\.",".");
     }
     
     // Show 
