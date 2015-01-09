@@ -94,7 +94,13 @@ public class Slot {
     
     @Override
     public String toString() {
-        String out = var + " " + form + " (" + type + ")";
+        String out = var + " ";
+        if (form.isEmpty()) {
+            out += "-";
+        } else {
+            out += form;
+        }
+        out += " (" + type + ")";
         if (!value.isEmpty()) {
             out += " = " + value;
         }

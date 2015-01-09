@@ -118,8 +118,7 @@ public class Template {
     
     // Sanity check 
     private String sanityCheck(String querystring) {
-        // double dots // TODO empty triple? (query_body says no...)
-        return querystring.replaceAll("\\.\\s*\\.",".");
+        return querystring.replaceAll("\\.\\s*\\.",".").replaceAll("\\n"," ").replaceAll("\\s+"," ");
     }
     
     // Show 

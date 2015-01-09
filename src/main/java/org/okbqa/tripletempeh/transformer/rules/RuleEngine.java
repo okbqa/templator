@@ -247,7 +247,7 @@ public class RuleEngine {
                             // forward graph node
                             int old_i = map.get(Integer.parseInt(map_matcher.group(1)));
                             int new_i = map.get(Integer.parseInt(map_matcher.group(2)));
-                            graph.addForward(old_i,map.get(new_i));
+                            graph.addForward(old_i,new_i);
                         }
                         // delete
                         if (todo.equals("delete")) {
