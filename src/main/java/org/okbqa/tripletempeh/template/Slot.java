@@ -1,5 +1,7 @@
 package org.okbqa.tripletempeh.template;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.json.simple.JSONObject;
 
 /**
@@ -10,16 +12,21 @@ public class Slot {
     
     String var;
     String form;
-    String annotation;
+    String type;
+    String value;
     
-    public Slot(String v,String f) {
-        this(v,f,"");
+    public Slot(String var,String f) {
+        this(var,f,"UNSPEC","");
+    }
+    public Slot(String var,String f,String t) {
+        this(var,f,t,"");
     }
     
-    public Slot(String v,String f, String a) {
-        var  = v;
-        form = f;
-        annotation = a;
+    public Slot(String var,String f, String t,String val) {
+        this.var   = var;
+        this.form  = f;
+        this.type  = t;
+        this.value = val;
     }
     
     // Getter 
@@ -30,8 +37,14 @@ public class Slot {
     public String getForm() {
         return form;
     }
-    public String getAnnotation() {
-        return annotation;
+    public String getType() {
+        return type;
+    }
+    
+    // Setter 
+    
+    public void setValue(String v) {
+        value = v;
     }
     
     // JSON
@@ -42,23 +55,57 @@ public class Slot {
         
         slot.put("var",var);
         slot.put("form",form);
-        slot.put("annotation",annotation);
+        slot.put("type",type);
+        slot.put("value",value);
         
         return slot;
+    }    
+    public List<JSONObject> toListofJSONObjects() {
+        
+        List<JSONObject> triples = new ArrayList<>();
+        
+        // type
+        JSONObject t = new JSONObject();
+        t.put("s",var);
+        t.put("p","is");
+        t.put("o",type);
+        triples.add(t);
+        // form
+        if (!form.isEmpty()) {
+            JSONObject f = new JSONObject();
+            f.put("s",var);
+            f.put("p","verbalization");
+            f.put("o",form); 
+            triples.add(f);
+        }
+        // value 
+        if (!value.isEmpty()) {
+            JSONObject v = new JSONObject();
+            v.put("s",var);
+            v.put("p","value");
+            v.put("o",value);
+            triples.add(v);
+        }
+        
+        return triples;
     }
     
     // Show 
     
     @Override
     public String toString() {
-        return var + " " + form + " (" + annotation + ")";
+        String out = var + " " + form + " (" + type + ")";
+        if (!value.isEmpty()) {
+            out += " = " + value;
+        }
+        return out;
     }
     
     // hash and equals
     
     @Override
     public int hashCode() {
-        return var.hashCode()+form.hashCode()+annotation.hashCode();
+        return var.hashCode()+form.hashCode()+type.hashCode()+value.hashCode();
     }
 
     @Override
@@ -66,7 +113,7 @@ public class Slot {
            if (!(other instanceof Slot)) return false;
            if (other == this) return true;
            Slot s = (Slot) other;
-           return (var.equals(s.var) && form.equals(s.form) && annotation.equals(s.annotation));
+           return (var.equals(s.var) && form.equals(s.form) && type.equals(s.type)) && value.equals(s.value);
     }
     
 }

@@ -44,6 +44,10 @@ public class RuleEngine {
     public String CLASS      = "owl:Class";
     public String INDIVIDUAL = "owl:NamedIndividual";
     
+    // fresh variable counter (see fresh())
+    int i = 0; 
+
+    
     public RuleEngine(String language) {
     
         path_SRL = "rules/SRL_rules_"+language+".json";
@@ -173,7 +177,7 @@ public class RuleEngine {
                             template.addProjVar(varString(projvar));
                         }
                         // triple(1,rdf:type,2)
-                        Pattern triple_pattern = Pattern.compile("triple\\((\\d+),rdf:type,(\\d+)\\)");
+                        Pattern triple_pattern = Pattern.compile("triple\\((\\d+),SORTAL,(\\d+)\\)");
                         Matcher triple_matcher = triple_pattern.matcher(todo);
                         while  (triple_matcher.find()) {
                            // add rdf:type triple
@@ -181,11 +185,13 @@ public class RuleEngine {
                            int     o = map.get(Integer.parseInt(triple_matcher.group(2)));
                            String vs = varString(s);
                            String vo = varString(o);
+                           String v  = varString(fresh());
                            ElementTriplesBlock triples = new ElementTriplesBlock();
-                           triples.addTriple(new Triple(Var.alloc(vs),RDF.type.asNode(),Var.alloc(vo)));
+                           triples.addTriple(new Triple(Var.alloc(vs),Var.alloc(v),Var.alloc(vo)));
                            template.addTriples(triples);
                            // add class slot
                            template.addSlot(new Slot(vo,subgraph.getNode(o).getForm(),CLASS));
+                           template.addSlot(new Slot(v,"",PROPERTY,"SORTAL"));
                         }
                         // forward(1->2)
                         Pattern map_pattern = Pattern.compile("rename\\((\\d+)->(\\d+)\\)");
@@ -214,4 +220,12 @@ public class RuleEngine {
         return "v" + i;
     }
     
+    // Fresh variable supply
+    public void set_i(int n) {
+        i = n;
+    }
+    public int fresh() {
+        i++;
+        return i;
+    }
 }

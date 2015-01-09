@@ -94,7 +94,10 @@ public class Template {
         
         JSONArray slotlist = new JSONArray();
         for (Slot slot : slots) {
-             slotlist.add(slot.toJSON());
+            for (JSONObject j : slot.toListofJSONObjects()) {
+                 slotlist.add(j);
+            }
+            // alternative: slotlist.add(slot.toJSON());
         }
         template.put("slots",slotlist);
         template.put("score",1); // TODO

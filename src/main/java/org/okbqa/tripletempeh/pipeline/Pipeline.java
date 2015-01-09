@@ -126,6 +126,8 @@ public class Pipeline {
             System.out.println(g.toString());
             System.out.println("------------TEMPLATE-------------");
             System.out.println(t.toString()); 
+            System.out.println("------------OUTPUT---------------");
+            System.out.println(t.toJSON().toJSONString());
         }
          
         return t;

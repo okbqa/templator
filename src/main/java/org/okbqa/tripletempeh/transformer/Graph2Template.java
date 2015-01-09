@@ -20,9 +20,7 @@ import org.okbqa.tripletempeh.template.Template;
  * @author cunger
  */
 public class Graph2Template {
-       
-    int i = 0; // for supply of fresh variables (see fresh())
-    
+           
     RuleEngine engine;
     List<Rule> map_rules;
         
@@ -46,7 +44,7 @@ public class Graph2Template {
         // 3. convert remaining semantic roles into triples
         ElementTriplesBlock block = new ElementTriplesBlock();
 
-        i = graph.getMaxId();
+        engine.set_i(graph.getMaxId());
         
         for (List<Edge> edges : collectEdgeLists(graph,Color.SRL)) {
             if (edges.size() == 1) {
@@ -55,16 +53,18 @@ public class Graph2Template {
                 Node    h = graph.getNode(edge.getHead());
                 String vx = engine.varString(x);
                 String vh = engine.varString(h);
+                String v  = engine.varString(engine.fresh());
                 // A0 -> rdf:type
                 if (edge.getLabel().equals("A0")) {    
-                    block.addTriple(new Triple(Var.alloc(vx),RDF.type.asNode(),Var.alloc(vh)));
+                    block.addTriple(new Triple(Var.alloc(vx),Var.alloc(v),Var.alloc(vh)));
                     template.addSlot(new Slot(vx,x.getForm(),engine.INDIVIDUAL));
                     template.addSlot(new Slot(vh,h.getForm(),engine.CLASS));
+                    template.addSlot(new Slot(v,"",engine.PROPERTY,"SORTAL"));
                 }
                 // otherwise: triple with unknown subject
                 // TODO try to unify subject with some other node?
                 else {
-                    block.addTriple(new Triple(Var.alloc("v"+fresh()),Var.alloc(vh),Var.alloc(vx)));
+                    block.addTriple(new Triple(Var.alloc("v"+engine.fresh()),Var.alloc(vh),Var.alloc(vx)));
                     template.addSlot(new Slot(vx,x.getForm(),engine.INDIVIDUAL));
                     template.addSlot(new Slot(vh,h.getForm(),engine.PROPERTY));
                 }
@@ -126,13 +126,4 @@ public class Graph2Template {
         return edgeLists;
     }
         
-        
-    // Fresh variable supply
-    
-    public int fresh() {
-        i++;
-        return i;
-    }
-
-    
 }

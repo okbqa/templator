@@ -8,7 +8,7 @@
     },
     {   "struct": [ "det(*-2,which-1) \n #SRL#(*-3,*-2) " ],
         "action": [ "projvar(1)",
-                    "triple(1,rdf:type,2)",
+                    "triple(1,SORTAL,2)",
                     "forward(2->1)" ]
     },
     {   "struct": [ "A1(list-1,*-2)" ],
