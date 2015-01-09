@@ -1,0 +1,18 @@
+[
+    {
+        "struct": [ "SBJ(무엇인가-2,*-1)" ],
+        "action": [ "projvar(1)" ]
+    },
+    {   "struct": [ "SBJ(누구인가-2,*-1)" ],
+        "action": [ "projvar(1)" ]
+    },
+    {   "struct": [ "UNSPECIFIED(*-2,어떤-1) \n #SRL#(*-3,*-2) " ],
+        "action": [ "projvar(1)",
+                    "triple(1,rdf:type,2)",
+                    "forward(2->1)" ]
+    },
+    {   "struct": [ "OBJ(나열하라-1,*-2)" ],
+        "action": [ "projvar(2)",
+                    "delete" ]
+    }
+]

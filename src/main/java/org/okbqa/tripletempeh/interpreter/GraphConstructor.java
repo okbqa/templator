@@ -42,7 +42,12 @@ public class GraphConstructor extends DependenciesBaseListener {
         String rel   = ctx.STRING(5).getText();
        
         graph.addNode(new Node(i1,form,lemma,pos));
-        graph.addEdge(new Edge(Color.DEPENDENCY,i2,rel,i1));
+        if (rel.equals("root")) {
+            graph.addRoot(i1);
+        }
+        else {
+            graph.addEdge(new Edge(Color.DEPENDENCY,i2,rel,i1));
+        }
     }
     
     @Override
@@ -55,10 +60,15 @@ public class GraphConstructor extends DependenciesBaseListener {
         String form1 = ctx.STRING(1).getText();
         String form2 = ctx.STRING(3).getText();
         String rel   = ctx.STRING(0).getText();
-       
+
         graph.addNode(new Node(i1,form1));
         graph.addNode(new Node(i2,form2));
-        graph.addEdge(new Edge(Color.DEPENDENCY,i1,rel,i2));
+        if (rel.equals("root")) {
+            graph.addRoot(i2);
+        }
+        else {
+            graph.addEdge(new Edge(Color.DEPENDENCY,i1,rel,i2));
+        }
     }
     
 }

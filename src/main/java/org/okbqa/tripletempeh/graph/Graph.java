@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.okbqa.tripletempeh.utils.Pair;
 
 /**
  *
@@ -15,16 +16,23 @@ public class Graph {
     
     ArrayList<Node> nodes;
     ArrayList<Edge> edges;
+    ArrayList<Integer> roots;
+    
+    Map<Integer,Integer> forward;
     
     public Graph() {
-        nodes = new ArrayList<>();
-        edges = new ArrayList<>();
+        nodes   = new ArrayList<>();
+        edges   = new ArrayList<>();
+        roots   = new ArrayList<>();
+        forward = new HashMap<>();
     }
     
     public Graph(Format f) {
-        format = f;
-        nodes  = new ArrayList<>();
-        edges  = new ArrayList<>();
+        format  = f;
+        nodes   = new ArrayList<>();
+        edges   = new ArrayList<>();
+        roots   = new ArrayList<>();        
+        forward = new HashMap<>();
     }
     
     
@@ -39,8 +47,15 @@ public class Graph {
     public ArrayList<Edge> getEdges() {
         return edges;
     }
+    public ArrayList<Node> getNodes() {
+        return nodes;
+    }
     
     public Node getNode(int i) {
+        
+        if (forward.containsKey(i)) {
+            i = forward.get(i);
+        }
         
         for (Node n : nodes) {
             if (n.getId() == i) {
@@ -97,6 +112,30 @@ public class Graph {
     public void addEdge(Edge e) {
         edges.add(e);
     }
+    public void addRoot(int i) {
+        roots.add(i);
+    }
+    public void addForward(int i, int j) {
+        forward.put(i,j);
+    }
+    
+    // Manipulate graph 
+    
+    public void deleteNode(Node n) {
+        nodes.remove(n);
+    }
+    public void deleteEdge(Edge e) {
+        edges.remove(e);
+    }
+    
+    public void delete(Graph g) {
+//      for (Node n : g.getNodes()) {
+//          deleteNode(n);
+//      }
+        for (Edge e : g.getEdges()) {
+            deleteEdge(e);
+        }
+    }
     
     // Matching
     
@@ -110,14 +149,17 @@ public class Graph {
         return null;
     }
     
-    public Map<Integer,Integer> subGraphMatch(Graph g) {
-                        
+    public Pair<Graph,Map<Integer,Integer>> subGraphMatch(Graph g) {
+        
+        Graph match = new Graph();                        
         Map<Integer,Integer> indexmap = new HashMap<>();
         
         for (Edge e_sub : edges) {
             
             int head_sub = e_sub.getHead();
             int depd_sub = e_sub.getDependent();
+            Node head_sub_node = getNode(head_sub);
+            Node depd_sub_node = getNode(depd_sub);
             
             // find corresponding edge in g
             boolean found = false;
@@ -126,15 +168,24 @@ public class Graph {
                 
                 int head_super = e_super.getHead();
                 int depd_super = e_super.getDependent();
-            
-                if (e_super.getLabel().equals(e_sub.getLabel())
-                    && g.getNode(head_super).matches(getNode(head_sub))
-                    && g.getNode(depd_super).matches(getNode(depd_sub))) {
+                
+                Node head_super_node = g.getNode(head_super);
+                Node depd_super_node = g.getNode(depd_super);
+                
+                if (head_super_node.matches(head_sub_node)
+                 && depd_super_node.matches(depd_sub_node)) {
+                   
+                    if ((e_sub.getLabel().equals("#SRL#") && e_super.getColor() == Color.SRL)
+                        || e_sub.getLabel().equals(e_super.getLabel())) {
                     
-                    found = true;
-                    indexmap.put(head_sub,head_super);
-                    indexmap.put(depd_sub,depd_super);
-                    break;
+                        found = true;
+                        match.addEdge(e_super);
+                        match.addNode(head_super_node);
+                        match.addNode(depd_super_node);
+                        indexmap.put(head_sub,head_super);
+                        indexmap.put(depd_sub,depd_super);
+                        break;
+                    }
                 }
             }
             
@@ -143,8 +194,8 @@ public class Graph {
                 return null;
             }                        
         }
-                
-        return indexmap;
+               
+        return new Pair<>(match,indexmap);
     }
 
     
@@ -167,8 +218,12 @@ public class Graph {
             }
         }
         
-        out += "\nTokens:";
+        out += "\nRoot node(s):";
+        for (int i : roots) {
+            out += "\n* " + i;
+        }
         
+        out += "\nNodes:";
         for (Node n : nodes) {
             out += "\n* " + n.getId() + " " + n.getForm() + " (" + n.getPOS() + ")";
         }

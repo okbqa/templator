@@ -22,6 +22,19 @@ public class Slot {
         annotation = a;
     }
     
+    // Getter 
+    
+    public String getVar() {
+        return var;
+    }
+    public String getForm() {
+        return form;
+    }
+    public String getAnnotation() {
+        return annotation;
+    }
+    
+    // JSON
     
     public JSONObject toJSON() {
         

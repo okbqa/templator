@@ -1,16 +1,11 @@
 package org.okbqa.tripletempeh.transformer;
 
 import com.hp.hpl.jena.graph.Triple;
-import com.hp.hpl.jena.query.Query;
-import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.sparql.core.Var;
-import com.hp.hpl.jena.sparql.syntax.ElementGroup;
 import com.hp.hpl.jena.sparql.syntax.ElementTriplesBlock;
 import com.hp.hpl.jena.vocabulary.RDF;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import org.okbqa.tripletempeh.graph.Color;
 import org.okbqa.tripletempeh.graph.Edge;
 import org.okbqa.tripletempeh.graph.Graph;
@@ -30,10 +25,6 @@ public class Graph2Template {
     
     RuleEngine engine;
     List<Rule> map_rules;
-    
-    String PROPERTY   = "owl:Property";
-    String CLASS      = "owl:Class";
-    String INDIVIDUAL = "owl:NamedIndividual";
         
     public Graph2Template(RuleEngine e) {
 
@@ -42,9 +33,17 @@ public class Graph2Template {
     }
     
     
-    public Template transform(Graph graph) {
+    public Template constructTemplate(Graph graph) {
         
-        Set<Slot> slots = new HashSet<>();
+        // 1. init template
+        Template template = new Template();
+        
+        // 2. apply rules
+        for (Rule rule : map_rules) {
+             engine.apply(rule,graph,template);
+        }
+        
+        // 3. convert remaining semantic roles into triples
         ElementTriplesBlock block = new ElementTriplesBlock();
 
         i = graph.getMaxId();
@@ -54,20 +53,20 @@ public class Graph2Template {
                 Edge edge = edges.get(0);
                 Node    x = graph.getNode(edge.getDependent());
                 Node    h = graph.getNode(edge.getHead());
-                String vx = varString(x);
-                String vh = varString(h);
+                String vx = engine.varString(x);
+                String vh = engine.varString(h);
                 // A0 -> rdf:type
                 if (edge.getLabel().equals("A0")) {    
-                    block.addTriple(new Triple(Var.alloc(vx), RDF.type.asNode(), Var.alloc(vh)));
-                    slots.add(new Slot(vx,x.getForm(),INDIVIDUAL));
-                    slots.add(new Slot(vh,h.getForm(),CLASS));
+                    block.addTriple(new Triple(Var.alloc(vx),RDF.type.asNode(),Var.alloc(vh)));
+                    template.addSlot(new Slot(vx,x.getForm(),engine.INDIVIDUAL));
+                    template.addSlot(new Slot(vh,h.getForm(),engine.CLASS));
                 }
                 // otherwise: triple with unknown subject
                 // TODO try to unify subject with some other node?
                 else {
-                    block.addTriple(new Triple(Var.alloc("v"+fresh()), Var.alloc(vh), Var.alloc(vx)));
-                    slots.add(new Slot(vx,x.getForm(),INDIVIDUAL));
-                    slots.add(new Slot(vh,h.getForm(),PROPERTY));
+                    block.addTriple(new Triple(Var.alloc("v"+fresh()),Var.alloc(vh),Var.alloc(vx)));
+                    template.addSlot(new Slot(vx,x.getForm(),engine.INDIVIDUAL));
+                    template.addSlot(new Slot(vh,h.getForm(),engine.PROPERTY));
                 }
             }
             else if (edges.size() == 2) {
@@ -76,33 +75,25 @@ public class Graph2Template {
                 Node     h = graph.getNode(edge1.getHead());
                 Node     x = graph.getNode(edge1.getDependent());
                 Node     y = graph.getNode(edge2.getDependent());
-                String  vh = varString(h);
-                String  vx = varString(x);
-                String  vy = varString(y);
+                String  vh = engine.varString(h);
+                String  vx = engine.varString(x);
+                String  vy = engine.varString(y);
                 //
-                block.addTriple(new Triple(Var.alloc(vx), Var.alloc(vh), Var.alloc(vy)));
-                slots.add(new Slot(vh,h.getForm(),PROPERTY));
-                slots.add(new Slot(vx,x.getForm(),INDIVIDUAL));
-                slots.add(new Slot(vy,y.getForm(),INDIVIDUAL));
+                block.addTriple(new Triple(Var.alloc(vx),Var.alloc(vh),Var.alloc(vy)));
+                template.addSlot(new Slot(vh,h.getForm(),engine.PROPERTY));
+                template.addSlot(new Slot(vx,x.getForm(),engine.INDIVIDUAL));
+                template.addSlot(new Slot(vy,y.getForm(),engine.INDIVIDUAL));
             }
         }
-                       
-        // Build query
-        ElementGroup body = new ElementGroup();
-        body.addElement(block);
         
-        Query query = QueryFactory.make();
-        query.setQueryPattern(body);
-        query.setQuerySelectType();
-        query.addResultVar("*"); // TODO
+        template.addTriples(block);
         
-        return new Template(query,slots);
+        // 4. assemble and return template
+        
+        template.assemble();
+        return template;
     }
     
-    
-    private String varString(Node node) {
-        return "v" + node.getId();
-    }
     
     private List<List<Edge>> collectEdgeLists(Graph graph,Color color) {
     // collect SRL edges in equivalence classes depending on shared heads

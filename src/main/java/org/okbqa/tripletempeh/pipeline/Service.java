@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 import org.json.simple.JSONArray;
 
 
-@Path("templategeneration")
+@Path("tripletempeh")
 public class Service {
     
     @POST
@@ -18,12 +18,12 @@ public class Service {
     public String serve(String data) {
         
         try {
-            JSONArray output  = Main.pipeline.run(data);
+            JSONArray output = Main.pipeline.run(data);
             return output.toJSONString();
         }
         catch (Exception e) {
             e.printStackTrace(System.out);
+            return "null";
         }
-        return "null";
     }
 }

@@ -25,10 +25,28 @@ public class Run {
     public static void test() throws IOException {
         
         List<String> test = Arrays.asList(
+            
+            "{ \"string\": \"What is the capital of Korea?\", \"language\":\"en\" }",
+            "{ \"string\": \"한국의 수도는 무엇인가?\", \"language\": \"ko\" }",
+            
+            "{ \"string\": \"Who is the founder of Google?\", \"language\":\"en\" }",
+            "{ \"string\": \"구글의 설립자는 누구인가?\", \"language\":\"ko\" }",
+            
             "{ \"string\": \"Which rivers flow through Gunsan?\", \"language\":\"en\" }",
-            "{ \"string\": \"스티브 잡스는 애니메이션 영화 《인크레더블》과 《토이 스토리》 등을 제작한 컴퓨터 애니메이션 제작사인 픽사의 소유주이자 CEO였다.\", \"language\":\"ko\" }"
+            "{ \"string\": \"어떤 강이 군산을 흐르는가?\", \"language\":\"ko\" }",
+            "{ \"string\": \"군산에 흐르는 강은 무엇인가?\", \"language\":\"ko\" }",
+            
+            "{ \"string\": \"List the cities in Korea.\", \"language\": \"en\" }",
+            "{ \"string\": \"대한민국에 있는 도시를 나열하라\", \"language\":\"ko\" }",
+            "{ \"string\": \"대한민국의 도시를 나열하라\", \"language\":\"ko\" }",
 
-//                // OKBQA sample questions
+            "{ \"string\": \"How high is Hallasan?\", \"language\":\"en\" }",
+            "{ \"string\": \"한라산은 얼마나 높은가?\", \"language\":\"ko\" }",
+        
+            "{ \"string\": \"How many students does KAIST have?\", \"language\":\"en\" }",
+            "{ \"string\": \"카이스트는 얼마나 많은 학생이 있는가?\", \"language\":\"ko\" }"
+                
+//          // OKBQA sample questions
 //                "What is the name of national high educational organization in the Goryeo Dynasty?",
 //                "What is the organization of a specific numbers and more of legislators to discuss main agenda in proceeding in the Parliament?",
 //                "What is the international organization representing international petroleum and gas, opened as a council in 1933?",
@@ -55,7 +73,7 @@ public class Run {
         for (String question : test) {
             
             JSONArray output = pipeline.run(question);
-            
+                        
             System.out.println("\n\nContinue? y/n");
             String response = scanner.nextLine();
             if (response.equals("n")) {

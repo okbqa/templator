@@ -32,13 +32,19 @@ public class Node {
     }
 
     public String getForm() {
-        return form;
+        return form.replaceAll("\\?","");
         // would be nice to return the lemma (if available), 
         // but the lemma is something non-sensical in the case of numbers
     }
 
     public String getPOS() {
         return POS;   
+    }
+    
+    // Setter 
+    
+    public void setId(int i) {
+        id = i;
     }
     
     // Matching 

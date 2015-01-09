@@ -1,5 +1,6 @@
 package org.okbqa.tripletempeh.transformer.rules;
 
+import java.util.List;
 import org.okbqa.tripletempeh.graph.Graph;
 
 /**
@@ -8,25 +9,26 @@ import org.okbqa.tripletempeh.graph.Graph;
  */
 public class Rule {
 
-    Graph  target;    
-    String todo;
+    Graph target;    
+    List<String> todos;
     String todoType;
     
-    public Rule(Graph g,String s1,String s2) {
+    public Rule(Graph g,List<String> ts,String td) {
         target   = g;
-        todo     = s1;
-        todoType = s2;
+        todos    = ts;
+        todoType = td;
     }
     
     public Graph getTarget() {
         return target;
     }
     
-    public String getTodo() {
-        return todo;
+    public List<String> getTodos() {
+        return todos;
     }
     
     public String getTodoType() {
         return todoType;
     }
+    
 }
