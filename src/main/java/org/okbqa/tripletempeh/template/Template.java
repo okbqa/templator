@@ -116,7 +116,6 @@ public class Template {
         return template;
     }
     
-    // Sanity check 
     private String sanityCheck(String querystring) {
         return querystring.replaceAll("\\.\\s*\\.",".").replaceAll("\\n"," ").replaceAll("\\s+"," ");
     }

@@ -112,7 +112,6 @@ public class Pipeline {
                 break;
             case "ko":
                 parse = parser_ko.parse(string);
-                System.out.println(parse.toString()); // DEBUG
                 g = interpreter.interpret(parse);
                 manipulator_ko.doSRL(g);
                 t = transformer_ko.constructTemplate(g);
