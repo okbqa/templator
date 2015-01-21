@@ -1,14 +1,13 @@
 package org.okbqa.tripletempeh.pipeline;
 
-import java.io.IOException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.okbqa.tripletempeh.graph.Graph;
 import org.okbqa.tripletempeh.interpreter.Interpreter;
-import org.okbqa.tripletempeh.parsing.ClearNLP;
 import org.okbqa.tripletempeh.parsing.ETRI;
 import org.okbqa.tripletempeh.parsing.Parser;
+import org.okbqa.tripletempeh.parsing.Stanford;
 import org.okbqa.tripletempeh.transformer.rules.RuleEngine;
 import org.okbqa.tripletempeh.template.Template;
 import org.okbqa.tripletempeh.transformer.Graph2Template;
@@ -47,9 +46,7 @@ public class Pipeline {
         interpreter = new Interpreter();
         
         // English
-        try {
-        parser_en      = new ClearNLP();
-        } catch (IOException e) { parser_en = null; }; // TODO
+        parser_en      = new Stanford();
         engine_en      = new RuleEngine("en");
         manipulator_en = new GraphManipulation(engine_en);
         transformer_en = new Graph2Template(engine_en);
@@ -106,6 +103,7 @@ public class Pipeline {
         switch (language) {
             case "en":
                 parse = parser_en.parse(string);
+                System.out.println(parse); // DEBUG
                 g = interpreter.interpret(parse);
                 manipulator_en.doSRL(g);
                 t = transformer_en.constructTemplate(g);

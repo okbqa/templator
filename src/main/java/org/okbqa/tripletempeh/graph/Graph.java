@@ -111,7 +111,9 @@ public class Graph {
     // Build graph
     
     public void addNode(Node n) {
-        nodes.add(n);
+        if (!nodes.contains(n)) {
+             nodes.add(n);
+        }
     }
     public void addEdge(Edge e) {
         edges.add(e);

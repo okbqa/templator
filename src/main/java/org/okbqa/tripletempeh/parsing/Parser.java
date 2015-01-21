@@ -7,6 +7,6 @@ package org.okbqa.tripletempeh.parsing;
 
 public interface Parser {
     
-    String parse(String phrase);
+    String parse(String text);
             
 }

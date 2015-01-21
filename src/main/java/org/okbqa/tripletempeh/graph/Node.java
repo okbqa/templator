@@ -1,5 +1,7 @@
 package org.okbqa.tripletempeh.graph;
 
+import java.util.Objects;
+
 /**
  *
  * @author cunger
@@ -59,7 +61,39 @@ public class Node {
         }
         return (getForm().toLowerCase().equals(n.getForm().toLowerCase()));
     }
+
+    // Equality (automatically generated)
     
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 37 * hash + this.id;
+        hash = 37 * hash + Objects.hashCode(this.form);
+        hash = 37 * hash + Objects.hashCode(this.lemma);
+        hash = 37 * hash + Objects.hashCode(this.POS);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Node other = (Node) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (!Objects.equals(this.form, other.form)) {
+            return false;
+        }
+        if (!Objects.equals(this.POS, other.POS)) {
+            return false;
+        }
+        return true;
+    }
     
     // Show 
     
