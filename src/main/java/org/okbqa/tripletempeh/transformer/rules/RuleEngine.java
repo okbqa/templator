@@ -198,6 +198,9 @@ public class RuleEngine {
                         while  (count_matcher.find()) {
                             // add projection variable with count modifier
                             int projvar = Integer.parseInt(count_matcher.group(1));
+                            if (forward.containsKey(projvar)) {
+                                projvar = forward.get(projvar);
+                            }
                             template.addCountVar(varString(projvar));
                         }
                         // projvar(1)
@@ -206,6 +209,9 @@ public class RuleEngine {
                         while  (projvar_matcher.find()) {
                             // add projection variable
                             int projvar = map.get(Integer.parseInt(projvar_matcher.group(1)));
+                            if (forward.containsKey(projvar)) {
+                                projvar = forward.get(projvar);
+                            }
                             template.addProjVar(varString(projvar));
                         }
                         // triple(1,SORTAL,2)
