@@ -43,6 +43,7 @@ public class RuleEngine {
     public String PROPERTY = "rdf:Property";
     public String CLASS    = "rdf:Class";
     public String RESOURCE = "rdf:Resource";
+    public String RESOURCEorLITERAL = "rdf:Resource|Literal";
     
     // fresh variable counter (see fresh())
     int i = 0; 
@@ -180,7 +181,25 @@ public class RuleEngine {
             switch (rule.getTodoType()) {
                 // mapping rules
                 case "map":
-                    for (String todo : rule.getTodos()) {
+                    String todo;
+                    for (String t : rule.getTodos()) {
+                        todo = t;
+                        // create fresh variables
+                        Pattern fresh_pattern = Pattern.compile("(fresh)");
+                        Matcher fresh_matcher = fresh_pattern.matcher(t);
+                        while  (fresh_matcher.find()) {
+                            int newv = fresh();
+                            map.put(newv,newv);
+                            todo = t.replace(fresh_matcher.group(1),Integer.toString(newv));
+                        }
+                        // projvar(count(1)) 
+                        Pattern count_pattern = Pattern.compile("projvar\\(count\\((\\d+)\\)\\)");
+                        Matcher count_matcher = count_pattern.matcher(todo);
+                        while  (count_matcher.find()) {
+                            // add projection variable with count modifier
+                            int projvar = Integer.parseInt(count_matcher.group(1));
+                            template.addCountVar(varString(projvar));
+                        }
                         // projvar(1)
                         Pattern projvar_pattern = Pattern.compile("projvar\\((\\d+)\\)");
                         Matcher projvar_matcher = projvar_pattern.matcher(todo);
@@ -236,9 +255,16 @@ public class RuleEngine {
                            triples.addTriple(new Triple(Var.alloc(vs),Var.alloc(vp),Var.alloc(vo)));
                            template.addTriples(triples);
                            // add slots
-                           template.addSlot(new Slot(vs,subgraph.getNode(s,true).getForm(),RESOURCE));
-                           template.addSlot(new Slot(vp,subgraph.getNode(p,true).getForm(),PROPERTY));
-                           template.addSlot(new Slot(vo,subgraph.getNode(o,true).getForm(),RESOURCE));
+                           String fs = ""; String fp = ""; String fo = "";
+                           Node ns = subgraph.getNode(s,true);
+                           Node np = subgraph.getNode(p,true);
+                           Node no = subgraph.getNode(o,true);
+                           if (ns != null) { fs = ns.getForm(); }
+                           if (np != null) { fp = np.getForm(); }
+                           if (no != null) { fo = no.getForm(); }
+                           template.addSlot(new Slot(vs,fs,RESOURCE));
+                           template.addSlot(new Slot(vp,fp,PROPERTY));
+                           template.addSlot(new Slot(vo,fo,RESOURCEorLITERAL));
                         }
                         // forward(1->2)
                         Pattern map_pattern = Pattern.compile("forward\\((\\d+)->(\\d+)\\)");

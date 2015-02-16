@@ -20,12 +20,14 @@ public class Template {
     Query query;
     ElementGroup query_body;
     Set<String> projvars;
+    Set<String> countvars;
     Set<Slot> slots;
     
     public Template() {
         query      = QueryFactory.make();
         query_body = new ElementGroup();
         projvars   = new HashSet<>();
+        countvars  = new HashSet<>();
         slots      = new HashSet<>();
     }
     
@@ -58,6 +60,9 @@ public class Template {
     public void addProjVar(String var) {
         projvars.add(var);
     }
+    public void addCountVar(String var) {
+        countvars.add(var);
+    }
     
     // Tests 
     
@@ -76,7 +81,8 @@ public class Template {
         // query body
         query.setQueryPattern(query_body);
         // projection variables
-        query.addProjectVars(projvars);
+        query.addProjectVars(projvars);  
+        query.addProjectVars(countvars); // TODO how to add COUNT modifier?
         // query type
         if (query.getProjectVars().isEmpty()) {
             query.setQueryAskType();

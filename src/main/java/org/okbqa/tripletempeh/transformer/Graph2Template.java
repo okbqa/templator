@@ -38,7 +38,7 @@ public class Graph2Template {
         
         // 2. apply rules
         for (Rule rule : map_rules) {
-            // add edge forms to slot backlist
+            // add edge forms to slot blacklist
              for (Node n : rule.getTarget().getNodes()) {
                  if (!n.getForm().equals("*")) {
                      slot_blacklist.add(n.getForm().toLowerCase());
