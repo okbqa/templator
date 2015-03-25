@@ -243,6 +243,31 @@ public class Graph {
         return matches;
     }
 
+    // Pruning 
+    
+    public void prune() {
+        
+        ArrayList<Edge> edgesToKeep = new ArrayList<>();
+        ArrayList<Node> nodesToKeep = new ArrayList<>();
+        ArrayList<Integer> nodeInts = new ArrayList<>();
+        
+        for (Edge e : edges) {
+             if (e.getColor() != Color.DEPENDENCY) {
+                 edgesToKeep.add(e);
+                 nodeInts.add(e.getHead());
+                 nodeInts.add(e.getDependent());
+             }
+        }
+        
+        edges = edgesToKeep;
+        
+        for (Node n : nodes) {
+             if (nodeInts.contains(n.getId())) {
+                 nodesToKeep.add(n);
+             }
+        }
+        nodes = nodesToKeep;
+    }
     
     // Show 
     

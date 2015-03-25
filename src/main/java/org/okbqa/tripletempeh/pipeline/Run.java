@@ -25,9 +25,7 @@ public class Run {
     public static void test() throws IOException {
         
         List<String> test = Arrays.asList(
-            
-            "{ \"string\": \"In many parts of the world, the influence of television is a matter of increasing concern.\", \"language\":\"en\" }",                
-                
+                           
             "{ \"string\": \"Which rivers flow through Gunsan?\", \"language\":\"en\" }",
 //            "{ \"string\": \"어떤 강이 군산을 흐르는가?\", \"language\":\"ko\" }",
 //            "{ \"string\": \"군산에 흐르는 강은 무엇인가?\", \"language\":\"ko\" }",

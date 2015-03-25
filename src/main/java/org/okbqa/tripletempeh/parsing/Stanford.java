@@ -1,13 +1,15 @@
 package org.okbqa.tripletempeh.parsing;
 
+import edu.stanford.nlp.dcoref.CorefChain;
+import edu.stanford.nlp.dcoref.CorefCoreAnnotations.CorefChainAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.SentencesAnnotation;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.semgraph.SemanticGraph;
 import edu.stanford.nlp.semgraph.SemanticGraphCoreAnnotations.BasicDependenciesAnnotation;
-import edu.stanford.nlp.semgraph.SemanticGraphCoreAnnotations.CollapsedCCProcessedDependenciesAnnotation;
 import edu.stanford.nlp.util.CoreMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 
@@ -36,8 +38,10 @@ public class Stanford implements Parser {
         for (CoreMap sentence: sentences) {
             
             SemanticGraph dependencies = sentence.get(BasicDependenciesAnnotation.class);
-            parse += "\n" + dependencies.toList();
+            parse += dependencies.toList();
         }
+        
+        //Map<Integer,CorefChain> graph = document.get(CorefChainAnnotation.class);
         
         return parse.trim();
     }

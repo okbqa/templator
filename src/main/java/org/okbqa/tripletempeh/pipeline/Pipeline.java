@@ -120,7 +120,7 @@ public class Pipeline {
             System.out.println("------------PARSE----------------");
             System.out.println(parse);
             System.out.println("------------GRAPH----------------");
-            System.out.println(g.toString());
+            System.out.println(g.toString());          
             System.out.println("------------TEMPLATE-------------");
             System.out.println(t.toString()); 
             System.out.println("------------OUTPUT---------------");
