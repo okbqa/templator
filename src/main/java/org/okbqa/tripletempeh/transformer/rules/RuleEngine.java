@@ -6,6 +6,7 @@ import com.hp.hpl.jena.sparql.syntax.ElementTriplesBlock;
 import java.io.FileReader;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +29,7 @@ import org.okbqa.tripletempeh.utils.Pair;
  * @author cunger
  */
 public class RuleEngine {
-    
+       
     String path_SRL;
     String path_map;
     String path_map_common;
@@ -36,7 +37,7 @@ public class RuleEngine {
     List<Rule> SRL_rules;
     List<Rule> map_rules;
         
-    JSONParser parser;
+    JSONParser  parser;
     Interpreter interpreter;
 
     // slot annotations
@@ -63,6 +64,11 @@ public class RuleEngine {
     // Rules 
     
     public List<Rule> SRL_rules() {
+        
+        List<String> types = new ArrayList<>();
+        types.add("arg");
+        types.add("mod");
+        types.add("neg");
                 
         List<Rule> rules = new ArrayList<>();
 
@@ -76,17 +82,19 @@ public class RuleEngine {
             Iterator<JSONObject> iterator = json.iterator();
             while (iterator.hasNext()) {
                    JSONObject j = iterator.next();
-                   String depString = (String) j.get("dep");
-                   String srlString = (String) j.get("srl");
-                   Graph dep = interpreter.interpret(depString);
-                   List<String> srls = new ArrayList<>();
-                   srls.add(srlString);
-                   rules.add(new Rule(dep,srls,"role"));
+                                      
+                   Graph dep = interpreter.interpret((String) j.get("dep"));
+                                                      
+                   for (String type : types) {
+                       if (j.containsKey(type)) {
+                           rules.add(new Rule(dep,new ArrayList<>(Arrays.asList((String) j.get(type))),type));
+                       }
+                   }
             }
         } catch (Exception e) {
             e.printStackTrace(System.out);
         }
-                   
+                
         return rules;
     }
         
@@ -143,41 +151,52 @@ public class RuleEngine {
     // Rule application 
     
     public void apply(Rule rule,Graph graph) {
+                
+        List<Pair<Graph,Map<Integer,Integer>>> matches = rule.getTarget().subGraphMatches(graph);
         
-        Pair<Graph,Map<Integer,Integer>> subgraphmatch = rule.getTarget().subGraphMatch(graph);
-        
-        if (subgraphmatch != null) {
-  
-            Map<Integer,Integer> map = subgraphmatch.getRight();
+        for (Pair<Graph,Map<Integer,Integer>> match : matches) {
+            
+            Map<Integer,Integer> map = match.getRight();
 
-            switch (rule.getTodoType()) {
-                // SRL rules
-                case "role": 
-                    for (String todo : rule.getTodos()) {
-                        Pattern pattern = Pattern.compile("(\\w+)\\((\\d+),(\\d+)\\)");
-                        Matcher matcher = pattern.matcher(todo);
-                        while (matcher.find()) {
-                               String role = matcher.group(1);
-                               int    head = Integer.parseInt(matcher.group(2));
-                               int    depd = Integer.parseInt(matcher.group(3));
-                               graph.addEdge(new Edge(Color.SRL,map.get(head),role,map.get(depd)));
-                        }
-                    }
-                    break;
-           }
+            // SRL rules
+
+            String  todoType = rule.getTodoType();
+                        
+            if (todoType.equals("arg") || todoType.equals("mod") || todoType.equals("neg")) {
+                
+                Color color;
+                switch (todoType) {
+                    case "arg": color = Color.ARG; break;
+                    case "mod": color = Color.MOD; break;
+                    case "neg": color = Color.NEG; break;
+                    default:    color = Color.UNKNOWN; 
+                }
+
+                for (String todo : rule.getTodos()) {    
+                     Pattern pattern = Pattern.compile("(\\w+)\\((\\d+),(\\d+)\\)");
+                     Matcher matcher = pattern.matcher(todo);
+                     while  (matcher.find()) {
+                             String role = matcher.group(1);
+                             int    head = Integer.parseInt(matcher.group(2));
+                             int    depd = Integer.parseInt(matcher.group(3));
+                             graph.addEdge(new Edge(color,map.get(head),role,map.get(depd)));
+                     }
+                     break;
+                }
+            }
         }
     }
     
     public void apply(Rule rule,Graph graph,Template template) {
         
-        Pair<Graph,Map<Integer,Integer>> subgraphmatch = rule.getTarget().subGraphMatch(graph);
+        List<Pair<Graph,Map<Integer,Integer>>> matches = rule.getTarget().subGraphMatches(graph);
         
-        if (subgraphmatch != null && subgraphmatch.getLeft() != null) {
+        for (Pair<Graph,Map<Integer,Integer>> match : matches) {
             
-            Graph subgraph = subgraphmatch.getLeft();
+            Graph subgraph = match.getLeft();
             Map<Integer,Integer> forward = subgraph.getForward();
-            Map<Integer,Integer> map = subgraphmatch.getRight();
-           
+            Map<Integer,Integer> map = match.getRight();
+            
             switch (rule.getTodoType()) {
                 // mapping rules
                 case "map":

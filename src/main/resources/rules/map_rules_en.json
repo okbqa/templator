@@ -8,7 +8,7 @@
         "action": [ "projvar(1)",
                     "forward(2->1)" ]
     },
-    {   "struct": [ "det(*-2,which-1) \n #SRL#(*-3,*-2)" ],
+    {   "struct": [ "det(*-2,which-1) \n #ARG#(*-3,*-2)" ],
         "action": [ "projvar(1)",
                     "triple(1,SORTAL,2)",
                     "forward(2->1)" ]
@@ -19,7 +19,7 @@
                     "delete" ]
     },
     
-    {   "struct": [ "#SRL#(list-1,*-2)" ],
+    {   "struct": [ "#ARG#(list-1,*-2)" ],
         "action": [ "projvar(2)" ]
     },
     {   "struct": [ "advmod(many-2,how-1) \n amod(*-3,many-2)" ],

@@ -6,5 +6,5 @@ package org.okbqa.tripletempeh.graph;
  */
 public enum Color {
     
-    DEPENDENCY, SRL
+    DEPENDENCY, COREF, ARG, MOD, NEG, UNKNOWN
 }

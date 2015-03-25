@@ -6,12 +6,12 @@
     {   "struct": [ "SBJ(누구인가-2,*-1)" ],
         "action": [ "projvar(1)" ]
     },
-    {   "struct": [ "UNSPECIFIED(*-2,어떤-1) \n #SRL#(*-3,*-2) " ],
+    {   "struct": [ "UNSPECIFIED(*-2,어떤-1) \n #ARG#(*-3,*-2) " ],
         "action": [ "projvar(1)",
                     "triple(1,SORTAL,2)",
                     "forward(2->1)" ]
     },
-    {   "struct": [ "SBJ(무엇인가-1,*-2) \n #SRL#(*-2,*-3) " ],
+    {   "struct": [ "SBJ(무엇인가-1,*-2) \n #ARG#(*-2,*-3) " ],
         "action": [ "projvar(1)",
                     "triple(1,SORTAL,2)",
                     "forward(2->1)" ]

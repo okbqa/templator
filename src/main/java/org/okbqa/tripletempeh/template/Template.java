@@ -16,19 +16,22 @@ import org.json.simple.JSONObject;
  * @author cunger
  */
 public class Template {
+       
+    Set<String>  projvars;
+    Set<String>  countvars;
+
+    ElementGroup body;
+    Set<Slot>    slots;
     
-    Query query;
-    ElementGroup query_body;
-    Set<String> projvars;
-    Set<String> countvars;
-    Set<Slot> slots;
+    Query        query; // constructed by assemble()
+    
     
     public Template() {
-        query      = QueryFactory.make();
-        query_body = new ElementGroup();
         projvars   = new HashSet<>();
         countvars  = new HashSet<>();
+        body       = new ElementGroup();        
         slots      = new HashSet<>();
+        query      = QueryFactory.make();
     }
     
     public Template(Query q, Set<Slot> s) {
@@ -54,7 +57,7 @@ public class Template {
     }
     
     public void addTriples(ElementTriplesBlock triples) {
-        query_body.addElement(triples);
+        body.addElement(triples);
     }
     
     public void addProjVar(String var) {
@@ -79,7 +82,7 @@ public class Template {
     
     public void assemble(List<String> slot_blacklist) {
         // query body
-        query.setQueryPattern(query_body);
+        query.setQueryPattern(body);
         // projection variables
         query.addProjectVars(projvars);  
         query.addProjectVars(countvars); // TODO how to add COUNT modifier?
