@@ -1,4 +1,3 @@
-package org.okbqa.tripletempeh.main;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -7,13 +6,13 @@ import java.util.Scanner;
 import org.json.simple.JSONArray;
 import org.okbqa.tripletempeh.pipeline.TemplatorPipeline;
 
+
 /**
  *
  * @author cunger
  */
-
-public class Run {
-
+public class TemplatorTest {
+    
     /**
      * @param args the command line arguments
      * @throws java.io.IOException
@@ -67,7 +66,7 @@ public class Run {
 //                "Who is the person born in Daegu, a founder of Man of Korea and committed suicide by jumping from the Mapo Bridge?"
                 
         TemplatorPipeline pipeline = new TemplatorPipeline("en",true);
-        Scanner  scanner  = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         
         for (String question : test_en) {
             
@@ -80,6 +79,5 @@ public class Run {
             }
         }
     }
-    
     
 }

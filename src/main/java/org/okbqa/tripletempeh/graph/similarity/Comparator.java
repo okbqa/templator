@@ -17,10 +17,10 @@ import org.okbqa.tripletempeh.graph.Node;
 public class Comparator {
     
     Word2Vec word2vec;
-    String googlebin = new File("GoogleNews-vectors-negative300.bin").getAbsolutePath();
+    String googlebin = new File("src/main/resources/models/GoogleNews-vectors-negative300.bin").getAbsolutePath();
     
     public Comparator() throws IOException { 
-        
+                
         word2vec = WordVectorSerializer.loadGoogleModel(googlebin,true);
     }
     
