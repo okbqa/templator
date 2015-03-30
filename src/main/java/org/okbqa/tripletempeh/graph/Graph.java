@@ -128,6 +128,26 @@ public class Graph {
         forward = m;
     }
     
+    public void merge(Graph other) {
+        
+        Map<Integer,Integer> renaming = new HashMap<>();
+        
+        int max = this.getMaxId() + 1;
+        
+        for (Node n : other.getNodes()) {
+             renaming.put(n.getId(),max);
+             n.setId(max);
+             this.addNode(n);
+             max++;
+        }
+        for (Edge e : other.getEdges()) {
+             e.setHead(renaming.get(e.getHead()));
+             e.setDependent(renaming.get(e.getDependent()));
+             this.addEdge(e);
+        }
+        
+    }
+    
     // Manipulate graph 
     
     public void deleteNode(Node n) {

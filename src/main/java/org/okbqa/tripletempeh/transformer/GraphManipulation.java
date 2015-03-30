@@ -14,9 +14,9 @@ public class GraphManipulation {
     RuleEngine engine;
     List<Rule> SRL_rules;
     
-    public GraphManipulation(RuleEngine e) {
+    public GraphManipulation(String language) {
         
-        engine    = e;
+        engine    = new RuleEngine(language);
         SRL_rules = engine.SRL_rules();
     }
     

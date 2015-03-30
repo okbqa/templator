@@ -18,8 +18,9 @@ public class Main {
     // Base URI the Grizzly HTTP server will listen on
     public static final URI BASE_URI = URI.create(host+"templategeneration/");
     
-    // Init template generation pipeline
-    public static final Pipeline pipeline = new Pipeline(false);
+    // Init template generation pipeline (one for each language)
+    public static final Pipeline pipeline_en = new Pipeline("en",false,true);
+    public static final Pipeline pipeline_ko = new Pipeline("ko",false,true);
     
     /**
      * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.

@@ -20,9 +20,9 @@ public class Graph2Template {
     List<Rule> map_rules;
     List<String> slot_blacklist;
         
-    public Graph2Template(RuleEngine e) {
+    public Graph2Template(String language) {
 
-        engine = e;
+        engine = new RuleEngine(language);
         map_rules = engine.map_rules();
         slot_blacklist = new ArrayList<>();
     }

@@ -24,27 +24,26 @@ public class Run {
     
     public static void test() throws IOException {
         
-        List<String> test = Arrays.asList(
-                           
-            "{ \"string\": \"Which rivers flow through Gunsan?\", \"language\":\"en\" }",
-//            "{ \"string\": \"어떤 강이 군산을 흐르는가?\", \"language\":\"ko\" }",
-//            "{ \"string\": \"군산에 흐르는 강은 무엇인가?\", \"language\":\"ko\" }",
+        List<String> test_en = Arrays.asList(
+                
+            "John has a nice black cat. It often lies on his sofa and sleeps.",      
+            "Which rivers flow through Gunsan?",
+            "What is the capital of Korea?",
+            "Who is the founder of Google?",
+            "List all cities in Korea.",
+            "How high is Hallasan?",
+            "How many students does KAIST have?" );
             
-            "{ \"string\": \"What is the capital of Korea?\", \"language\":\"en\" }",
-//            "{ \"string\": \"한국의 수도는 무엇인가?\", \"language\": \"ko\" }",
-            
-            "{ \"string\": \"Who is the founder of Google?\", \"language\":\"en\" }",
-//            "{ \"string\": \"구글의 설립자는 누구인가?\", \"language\":\"ko\" }",
-            
-            "{ \"string\": \"List the cities in Korea.\", \"language\": \"en\" }",
-//            "{ \"string\": \"대한민국에 있는 도시를 나열하라\", \"language\":\"ko\" }",
-//            "{ \"string\": \"대한민국의 도시를 나열하라\", \"language\":\"ko\" }",
-
-            "{ \"string\": \"How high is Hallasan?\", \"language\":\"en\" }",
-//            "{ \"string\": \"한라산은 얼마나 높은가?\", \"language\":\"ko\" }",
-        
-            "{ \"string\": \"How many students does KAIST have?\", \"language\":\"en\" }"
-//            "{ \"string\": \"카이스트는 얼마나 많은 학생이 있는가?\", \"language\":\"ko\" }"
+        List<String> test_ko = Arrays.asList(
+                
+            "어떤 강이 군산을 흐르는가?",
+            "군산에 흐르는 강은 무엇인가?",         
+            "한국의 수도는 무엇인가?",
+            "구글의 설립자는 누구인가?",
+            "대한민국에 있는 도시를 나열하라",
+            "대한민국의 도시를 나열하라",
+            "한라산은 얼마나 높은가?",
+            "카이스트는 얼마나 많은 학생이 있는가?" );
                 
 //          // OKBQA sample questions
 //                "What is the name of national high educational organization in the Goryeo Dynasty?",
@@ -65,12 +64,11 @@ public class Run {
 //                "List the subtitle of Harry Potter, the main novel of J.K. Rowling.",
 //                "What is the name of government office in the Goryeo and Joseon Dynasty to undertake Astronomy and Geography?",
 //                "Who is the person born in Daegu, a founder of Man of Korea and committed suicide by jumping from the Mapo Bridge?"
-                );
                 
-        Pipeline pipeline = new Pipeline(true);
+        Pipeline pipeline = new Pipeline("en",true,true);
         Scanner  scanner  = new Scanner(System.in);
         
-        for (String question : test) {
+        for (String question : test_en) {
             
             JSONArray output = pipeline.run(question);
                         

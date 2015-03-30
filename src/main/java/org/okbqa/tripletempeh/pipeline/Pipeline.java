@@ -5,9 +5,10 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.okbqa.tripletempeh.graph.Graph;
 import org.okbqa.tripletempeh.interpreter.Interpreter;
-import org.okbqa.tripletempeh.parsing.ETRI;
-import org.okbqa.tripletempeh.parsing.Parser;
-import org.okbqa.tripletempeh.parsing.Stanford;
+import org.okbqa.tripletempeh.processing.Processor;
+import org.okbqa.tripletempeh.processing.parsing.ETRI;
+import org.okbqa.tripletempeh.processing.parsing.Parser;
+import org.okbqa.tripletempeh.processing.parsing.Stanford;
 import org.okbqa.tripletempeh.transformer.rules.RuleEngine;
 import org.okbqa.tripletempeh.template.Template;
 import org.okbqa.tripletempeh.transformer.Graph2Template;
@@ -20,114 +21,66 @@ import org.okbqa.tripletempeh.transformer.GraphManipulation;
 public class Pipeline {
         
     Interpreter       interpreter;
-    
-    // English
-    Parser            parser_en;
-    RuleEngine        engine_en;
-    GraphManipulation manipulator_en;
-    Graph2Template    transformer_en;
-
-    // Korean
-    Parser            parser_ko;
-    RuleEngine        engine_ko;
-    GraphManipulation manipulator_ko;
-    Graph2Template    transformer_ko;
+    Processor         processor; 
+    GraphManipulation manipulator;
+    Graph2Template    transformer;
     
     boolean verbose;
+    boolean template;
     
-    public Pipeline() {
-        this(true);
+    public Pipeline(String language) {
+        this(language, true, true);
     }
     
-    public Pipeline(boolean b) {
+    public Pipeline(String language, boolean v, boolean t) {
       
-        verbose  = b;
+        verbose  = v;
+        template = t;
           
-        interpreter = new Interpreter();
-        
-        // English
-        parser_en      = new Stanford();
-        engine_en      = new RuleEngine("en");
-        manipulator_en = new GraphManipulation(engine_en);
-        transformer_en = new Graph2Template(engine_en);
-        
-        // Korean 
-        parser_ko      = new ETRI();
-        engine_ko      = new RuleEngine("ko");        
-        manipulator_ko = new GraphManipulation(engine_ko);
-        transformer_ko = new Graph2Template(engine_ko);
+        processor   = new Processor(language);
+        manipulator = new GraphManipulation(language);
+        transformer = new Graph2Template(language);
     }
     
  
     public JSONArray run(String input) {
         
-        try {
-            // parse input JSON string
-            JSONParser jsonparser = new JSONParser();
-            JSONObject json = (JSONObject) jsonparser.parse(input);
-            
-            String string   = (String) json.get("string");
-            String language = (String) json.get("language");
-            
-            // process
-            Template template = process(string,language);
-            
-            // return ouput as JSON object
-            JSONArray output = new JSONArray();
-            output.add(template.toJSON());
-            
-            return output;
-        } 
-        catch (Exception e) {
-            e.printStackTrace(System.out);
-            return null;
-        }
-    }
-    
-    public Template process(String string,String language) {
+        JSONArray output = new JSONArray();
         
-        // 1. Parse 
-        // 2. Reading: Parse -> Graph
-        // 3. Semantic role labeling
-        // 4. Mapping: Graph -> Template       
+        // 1. Processing (sentence splitting,dependency parsing) :: String -> Graph
+        // 2. Semantic role labeling :: Graph -> Graph
+        // 3. Mapping :: Graph -> Template 
         
         if (verbose) {
             System.out.println("------------INPUT----------------");
-            System.out.println(string);
+            System.out.println(input);
         }
         
-        String parse = null;
-        Graph g      = null;
-        Template t   = null;
+        Graph g = processor.process(input);
+        manipulator.doSRL(g);
         
-        switch (language) {
-            case "en":
-                parse = parser_en.parse(string);
-                System.out.println(parse); // DEBUG
-                g = interpreter.interpret(parse);
-                manipulator_en.doSRL(g);
-                t = transformer_en.constructTemplate(g);
-                break;
-            case "ko":
-                parse = parser_ko.parse(string);
-                g = interpreter.interpret(parse);
-                manipulator_ko.doSRL(g);
-                t = transformer_ko.constructTemplate(g);
-                break;
-        }
-                   
         if (verbose) {
-            System.out.println("------------PARSE----------------");
-            System.out.println(parse);
             System.out.println("------------GRAPH----------------");
-            System.out.println(g.toString());          
-            System.out.println("------------TEMPLATE-------------");
-            System.out.println(t.toString()); 
-            System.out.println("------------OUTPUT---------------");
-            System.out.println(t.toJSON().toJSONString());
+            System.out.println(g.toString());  
         }
-         
-        return t;
+        
+        if (template) {
+        
+            Template t = transformer.constructTemplate(g);
+            output.add(t.toJSON());
+        
+            if (verbose) {
+                System.out.println("------------TEMPLATE-------------");
+                System.out.println(t.toString()); 
+                System.out.println("------------JSON-----------------");
+                System.out.println(t.toJSON().toJSONString());
+            }
+        }
+        else {
+            output.add(g.toString());
+        }
+    
+        return output;
     }
     
 }

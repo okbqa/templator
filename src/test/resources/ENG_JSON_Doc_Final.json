@@ -1,0 +1,2000 @@
+{
+	"name":"OKBQA2015 English Benchmark",
+	"version":"2",
+	"date":"2015-01-08",
+	"author":"Sejin Nam",
+	"email":"namsejin@kaist.ac.kr",
+	"questions":{
+		"Q1":{
+			"answer":"4. 18",
+			"question":"The South Korean district courts are responsible for the first trial of criminal and civil suits. How many district courts are there in South Korea?  1. 15  2. 16  3. 17  4. 18",
+			"type":"What"
+		},
+		"Q2":{
+			"answer":"Battle of Myeongnyang",
+			"question":"13 Korean navy vessels commanded by Admiral Yi Sun-sin defeated 133 Japanese navy vessels at Myeongryang. This battle occurred in 1597, the 30th year of the reign of King Seonjo of Joseon, during the Japanese invasions of Korea (1592?98). What is the name of this naval warfare?",
+			"type":"What"
+		},
+		"Q3":{
+			"answer":"2009",
+			"question":"In what year did former president of South Korea Roh Moo-hyun pass away?",
+			"type":"When"
+		},
+		"Q4":{
+			"answer":"2000",
+			"question":"Former South Korean president Kim Dae-jung was the first Korean to win the Nobel Peace Prize for his efforts to establish democracy and human rights in Korea and East Asia. In what year did he win the prize?",
+			"type":"When"
+		},
+		"Q5":{
+			"answer":"October 21, 1994",
+			"question":"The upper trusses of the Seongsu Bridge over the Han River in South Korea's capital, Seoul, gave way and caused the bridge to collapse. When did this happen?",
+			"type":"When"
+		},
+		"Q6":{
+			"question":"This work was begun in 1794 during the reign of King Jeongjo of late Joseon and completed on September 10, 1796. What is this? Why is this considered to be important in contemporary times?",
+			"sub-questions":[{
+				"answer":"Hwaseong Fortress",
+				"question":"This work was begun in 1794 during the reign of King Jeongjo of late Joseon and completed on September 10, 1796. What is this?",
+				"type":"What"
+			},{
+				"answer":"The reason why Hwaseong Fortress is considered to be important in contemporary times is because the Fortress with its scientific, rational and practical structures not only includes the function of military defense but the commercial function as well. Hwaseong Fortress can be called the finest among the fortresses in Asia.",
+				"question":"This work was begun in 1794 during the reign of King Jeongjo of late Joseon and completed on September 10, 1796. Why is this considered to be important in contemporary times?",
+				"type":"Why"
+			}]
+		},
+		"Q7":{
+			"answer":"Wongaksa(원각사(圓覺社))",
+			"question":"The first national theater, Hyopyulsa, was completed in 1902. After closing in 1906, Hyopyulsa was used as a club for government officials. Lee In-jik (이인직(李人稙)) acquired ownership of this building and built his own theater where he hosted dramatized performances of his book, Eunsaegae, and carried out a play modernization movement. What is the name of this theater built by Lee In-jik in 1908?",
+			"type":"What"
+		},
+		"Q8":{
+			"answer":"DINKY",
+			"question":"This new type of family started to appear in the United States in the 1990s. In these families, married couples who both have jobs do not want to have a child or children. What is the term used to refer to these families?",
+			"type":"What"
+		},
+		"Q9":{
+			"answer":"Moratorium (law)",
+			"question":"When war, natural disasters or economic depression cause chaos in the economy and make performance of debts difficult, a country may delay or suspend performance of debts. What is this called?",
+			"type":"What"
+		},
+		"Q10":{
+			"answer":"4. Mozilla Foundation - Xiph.Org",
+			"question":"Of the following, in which is each foundation not matched properly with the project or software that it supports?  1. Free Software Foundation - GNU Project  2. Eclipse Foundation - Eclipse  3. Linux Foundation - Linux  4. Mozilla Foundation - Xiph.Org",
+			"type":"What"
+		},
+		"Q11":{
+			"answer":"Jokgu",
+			"question":"‘This’ is the only modern ball game created in South Korea. Its roots lie in the armed forces lowering the net in a volleyball court to make the game easier to play. What is the name of this sport?",
+			"type":"What"
+		},
+		"Q12":{
+			"answer":"Princess Deokhye",
+			"question":"This person was born a princess between Emperor Gojong and the noblewoman Yang, and was known as the last princess of Joseon. She was forcibly taken to Japan in 1925, and entered into a marriage of convenience at the age of 19 with the head of the family of the feudal lord of Tsushima. She led a tragic life until she returned to Korea in 1962.  Who was this person?",
+			"type":"Who"
+		},
+		"Q13":{
+			"answer":"3. United Kingdom - Margaret Thatcher",
+			"question":"The following are some of the countries and commanders that participated in World War II. Which one of the following is NOT properly matched?  1. Germany - Adolf Hitler   2. United States - Franklin D. Roosevelt  3. United Kingdom - Margaret Thatcher",
+			"type":"What"
+		},
+		"Q14":{
+			"answer":"Voyager 1",
+			"question":"‘This’ is the most distant unmanned spacecraft ever launched by humanity, currently outside the solar system and continuing to extend its own record. What is the name of this unmanned solar system exploration spacecraft launched by the United States in 1977?",
+			"type":"What"
+		},
+		"Q15":{
+			"answer":"Kim Yushin",
+			"question":"This person helped King Muyeol and King Munmu in the reunification war of Silla. Serving five kings from King Jinpyeong to King Munmu, this person became a central personality in the government of Silla, and was the only royal advisor ever to be appointed king after his death. In recognition of his contribution to the coming of power of King Muyeol, as well as to Silla's war of reunification, he was honored as King Heungmu after his death, despite not being a member of royalty. What is the name of this person?",
+			"type":"Who"
+		},
+		"Q16":{
+			"answer":"① Saudi Arabia",
+			"question":"Mecca was the birthplace of the Muslim prophet Muhammad, and is the most holy land in Islam. Where is 'Mecca' located?  ① Saudi Arabia ② Israel ③ India ④ Iraq",
+			"type":"Where"
+		},
+		"Q17":{
+			"answer":"Green politics",
+			"question":"This political philosophy has its roots in environmentalism, and considers grassroots democracy the most important aspect in resolving environmental issues. What is this political philosophy called?",
+			"type":"What"
+		},
+		"Q18":{
+			"answer":"Domino theory",
+			"question":"What is the theory that the strong ripples of the collapse of the political system in one country reach neighboring countries as well?",
+			"type":"What"
+		},
+		"Q19":{
+			"answer":"Nogeup(녹읍(祿邑))",
+			"question":"What is the name of the policy which allowed civil servants from the Silla Dynasty to Early Goryeo to collect taxes as their salary?",
+			"type":"What"
+		},
+		"Q20":{
+			"answer":"Nongae",
+			"question":"Who do the following bring to mind?  - Seduced a Japanese general at the Second Battle of Jinju Fort during the Japanese invasions of Korea (1592?98), and jumped in the Namgang River, taking the general with her.  - The name she is known by, which means \"person who is good with words,\" is thought to have been given to her by the Japanese troops during the Japanese invasions of Korea (1592?98).",
+			"type":"Who"
+		},
+		"Q21":{
+			"answer":"Bloc economy",
+			"question":"This term was introduced in the Economic Conference of the British Empire hosted in Ottawa in 1932, referring to an economic zone that unites several national economies into one and adopts trade policies that blockade other regions. What is this term?",
+			"type":"What"
+		},
+		"Q22":{
+			"answer":"Multinational corporation",
+			"question":"What is the term referring to a company that conducts business over the world in multiple countries, without being based in a single country?",
+			"type":"What"
+		},
+		"Q23":{
+			"answer":"Ridge",
+			"question":"( ) is a term referring to a landform where the peaks of mountains or hills are connected in a series. This refers to the spine of a mountain range. 'This' has been the official term for this landform since 1997.",
+			"type":"What"
+		},
+		"Q24":{
+			"answer":["NIMBY", "PIMFY"],
+			"answer_criteria":"and",
+			"question":"What are two phenomena of regional egoism?",
+			"type":"What"
+		},
+		"Q25":{
+			"answer":"NIMBY",
+			"question":"‘This’ refers to the selfish act of opposing matters that are beneficial to the public good but not to one's own region. The English expression, \"not in my backyard,\" is used to describe this social phenomenon. People with 'this' are opposed to waste incineration plants, facilities for the disabled, facilities for the homeless, airports, crematoriums, prisons and other facilities that may cause real estate prices to drop in their neighborhoods.  What is the name of this social phenomenon?",
+			"type":"What"
+		},
+		"Q26":{
+			"answer":"Emperor Taizong of Tang",
+			"question":"This ruler is often compared to Emperor Kangxi of the Qing Dynasty, and his reign was also referred to as the Prosperity of Zhenguan. Who is this person, who is considered the greatest rulers of all the emperors of China? ",
+			"type":"Who"
+		},
+		"Q27":{
+			"answer":"Damjing",
+			"question":"Who do the following bring to mind?  - Drew the Murals in the Main Hall of Horuji Temple, which are among the three greatest works of fine art in the Eastern world.  - The person who taught the Japanese painting methods and paper, inkstick and millstone production methods.",
+			"type":"Who"
+		},
+		"Q28":{
+			"answer":"1. Daniel Kahneman",
+			"question":"This psychologist and economist, father of \"behavioral economics,\" was awarded the Nobel Memorial Prize in Economic Sciences. Who is this person?  1. Daniel Kahneman  2. Adam Smith  3. Karl Marx  4. Max Weber",
+			"type":"Who"
+		},
+		"Q29":{
+			"answer":"John Keynes",
+			"question":"This economist attributed the Great Depression to a shortage in effective demand. He claimed that direct intervention by the government to create demand would resolve the crisis. Who was this economist?",
+			"type":"Who"
+		},
+		"Q30":{
+			"answer":"N?rburgring",
+			"question":"What is the name of this long circuit located in Nurburg, in the central west region of Germany, which is commonly called the \"Holy land of motor racing?\"",
+			"type":"Where"
+		},
+		"Q31":{
+			"answer":"3. Cabinet meeting",
+			"question":"What is the name of the independent consensus organization which is NOT subordinate to the Presidency, and is responsible for reviewing key policies under government authority?  1. Judiciary branch 2. Legislature 3. Cabinet meeting",
+			"type":"What"
+		},
+		"Q32":{
+			"answer":"New Deal",
+			"question":"Economic stimulation policy implemented by President Franklin D. Roosevelt of the United States to overcome crisis theory(經濟恐慌). This included increased government control of banks, adoption of a manged currency, and agricultural production caps. What is the name of this policy?",
+			"type":"What"
+		},
+		"Q33":{
+			"answer":"Troposphere",
+			"question":"‘This’ refers to the lowest layer of the atmosphere surrounding the earth. This layer is characterized by decreasing temperatures with increasing altitude, a characteristic which sets it apart from the stratosphere. What is the name of this layer, where meteorological phenomena such as the formation of clouds, precipitation or wind occur?",
+			"type":"Where"
+		},
+		"Q34":{
+			"answer":"Korean Patriotic Young Men's Association (대한애국청년당(大韓愛國靑年團))",
+			"question":"What is the name of the Korean secret society formed in 1945 with Yu Man-su (유만수(柳萬秀)) as its first chairman?",
+			"type":"What"
+		},
+		"Q35":{
+			"answer":"Korea National Ballet",
+			"question":"This organization was established as an independent ballet from the National Dance Company of Korea in 1974, and is currently located in the Opera House at the Seoul Arts Center. What is the name of this ballet company?",
+			"type":"What"
+		},
+		"Q36":{
+			"answer":"Korean Self-strengthening Society (대한자강회(大韓自强會))",
+			"question":"This group was founded by Jang Ji Yeon, Yon Hyo Jeong and 20 others in Seoul. The group aimed to promote national education and increase productivity, enhancing national prosperity(殖産) and military power to lay the foundation for independence. The group, which conducted in-depth research into the need to promote productivity, the intent behind the Japanese occupation's cultivation of the wilderness, the need for land improvement and indigenous seed development, instigated an enlightenment movement by publishing monthly newsletters. The organization also resolved to participate actively in the National Dept Repayment Movement. What is the name of this organization?",
+			"type":"What"
+		},
+		"Q37":{
+			"question":"Describe the responsibilities of this organization, which was founded by combining the Ministry of Finance and Economy and Ministry of Planning and Budget on February 29, 2008.",
+			"sub-questions":[{
+				"answer":"Ministry of Strategy and Finance",
+				"question":"What is the name of this organization, which was founded by combining the Ministry of Finance and Economy and Ministry of Planning and Budget on February 29, 2008?",
+				"type":"What"
+			},{
+				"answer":"Ministry of Strategy and Finance is responsible for :  1. Planning and coordination of the mid- to long-term socio-economic development goals and setting economic policy direction on an annual basis  2. Distributing resources effectively and assessing the effectiveness of budget execution  3. Planning/reforming Korea's tax policy and system  4. Planning and management of policies for treasury, government properties, government accounting and the national debt  5. Coordination of policies for foreign currency transactions and international finance  6. Enhancement of international cooperation and promotion of inter-Korean economic exchanges and cooperation  7. Management and monitoring of public institutions' operation",
+				"question":"Describe the responsibilities of this organization, which was founded by combining the Ministry of Finance and Economy and Ministry of Planning and Budget on February 29, 2008.",
+				"type":"What"
+			}]
+		},
+		"Q38":{
+			"answer":"Supreme Prosecutor's Office of South Korea (대한민국 대검찰청 (大?民? 大檢察廳))",
+			"question":"This organization launched on August 2, 1948 conducts prosecutors' prosecution tasks, investigates various cases, and commends and supervises Supreme Prosecutors' Office as Korean central administrative agency. What is the name of this organization located at 157, Banpodae-ro,  Seocho-gu, Seoul City?",
+			"type":"What"
+		},
+		"Q39":{
+			"answer":"National Tax Service of South Korea (대한민국 국세청 (大?民? 國稅廳))",
+			"question":"What is the name of Korean central administrative agency controlling reduction or exemption, of collection of inland taxation administration?",
+			"type":"What"
+		},
+		"Q40":{
+			"answer":"Ministry of Oceans and Fisheries",
+			"question":"What is the name of this organization, which controls administration about marine policy, marine environment, and maritime safety tribunal as one of Korean central administrative agencies, rebuilt in 2013 after closed in 2008?",
+			"type":"What"
+		},
+		"Q41":{
+			"answer":"Turtle ship",
+			"question":"( ) is warship in the Goryeo and Joseon Dynasty period. Ever since it was built by the Admiral Yi Sun-sin, commander of the navy just before the Imjin Conflict and launched to participate in the Battle of Sacheon during the Imjin conflict, it became the pronunciation of fear to Japanese Naval forces. ",
+			"type":"What"
+		},
+		"Q42":{
+			"answer":"Gerrymandering",
+			"question":"It came from that the shape of an electoral district looked like Korean salamander in the election of a legislator of the upper house in Massachusetts state, America in 1812. What is the term referring to intentionally setting an electoral district in favor of a specific political party or candidate?",
+			"type":"What"
+		},
+		"Q43":{
+			"answer":["Kim Ok-gyun", "Park Yeong-hyo", "Seo Jae-pil", "Soh Kwang-pom", "Hong Yeong-sik (홍영식(洪英植))"],
+			"answer_criteria":"or",
+			"question":"State the names of people leading the Gapsin Coup.",
+			"type":"Who"
+		},
+		"Q44":{
+			"answer":"Geojunggi(거중기(擧重器))",
+			"question":"‘This’ was designed by Jeong Yak-yong and used in building Hwaseong Fortress in 1792. It is a device to lift up heavy objects with little force by using the principle of pulley. What is the name of the machine?",
+			"type":"What"
+		},
+		"Q45":{
+			"answer":"Gang Gam-chan",
+			"question":"Who do the following bring to mind?  [The general officer in the Goryeo Dynasty period/ the general with civil service experience / the Battle of Guju]",
+			"type":"Who"
+		},
+		"Q46":{
+			"answer":"Enlightenment Party",
+			"question":"What is the name of the organization which key people of the Gapsin Coup i.e., Kim Ok-gyun, Park Yeong-hyo, Seo Jae-pil, Soh Kwang-pom and Hong Yeong-sik belonged to?",
+			"type":"What"
+		},
+		"Q47":{
+			"answer":"Geonwonjungbo(건원중보(乾元重寶))",
+			"question":"What is the Korean first currency, which had been first minted in the Tang Dynasty?",
+			"type":"What"
+		},
+		"Q48":{
+			"answer":"Macroeconomics",
+			"question":"This field is one of Economics. What is the name of this field  in which the interrelation between determinants of the variables influencing general economy, such as GNI (the Gross National Income), prices, unemployment, exchange rate and balance of payments, and these variables, the theory of economic growth explaining change in GNI and the theory of the business cycle related to unemployment in short-term are studied through the analysis of national economic phenomena shown by the interaction result of all economic agents?",
+			"type":"What"
+		},
+		"Q49":{
+			"answer":"Gyeongju Janghang-ri Historic Site (경주 장항리 사지 (慶州獐項里寺址))",
+			"question":"What is the name of a historic site, which is a temple site of the Silla Dynasty at Janghang-ri, Yangbuk-myeon, Gyeongju-si, Gyeongsangbukdo, designated as Korean historic site no. 45?",
+			"type":"What"
+		},
+		"Q50":{
+			"answer":"Japan?Korea Treaty of 1876",
+			"question":"What is the name of this unequal treaty made between representatives of the Empire of Japan and the Joseon Kingdom in 1876 under Japanese oppression? This treaty is also called the Japan-Korea Treaty of Amity in Japanese or Treaty of Ganghwa Island in Korean.",
+			"type":"What"
+		},
+		"Q51":{
+			"answer":"Kyerim Yusa (계림유사(鷄林類事))",
+			"question":"It is an encyclopedia written by Son Mok of the Northern Song. When the writer stayed in Kaeseong as Seojanggwan(서장관(書狀官)) during the reign of King Sukjong of Goryeo, he explained the language spoken by the Goryeo people at that time (11~12 c) by selecting 353 expressions. What is the name of this encyclopedia that has become valuable data in the study of language of the Goryeo Dynasty?",
+			"type":"What"
+		},
+		"Q52":{
+			"answer":"St. Petersburg paradox",
+			"question":"What is the term used to refer to the paradox occurred in making decision due to the difference of meaning of expected value in Economics?",
+			"type":"What"
+		},
+		"Q53":{
+			"answer":"G Generation (G세대(G世代))",
+			"question":"This term refers to the generation born before and after Seoul Olympics in 1988 and stated to use through a special article of the 80th anniversary of the publication of Chosun Ilbo. What is the term used to refer to the generation, which is evaluated to have a global mind, self-confidence, foreign language skill and computer skill?",
+			"type":"What"
+		},
+		"Q54":{
+			"answer":"1. Port Hamilton",
+			"question":"Among the following, which is NOT the island that Sambyeolcho moved while resisting against Mongolia?  1. Port Hamilton 2. Jindo 3. Jejudo",
+			"type":"Where"
+		},
+		"Q55":{
+			"answer":"O",
+			"question":"Seoul National University Hospital was launched as an annex clinic of the medical department of Keij? University, which was amended from Keij? Imperial University by US army military government in Korea. If it is correct, O, and if not, X.",
+			"type":"What"
+		},
+		"Q56":{
+			"answer":"4. Uzbekistan",
+			"question":"Which country does NOT belong to G20?  1. South Korea  2. Japan  3. India  4. Uzbekistan",
+			"type":"Where"
+		},
+		"Q57":{
+			"answer":"Seokguram",
+			"question":"What is the name of this cave, which was designated as World Heritage Site by the UNESCO in 1995, with Bulguksa, by recognized its architectural, mathematical, geometrical, religious, artistic value and unique beauty of construction?",
+			"type":"Where"
+		},
+		"Q58":{
+			"answer":"Free Software Foundation (FSF)",
+			"question":"What is the name of a charity group built by Richard Stallman to support GNU project philosophically, legally and financially?",
+			"type":"What"
+		},
+		"Q59":{
+			"answer":"British Petroleum (BP)",
+			"question":"What is the name of the world 3rd biggest and the UK biggest multinational energy enterprise?",
+			"type":"What"
+		},
+		"Q60":{
+			"answer":"University of Seoul",
+			"question":"( ) is a 4-year public university belonging to Seoul Metropolitan Government, opening the school with the name of Gyeongseong Public Agricultural School in1918. What is the name of the school in the above blank?",
+			"type":"What"
+		},
+		"Q61":{
+			"answer":"Free Trade Agreement (FTA)",
+			"question":"What is the name of a treaty to remove all trade barriers for free movement of goods among nations?",
+			"type":"What"
+		},
+		"Q62":{
+			"answer":"(3) Ireland  (5) Netherlands",
+			"question":"Select TWO countries having NOT held the World Cup.  (1) Italy (2) Sweden (3) Ireland (4) Switzerland (5) Netherlands (6) Spain",
+			"type":"Where"
+		},
+		"Q63":{
+			"answer":"SOHO",
+			"question":"What is ‘this’, which is the common English abbreviation explained by below each?  - ‘This’ referring to a small company which 1~10 people are working.  - ‘This’ referring to a satellite launched to study the sun in December 1995.  - ‘This’ referring to a district of Manhattan, New York, meaning to ‘the south of Houston Street’.",
+			"type":"What"
+		},
+		"Q64":{
+			"answer":"Gender",
+			"question":"Sex is a biological concept while this is a sociocultural one. What is the foreign word referring to a gender(性) which a person pursues, according to the growth environment, i.e., a person self-identity?",
+			"type":"What"
+		},
+		"Q65":{
+			"answer":["Cheongganjeong Pavilion (청간정(靑澗亭))", "Gyeongpodae Pavilion (경포대(鏡浦臺))", "Lake Samilpo (삼일포(三日浦))", "Jukseoru Pavilion (죽서루(竹西樓))", "Naksansa Temple (낙산사(洛山寺))", "Mangyangjeong Pavilion (망양정(望洋亭))", "Chongseokjeong Pavilion (총석정(叢石亭))", "Wolsongjeong Pavilion (월송정(越松亭))"],
+			"answer_criteria":"and",
+			"question":"What are the eight famous spots in Eastern Korea?",
+			"type":"Where"
+		},
+		"Q66":{
+			"answer":"Gwanryojeon(관료전(官僚田))",
+			"question":"It is a land provided to the government officials by Sinmun of Silla. The Sinmun King abolished Nogeup(녹읍(祿邑)) which was the financial base of the noble class at the time, and provided ‘this’. By 'this', the power of the noble class on the land and labor was reduced only to the land. What is 'this' which the officials had to return to the nation when retiring?",
+			"type":"What"
+		},
+		"Q67":{
+			"answer":"UN",
+			"question":"What is the name of the organization that can be drawn by combining the English pronunciation of each answer of the following two questions?  1. ( ) In-na, Actress  2. ( ), monetary unit of Japan",
+			"type":"What"
+		},
+		"Q68":{
+			"answer":"Depreciation",
+			"question":"This is reflecting decrease in assets value to account and economically means depreciation of assets value. Also, from the accounting point of view, it means a process in which obtained original assets is allocated into cost over usage period of the assets. What is this?",
+			"type":"What"
+		},
+		"Q69":{
+			"answer":"Gross domestic product?(GDP)",
+			"question":"( ) means the sum of market values of goods and services produced by a nation during a specific period and is normally measured every year.",
+			"type":"What"
+		},
+		"Q70":{
+			"answer":"FC Barcelona",
+			"question":"What do the following bring to mind?  - Primera Liga  - Established in 1889  - Lionel Messi",
+			"type":"What"
+		},
+		"Q71":{
+			"answer":"Work permit",
+			"question":"What is the name of this system introduced by South Korean Government for legal foreign workers?",
+			"type":"What"
+		},
+		"Q72":{
+			"answer":"Limitation period for prosecution (공소시효(公訴時效))",
+			"question":"What is the name of the system in which prosecution against a crime is not allowed after a certain period?",
+			"type":"What"
+		},
+		"Q73":{
+			"answer":"Gaya confederacy",
+			"question":"This country made of small countries in the lower reaches of the Nakdong River. However, it was destroyed not growing due to the pressure from the Baekje and Silla Dynasties. What is the name of this country?",
+			"type":"Where"
+		},
+		"Q74":{
+			"answer":"X",
+			"question":"A high school student can apply for a member of Parliament in South Korea. If it is correct, O, and if not, X.",
+			"type":"What"
+		},
+		"Q75":{
+			"answer":"Kim You-jeong",
+			"question":"Who is explained with the following?  - A writer born in Chuncheon  - Short stories such as <The Camellias> and <Plucking Gold in a Field of Beans>  - Humorously express ordinary people’s lives in a farm village",
+			"type":"Who"
+		},
+		"Q76":{
+			"answer":"Kim Yushin",
+			"question":"Who is the person honored as Heungmu the Great(興武大王), even if he was not of royal blood, by recognizing contribution to, such as the unification of three nations and enthronement of Muyeol of Silla? ",
+			"type":"Who"
+		},
+		"Q77":{
+			"answer":"Kim Bu-sik",
+			"question":"This person a descendant of Muyeol of Silla serviced as a prime minister in Yejong and Injong of Goryeo and contributed greatly to evolution of Confucianism. He contributed to stabilization of the Goryeo Dynasty by repressing the rebellions of Lee Ja-kyum and Myocheong. Also, he highly contributed to establishment of Confucian ethics by compiling <Samguk Sagi>.",
+			"type":"Who"
+		},
+		"Q78":{
+			"answer":"Roald Amundsen",
+			"question":"Who is the first person reached the South Pole?",
+			"type":"Who"
+		},
+		"Q79":{
+			"answer":"Empress Gi",
+			"question":"Who is the person became the empress of the Yuan Dynasty by getting affection from the emperor, even if she was from Goryeo and a maid of honor as one of the girls offered to the Yuan Dynasty?",
+			"type":"Who"
+		},
+		"Q80":{
+			"answer":"Kim Dae-jung",
+			"question":"Who is the person? He  was the 15th South Korean President and won a Nobel Peace Prize in 2000?",
+			"type":"Who"
+		},
+		"Q81":{
+			"answer":"Roh Moo-hyun",
+			"question":"Who is the person? He was elected the 16th South Korean President with the name of participative government and used to be an attorney of human rights and labor agitator?",
+			"type":"Who"
+		},
+		"Q82":{
+			"answer":"Geunchogo of Baekje",
+			"question":"What is the name of the king of the Baekje Dynasty, who was the second son of Biryu of Baekje and killed Gogugwon of Goguryeo in battle?",
+			"type":"Who"
+		},
+		"Q83":{
+			"answer":"Gregor Mendel",
+			"question":"The person became generally known after being rediscovered by a Dutch <Hugo de Vries>, a German <Carl Erich Correns> and an Austrian <Erich von Tschermak> and being quoted in their theses. This person discovered the laws of dominance, segregation and independence.  Who is  this person who was also the first one understanding law of inheritance in pea?",
+			"type":"Who"
+		},
+		"Q84":{
+			"answer":"Kim Jong-il",
+			"question":"What is the name of the person who were born in 1941 and serviced as Chairman of the National Defense Commission in North Korea between 1992 and 2011?",
+			"type":"Who"
+		},
+		"Q85":{
+			"answer":"Gwak Jae-u",
+			"question":"Whose descriptions are the following? This person was called the \"Red Robe General (홍의장군(紅衣將軍))\" and defeated Japanese military at Uiryeong County.",
+			"type":"Who"
+		},
+		"Q86":{
+			"answer":"Noron faction (노론(老論))",
+			"question":"It was one of political factions in the Joseon Dynasty and became main ruling power from Sukjong of Joseon. What is the name of the faction that was in confrontation with Soron faction (소론(少論)), after separating from Seoin faction (서인(西人)) in mid-Joseon?",
+			"type":"What"
+		},
+		"Q87":{
+			"answer":"Easterners",
+			"question":"Namin(남인(南人)) was one of political factions in the Joseon Dynasty and occurred when ( ) was divided into Bukin(북인(北人)) and Namin from mid-Joseon. Fill in the blank.",
+			"type":"What"
+		},
+		"Q88":{
+			"answer":"Geunwoohoe(근우회(槿友會))",
+			"question":"What is the name of the organization which was established by Korean feminists transcending the left or right in 1927 and an extra-supporting organization of Singanhoe?  ",
+			"type":"What"
+		},
+		"Q89":{
+			"answer":"United Nations (UN)",
+			"question":"What is the name of international organization replacing existing the League of Nations with a purpose of enhancing World peace after the World War II?",
+			"type":"What"
+		},
+		"Q90":{
+			"answer":["English", "Spanish", "French", "Chinese", "Arabic", "Russian"],
+			"answer_criteria":"or",
+			"question":"What are the official languages in UN?",
+			"type":"What"
+		},
+		"Q91":{
+			"answer":"The Dwarf (Cho Se-hui novel)",
+			"question":"( ) is Cho Se-hui(조세희(趙世熙))’s sequential novel, drawing allegorically the misery of urban squatters pushed by industrialization in 1970s.",
+			"type":"What"
+		},
+		"Q92":{
+			"answer":"Agency for Defense Development (ADD)",
+			"question":"What is another affiliated public institution of the Ministry of Defense in South Korea, as a special corporation established by Act on the Agency for Defense Development to contribute to realization of self-reliance of national defense and enhancement of national defense power? ",
+			"type":"What"
+		},
+		"Q93":{
+			"answer":"KGB (Soviet Committee for State Security)",
+			"question":"What is the name of this organization, which was information agency of the Soviet Union existed between 13th March 1954 and 6th November 1991, called the most powerful secret intelligence agency in the world in Cold War period?",
+			"type":"What"
+		},
+		"Q94":{
+			"answer":"International Monetary Fund (IMF)",
+			"question":"( ) is an international organization entrusted to supervise the international financing system by monitoring exchange rate and balance of international payments. What is a proper term in the blank?",
+			"type":"What"
+		},
+		"Q95":{
+			"answer":"International Monetary Fund (IMF)",
+			"question":"What is the international organization made in 1944 to support solvency of nations, exchange rate adjustment and international monetary cooperation, and based in Washington D.C?",
+			"type":"What"
+		},
+		"Q96":{
+			"answer":"M?decins Sans Fronti?res (MSF) (Doctors Without Borders)",
+			"question":"What is the organization won a Nobel Peace Prize in 1999 after established as Non-governmental organization by mainly French young doctors in 1968?",
+			"type":"What"
+		},
+		"Q97":{
+			"answer":"The National Institute of the Korean Language",
+			"question":"( ), organizing survey on South Korean language policy, started providing service to utilize Standard Korean Grand Dictionary through Internet from October, 2008.",
+			"type":"What"
+		},
+		"Q98":{
+			"answer":"2. Amnesty International",
+			"question":"Which international organization was made with the following purposes?  “To stop and prevent critical abuse of human rights, and act and study for justice against the people trespassing on human rights”  1. Reporters Without Borders  2. Amnesty International  3. Nansen International Refugee Office  4. International Statistical Institute",
+			"type":"What"
+		},
+		"Q99":{
+			"answer":"UNESCO (United Nations Educational, Scientific and Cultural Organization)",
+			"question":"What is the organization based in Paris, France and established for contributing to peace and safety by facilitating international cooperation through educational, scientific and cultural exchange among nations?",
+			"type":"What"
+		},
+		"Q100":{
+			"answer":"International Atomic Energy Agency (IAEA)",
+			"question":"What is the name of the organization based in Vienna, Austria, as a semi-independent organization, established at July 29, 1957 to internationally prevent military purpose use of nuclear power and encourage for peaceful purpose?",
+			"type":"What"
+		},
+		"Q101":{
+			"answer":"International Olympic Committee (IOC)",
+			"question":"What is the name of this international organization based in Lausanne, Swiss and established by Pierre de Coubertin and Demetrius Bikelas on June 23, 1984?",
+			"type":"What"
+		},
+		"Q102":{
+			"answer":"International Court of Justice (ICJ)",
+			"question":"What is the international organization, based at Peace Palace, Hague, Netherlands according to United Nations Charter on 1945?",
+			"type":"What"
+		},
+		"Q103":{
+			"answer":"National Gugak Center",
+			"question":"What is the name of the affiliated organization of the Ministry of Culture, Sports and Tourism in South Korea, which was open to inherit and develop Music of Korea on April 10, according to the presidential executive order (大統領令) on January 19, 1950? ",
+			"type":"What"
+		},
+		"Q104":{
+			"answer":"Korea Research Institute for Human Settlements (KRIHS) (국토연구원(國土硏究院))",
+			"question":"What is the organization established as research organization of South Korean Ministry of Construction Transportation for effective usage, development and preservation of national resources on October 4, 1978?",
+			"type":"What"
+		},
+		"Q105":{
+			"answer":"Gyojeongdogam(교정도감(敎定都監))",
+			"question":"( ) is the top political organization in Goryeo military regime built by Choi Chung-heon, who seized power by staging the Goryeo Warrior Rebellion (무신정변(武臣政變)). What is the political organization in the blank?",
+			"type":"What"
+		},
+		"Q106":{
+			"answer":"Reporters Without Borders (RWB)",
+			"question":"What is the name of this organization made by Robert Menard in 1985, presenting Press Freedom Index every year? The main activities of this organization are rescuing detained or killed journalists, supporting their families, and monitoring and warning against media regulation movement of countries.",
+			"type":"What"
+		},
+		"Q107":{
+			"answer":"Naro Space Center",
+			"question":"What is the name of a launching site for various universal launch vehicles, a satellite and a rocket as South Korea’s first space center?",
+			"type":"What"
+		},
+		"Q108":{
+			"answer":"National Intelligence Service (South Korea)",
+			"question":"What is the name of  Korean special investigation, representative information collection and special administration organization?",
+			"type":"What"
+		},
+		"Q109":{
+			"answer":"International Bank for Reconstruction and Development (IBRD)",
+			"question":"What is the name of international organization to support poor countries, started from raising reconstruction fund for devastated countries from war, as one of 5 organizations consisting of World Bank?",
+			"type":"What"
+		},
+		"Q110":{
+			"answer":"Dolmen",
+			"question":"They are representative tombs of the Bronze Age and assumed to be altars for special ritual. They are at Gochang, Hwasun and Ganghwa Counties and designated as World Heritage Site by the UNESCO. What are they?",
+			"type":"What"
+		},
+		"Q111":{
+			"answer":"Namyang Dairy Product Co., Ltd., (남양유업(南陽乳業))",
+			"question":"What is the name of the enterprise, which is specialized dairy product processing i.e., producing, processing and selling dairy products, drinks and coffees, and is now boycotted due to denial of high-pressure selling and request of bribes to owners of agencies and false apology for it?",
+			"type":"What"
+		},
+		"Q112":{
+			"answer":"Gukjagam",
+			"question":"What is the name of national high educational organization in the Goryeo Dynasty?",
+			"type":"What"
+		},
+		"Q113":{
+			"answer":"Parliamentary group",
+			"question":"What is the organization of a specific numbers and more of legislators to discuss main agenda in proceeding in the Parliament?",
+			"type":"What"
+		},
+		"Q114":{
+			"answer":"Namiseom",
+			"question":"What do the following bring to mind?  - General Nami (남이장군(南怡將軍))  - Autumn Sonata  - Yeongajiga(연가지가)",
+			"type":"Where"
+		},
+		"Q115":{
+			"answer":"LG Twins",
+			"question":"Which professional baseball team do the following bring to mind?  - Won Korean Series in 1994  - MBC Azure Dragon  - Jamsil Baseball Stadium ",
+			"type":"What"
+		},
+		"Q116":{
+			"answer":"Greenpeace",
+			"question":"What do the following bring to mind?  1. anti-nuclear group 2. environmental campaigns 3. Canada",
+			"type":"What"
+		},
+		"Q117":{
+			"answer":"Gestapo",
+			"question":"What is the name of this organization made from the political police of Prussia by Hermann G?ring, the Minister of Home Affair of Prussia in 1933 when the Nazi seized the power with secrete national police of Nazi Germany?",
+			"type":"What"
+		},
+		"Q118":{
+			"answer":"386 Generation",
+			"question":"This term was coined in the late of 1990s and refers to ‘in their 30’s, born in the 1960's, went to school in the 1980's’ . Mainly It is commonly called the generation who experienced a democratization movement through student activism in 1980’s. What is the term? ",
+			"type":"What"
+		},
+		"Q119":{
+			"answer":"World Petroleum Council (WPC)",
+			"question":"What is the international organization representing international petroleum and gas, opened as a council in 1933?",
+			"type":"What"
+		},
+		"Q120":{
+			"answer":"National Forensic Service (NFS) (국립과학수사연구원(國立科學搜査硏究院))",
+			"question":"What do the following bring to mind?  [crime scene, scientific analysis, evidence, NFS]",
+			"type":"What"
+		},
+		"Q121":{
+			"answer":"New Orleans",
+			"question":"Louis Armstrong is a pioneer of this jazz form and he was born in this city, the birthplace of jazz. What is the name of this place? ",
+			"type":"Where"
+		},
+		"Q122":{
+			"answer":"Yahoo! Korea → Naver → Daum Communications → Nate",
+			"question":"List the following web portals in order of service starting date from the oldest to the newest accordingly.   [Yahoo! Korea, Naver, Daum Communications, Nate]",
+			"type":"When"
+		},
+		"Q123":{
+			"answer":"Hangul Day - October 10",
+			"question":"Which one is NOT correctly linked among the following?  Buddha's Birthday - April 8 in the lunar calendar, Memorial Day - June 6, Hangul Day - October 10, Mid-Autumn Festival - August 15 in the lunar calendar",
+			"type":"When"
+		},
+		"Q124":{
+			"question":"This place is one of buildings representing gothic style in France and an attraction where 14 million people are visiting every year. What is the name of this place and when was it built?",
+			"sub-questions":[{
+				"answer":"Notre Dame de Paris",
+				"question":"This place is one of buildings representing gothic style in France and an attraction where 14 million people are visiting every year. What is the name of this place?",
+				"type":"What"
+			},{
+				"answer":"It was completed by 1345.",
+				"question":"This place is one of buildings representing gothic style in France and an attraction where 14 million people are visiting every year. When was it built?",
+				"type":"When"
+			}]
+		},
+		"Q125":{
+			"answer":"Children's literature (아동문학(兒童文學))",
+			"question":"What is associated with the following prizes?  - Newbery Medal, Caldecott Medal, Hans Christian Andersen Award",
+			"type":"What"
+		},
+		"Q126":{
+			"answer":"Geoseogan(거서간(居西干)) → Chachaung(차차웅(次次雄)) → Isageum(이사금(泥師今, 尼師今, 尼斯今, 泥斯今)) → Maripgan(마립간(麻立干))",
+			"question":"The following are the titles designated to kings in the Silla Dynasty. State the titles in order from the oldest to the newest accordingly.  [Chachaung(차차웅(次次雄)), Maripgan(마립간(麻立干)), Isageum(이사금(泥師今, 尼師今, 尼斯今, 泥斯今)), Geoseogan(거서간(居西干))]",
+			"type":"When"
+		},
+		"Q127":{
+			"answer":"2. Battle of Sacheon (1592)",
+			"question":"Where was the Turtle Ship used first among the following sea battles during the Japanese invasions of Korea (1592?98)?  1. Battle of Noryang  2. Battle of Sacheon (1592)  3. Battle of Hansan   4. Battle of Myeongnyang",
+			"type":"What"
+		},
+		"Q128":{
+			"answer":"Romance",
+			"question":"The word 'nangman(낭만(浪漫))' in Korean language was derived from the Japanese converting originally a French vocabulary into Chinese characters. What is this French vocabulary?",
+			"type":"What"
+		},
+		"Q129":{
+			"answer":"UN → Government of South Korea → Government of North Korea",
+			"question":"State the establishment order of the following organizations.  [Government of South Korea, Government of North Korea, UN]",
+			"type":"When"
+		},
+		"Q130":{
+			"answer":"Greenpeace",
+			"question":"What is the international environmental organization established by green activists in 1970?",
+			"type":"What"
+		},
+		"Q131":{
+			"answer":"① Seomhakjjeon(섬학전(贍學錢))",
+			"question":"What is NOT a relief organization of the poor in the Goryeo Dynasty?  ① Seomhakjjeon(섬학전(贍學錢)) ② Jewibo(제위보(濟危寶)) ③ Uichang(의창(義倉)) ④ Debiwon(대비원(大悲院))",
+			"type":"Who"
+		},
+		"Q132":{
+			"answer":"Byung-hyun Kim",
+			"question":"Who is the Korean first baseball player won World Series in American professional baseball?",
+			"type":"What"
+		},
+		"Q133":{
+			"answer":"O",
+			"question":"A former president, Roh Moo-hyun was the only successful candidate with a high school diploma as his highest education level in the 17th bar exam. If it is correct, O, and if not, X.",
+			"type":"Who"
+		},
+		"Q134":{
+			"answer":"One of the Easterners Jeong Yeo-rip (정여립(鄭汝立))'s conspiracy to start rebellion triggered off the separation of Dongin(동인(東人)) into Namin(남인(南人)) and Bukin(북인(北人)). Namin adopted relatively moderate policies while Bukin was a more hardliner.",
+			"question":"What was a trigger to divide Namin(남인(南人)) and Bukin(북인(北人)) in the late Joseon Dynasty?",
+			"type":"Why"
+		},
+		"Q135":{
+			"answer":"1. France",
+			"question":"The global environmental group, Greenpeace was created to oppose Polynesia’s nuclear test. What is the country?  1. France 2. Belgium 3. Germany",
+			"type":"Where"
+		},
+		"Q136":{
+			"answer":"1. Gwanchalsa(관찰사(觀察使)) ? today’s provincial governor as central administrative organization",
+			"question":"The following are organizations in the Joseon Dynasty. Which one is an incorrect link between its performance and the related organization?  1. Gwanchalsa(관찰사(觀察使)) ? today’s provincial governor as central administrative organization  2. Ijo(이조(吏曹)) ? today’s Ministry of Public Administration and Security  3. Owi(오위(五衛)) ? the central army in the Joseon Dynasty  4. Jangnyewon(장례원(掌隷院)) ? a slave managing organization belonging to Hyeongjo(형조(刑曹))",
+			"type":"What"
+		},
+		"Q137":{
+			"answer":"Nobel Peace Prize",
+			"question":"The International Labor Organization is a specialized one in treating labor issues in the UN, winning ( ) in 1969.",
+			"type":"What"
+		},
+		"Q138":{
+			"answer":"106",
+			"question":"What is the total if adding all the numbers written on the money on which the following figures are drawn?  [Yi Sun-sin, George Washington, Abraham Lincoln]",
+			"type":"What"
+		},
+		"Q139":{
+			"answer":"④ suicide prevention act",
+			"question":"Which one does NOT belong to the Ministry of Gender Equality and Family’s policy among the following?  ① obscene material crack-down ② blocking harmful website for the youth ③ shutdown system ④ suicide prevention act",
+			"type":"What"
+		},
+		"Q140":{
+			"answer":["Jang Ji-yeon (장지연(張志淵))", "Yun Hyo-jeong (윤효정(尹孝定))", "Yun Chi-ho (윤치호(尹致昊))"],
+			"answer_criteria":"and",
+			"question":"List three names of the members of the Korean Self-strengthening Society (대한자강회(大韓自强會)) which was a political group in the patriotic enlightenment movement line, organized in Gyeongseong, today's Seoul during the Korean Empire Period (대한제국 경성부(大韓帝國 京城府)) in March, 1906.",
+			"type":"Who"
+		},
+		"Q141":{
+			"answer":"3. Joseon - Gwanggaeto the Great",
+			"question":"Which one of the following is an incorrect link between the country and the founder?  1. Goryeo - Taejo Wang Geon  2. Balhae - Dae Jo-yeong  3. Joseon - Gwanggaeto the Great",
+			"type":"What"
+		},
+		"Q142":{
+			"answer":"3. the chairman of general meeting - Park Geun-hye",
+			"question":"The following are links between members and their organizations. Which one is NOT correct?  1. the secretary general - Ban Ki-moon  2. the vice secretary general - Jan Eliasson  3. the chairman of general meeting - Park Geun-hye",
+			"type":"What"
+		},
+		"Q143":{
+			"answer":"4. Chun Doo-hwan - New Community Movement",
+			"question":"Which one of the following is an incorrect link between a person and an event?  1. Lee Myung-bak - the Four Major Rivers Project 2. Roh Moo-hyun - the Impeachment 3. Kim Dae-jung - the Nobel Peace Prize 4. Chun Doo-hwan - the New Community Movement",
+			"type":"What"
+		},
+		"Q144":{
+			"answer":"3. It is located in Government Complex Seoul (정부서울청사).",
+			"question":"Which explanation about Korea Communications Commission is NOT true among the following?  1. The president is its higher authority.  2. It started Korean Broadcasting Commission after reforming.  3. It is located in the Government Complex Seoul (정부서울청사(政府서울廳舍)).  4. It establishes and considers various policies about broadcasting/communication, frequency study and management.",
+			"type":"What"
+		},
+		"Q145":{
+			"answer":"South Korea",
+			"question":"Which country do the following bring to mind?  - Syngman Rhee  - Park Chung-hee  - Kim Young-sam  - Roh Moo-hyun",
+			"type":"Where"
+		},
+		"Q146":{
+			"answer":"3. Haeinsa Temple (해인사(海印寺))",
+			"question":"Which does NOT belong to Ganghwado’s tourist attractions?  1. Chamseongdan Altar (참성단(塹星壇))  2. Gwangseongbo Fortress (광성보(廣城堡))  3. Haeinsa Temple (해인사(海印寺))  4. Goryeogungji Palace Site (고려궁지(高麗宮址))",
+			"type":"Where"
+		},
+		"Q147":{
+			"answer":"Goguryeo",
+			"question":"What do the following terms bring to mind?  - Gwanggaeto the Great (광개토태왕(廣開土太王))  - tax per head (인두세(人頭稅))  - Ritsury? governing system (율령정치(律令政治))   - Three Kingdoms of Korea (삼국시대(三國時代))",
+			"type":"What"
+		},
+		"Q148":{
+			"answer":"3. There is no office yet in Korea.",
+			"question":"What does NOT belong to Greenpeace?  1. It focused mainly on anti-nuclear test in its initial stage.  2. It has participated in anti-war campaign from Iraq war.  3. There is no office yet in Korea.  4. It conducted a campaign against whale hunt.  5. It participates in Oslo I Accord and Paris Convention about toxic material disposal and treatment.",
+			"type":"What"
+		},
+		"Q149":{
+			"answer":"4. prevention of abortion",
+			"question":"Choose which does NOT belong to Greenpeace environmental movement organization.  1. prevention of climate change 2. protection of primeval forest 3. blocking nuclear threat 4. prevention of abortion",
+			"type":"What"
+		},
+		"Q150":{
+			"answer":"X",
+			"question":"There is no Nobel Prize winner in Korea. If it is correct, O, and if not, X.",
+			"type":"Who"
+		},
+		"Q151":{
+			"answer":"Kim Bu-sik",
+			"question":"Who is associated with the following terms? [Samguk Sagi (삼국사기(三國史記)), Daegak Guksa (대각국사(大覺國師)), a descendant of Silla Royal Family, a civil servant of the Goryeo Dynasty]",
+			"type":"Who"
+		},
+		"Q152":{
+			"answer":"Geumwiyeong(금위영(禁衛營))",
+			"question":"It was the last installed camp among 5 military ones in Joseon Dynasty to guard Sukjong of Joseon and protect the capital, Hanyang. What is the name of this organization?",
+			"type":"What"
+		},
+		"Q153":{
+			"answer":"Geumo Sinhwa (金鰲新話)",
+			"question":"What is the name of a collection of short stories, which was the Joseon first Chinese one?",
+			"type":"What"
+		},
+		"Q154":{
+			"answer":"2001",
+			"question":"What year did September 11 attacks occur, in which the 110 storied Twin Towers of the World Trade Center in New York, USA were fallen down and the Pentagon, the Ministry of National Defense of USA was attacked with kidnapping airplanes and simultaneous suicidal attacks?",
+			"type":"When"
+		},
+		"Q155":{
+			"answer":"Manjanggul",
+			"question":"What do the following vocabularies bring to mind?  - lava tube  - natural monument  - Gimnyeonggul(김녕굴(金寧窟))",
+			"type":"What"
+		},
+		"Q156":{
+			"answer":"International Monetary Fund (IMF)",
+			"question":"What do the following vocabularies bring to mind?  - economic crisis  - financial crisis  - 1998  - non-sufficient funds",
+			"type":"What"
+		},
+		"Q157":{
+			"answer":["Bronze Bell of Old Bosingak Tower (옛 보신각 동종 (舊普信閣 銅鍾))", "Stele for the Construction of Daewongaksa Temple at Wongaksa Temple Site, Seoul (서울 원각사지 대원각사비 (서울 圓覺寺址 大圓覺寺碑))"],
+			"answer_criteria":"and",
+			"question":"The no. 1 national treasure is Heunginjimun. Then what are the no. 2 and no. 3 national treasures?",
+			"type":"What"
+		},
+		"Q158":{
+			"answer":"Daejongism",
+			"question":"The main figures in this religion were Na cheol and Oh Gi-ho. What is this religion, which conducted national education and established an anti-Japanese militant group during the period that the national sovereign rights had lost. What is the name of this religion?",
+			"type":"What"
+		},
+		"Q159":{
+			"answer":"X",
+			"question":"The Ministry of Land, Infrastructure and Transport distributes a driver's license in Korea. If it is correct, O, and if not, X.",
+			"type":"What"
+		},
+		"Q160":{
+			"answer":"④ Busan",
+			"question":"Which one has different last digit in the land-line telephone number?  ① Incheon ② Daejeon ③ Seoul ④ Busan",
+			"type":"What"
+		},
+		"Q161":{
+			"answer":["Austria", "Switzerland", "Kenya"],
+			"answer_criteria":"or",
+			"question":"List the nations which the subordinate bodies of the United Nations are located in.",
+			"type":"What"
+		},
+		"Q162":{
+			"answer":"Netherlands",
+			"question":"Which country is commonly associated with the following?   (Guus Hiddink, Wouter Hamel, Vincent van Gogh, Rembrandt Harmenszoon van Rijn)",
+			"type":"Where"
+		},
+		"Q163":{
+			"answer":"3. Dune- a coast with sand and mainly used as beach.",
+			"question":"Which one of the following is an incorrect link between a term and the related explanation?  1. Nopsaebaram(높새바람(綠塞風))- a kind of Foehn wind or northeasterly wind from the East Sea to the west slopes through Taebaek Mountains during late spring and early summer in Korea.   2. Westerlies- prevailing winds from the west toward the east in the middle latitudes between 30 and 60 degrees.  3. Dune- a coast with sand and mainly used as beach.",
+			"type":"What"
+		},
+		"Q164":{
+			"answer":["si", "do", "gu", "dong", "eup", "myeon", "ri", "tong", "ban"],
+			"answer_criteria":"or",
+			"question":"Describe administrative divisions of South Korea.",
+			"type":"What"
+		},
+		"Q165":{
+			"answer":"Republic of Korea Constitution No. 8 (대한민국 헌법 제8호 (大韓民國憲法第8?))",
+			"question":"It was the constitution passed on December 27, 1972 by a referendum through illegal process under President Park Chung-hee's emergency action of suspending the constitution by illegal martial law and dissolving the Parliament. What is 'this constitution' commonly known as the 'Yushin Constitution'?",
+			"type":"What"
+		},
+		"Q166":{
+			"answer":"2. Ministry of Defense - Military Manpower Administration (병무청(兵務廳))",
+			"question":"Which one is correctly linked between administration and the related subordinate organization?   1. Ministry of Environment - Korea Forest Service   2. Ministry of Defense - Military Manpower Administration (병무청(兵務廳))   3. Ministry of Security and Public Administration - Coast Guard   4. Ministry of Strategy and Finance - Korean Intellectual Property Office",
+			"type":"What"
+		},
+		"Q167":{
+			"answer":"③ Korea Research Institute for Human Settlements (KRIHS) (국토연구원(國土硏究院))",
+			"question":"Which one does NOT belong to the Ministry of Security and Public Administration?  ① Local Government Officials Development Institute ② National Archives ③ Korea Research Institute for Human Settlements ④ National Disaster Management Institute",
+			"type":"What"
+		},
+		"Q168":{
+			"answer":"3. Small and Medium Business Administration",
+			"question":"Which one does NOT belong to the Ministry of Strategy and Finance?  1. National Tax Service  2. Public Procurement Service  3. Small and Medium Business Administration  4. Statistics Korea",
+			"type":"What"
+		},
+		"Q169":{
+			"answer":["Germany", "Russia", "United States", "United Kingdom", "Italy", "Japan", "Canada", "France"],
+			"answer_criteria":"and",
+			"question":"What are the main 8 countries in so-called G8, a summit meeting of main 8 countries?",
+			"type":"What"
+		},
+		"Q170":{
+			"answer":"3. Mongolia",
+			"question":"Among the following, which country does NOT belong to the participating countries for the first 6-party talks among 6 countries surrounding Korean Peninsula to resolve a nuclear issue with North Korea on August 27, 2003?  1. South Korea. 2. United States 3. Mongolia 4. Japan",
+			"type":"Where"
+		},
+		"Q171":{
+			"answer":"X",
+			"question":"Turkey is a member of EU. If it is correct, O, and if not, X.",
+			"type":"Where"
+		},
+		"Q172":{
+			"answer":"X",
+			"question":"Gross National Product means the market value of all the products and services produced in a country in a specific period. If it is correct, O, and if not, X.",
+			"type":"What"
+		},
+		"Q173":{
+			"answer":"May",
+			"question":"Which month of custom is barley threshing in <Nongga Wollyeongga (農家月令歌)>?",
+			"type":"When"
+		},
+		"Q174":{
+			"answer":"O",
+			"question":"South Korea is a non-permanent member of the United Nations Security Council as of 2013. If it is correct, O, and if not, X.",
+			"type":"When"
+		},
+		"Q175":{
+			"answer":"O",
+			"question":"Labor’s three primary rights mean the rights to organize, bargain collectively and collective action. If it is correct, O, and if not, X.",
+			"type":"What"
+		},
+		"Q176":{
+			"answer":"1. IMF - International Monetary Foundation",
+			"question":"Which one does NOT link correctly between an international organization and the related meaning?  1. IMF - International Monetary Foundation  2. OECD - Organization for Economic Co-operation and Development  3. OPEC - Organization of the Petroleum Exporting Countries  4. GATT - General Agreement on Tariffs and Trade",
+			"type":"What"
+		},
+		"Q177":{
+			"answer":"Trade union (Labor union)",
+			"question":"What is the name of the organization to improve laborer’s various interests, referring to independent organization of laborers?",
+			"type":"What"
+		},
+		"Q178":{
+			"answer":"4. Beijing",
+			"question":"Which one was NOT the Provisional Government of the Republic of Korea established?  1. Shanghai 2. Nanjing 3. Chongqing 4. Beijing",
+			"type":"Where"
+		},
+		"Q179":{
+			"answer":"Hwangsanbeol",
+			"question":"Gyebaek died gloriously in the battlefield of ( ) with his 5 thousand troops when the 50 thousand allied forces of Silla and Tang invaded Baekje in 660. Which term needs in the blank?",
+			"type":"Where"
+		},
+		"Q180":{
+			"answer":"2. SK Wyverns",
+			"question":"Which team does NOT belong to Seoul among the following?  1. LG Twins  2. SK Wyverns  3. Doosan Bears  4. Nexen Heroes",
+			"type":"What"
+		},
+		"Q181":{
+			"answer":"Ulsan → Incheon → Daegu → Busan → Seoul → Daejeon → Gwangju",
+			"question":"Present national metropolitan cities in order of size from the biggest to the smallest.",
+			"type":"What"
+		},
+		"Q182":{
+			"answer":"Seocho District → Gangseo District → Gangnam District → Nowon District",
+			"question":"Present administrative districts in Seoul metropolitan city in order of size from the biggest to the smallest.  [Gangnam District, Nowon District, Seocho District, Gangseo District] ",
+			"type":"What"
+		},
+		"Q183":{
+			"answer":"2. Nexen Heroes - Suwon",
+			"question":"Which one does NOT link correctly between a professional baseball team and where it belongs to?  1. NC Dinos - Changwon  2. Nexen Heroes - Suwon  3. Doosan Bears - Seoul  4. KIA Tigers - Gwangju",
+			"type":"What"
+		},
+		"Q184":{
+			"answer":"O",
+			"question":"The famous Admiral Nelson was suffered from severe seasick. If it is correct, O, and if not, X.",
+			"type":"Who"
+		},
+		"Q185":{
+			"answer":"3. Trusteeship Council ? Brussels, Belgium",
+			"question":"Which one does NOT link correctly between main organization of the UN and its location?  1. International Court of Justice - Hague, Netherlands  2. The Security Council - New York, U.S.A  3. Trusteeship Council - Brussels, Belgium",
+			"type":"Where"
+		},
+		"Q186":{
+			"answer":"2. Pedro Mart?nez - Football",
+			"question":"Which one does NOT link correctly between a player and the related game?  1. Nolan Ryan - Baseball  2. Pedro Mart?nez - Football  3. Iker Casillas - Football",
+			"type":"What"
+		},
+		"Q187":{
+			"answer":["Increased risk of flooding, especially in the City of Nonsan", "Perish of rare and endangered species", "Damage to cultural assets", "Collapse of the Patriotic Bridge across the Nakdong River", "Water supply cut off in the City of Gumi", "Break down of a weir in the City of Sangju"],
+			"answer_criteria":"or",
+			"question":"Describe some negative influences of the Four Major Rivers Project.",
+			"type":"What"
+		},
+		"Q188":{
+			"answer":"(2) July 4th North-South Joint Declaration (7·4 남북 공동 선언) → (3) Inter-Korean Basic Agreement (남북 기본 합의서) → (1) June 15th North-South Joint Declaration (6·15 남북 공동 선언)",
+			"question":"List the following historic events in timely manner.  (1) June 15th North-South Joint Declaration (6·15 남북 공동 선언)   (2) July 4th North-South Joint Declaration (7·4 남북 공동 선언)   (3) Inter-Korean Basic Agreement (남북 기본 합의서)",
+			"type":"When"
+		},
+		"Q189":{
+			"answer":"2. Chernobyl",
+			"question":"CIH virus as another name as it is active at the same date of nuclear accident occurred at this area. Which is the area among the following?  1. Hiroshima 2. Chernobyl 3. Taiwan 4. Auschwitz",
+			"type":"Where"
+		},
+		"Q190":{
+			"answer":"March 1st Movement → Korean War → New Community Movement → Gwangju Massacre",
+			"question":"List the following historic events in timely manner.  [Gwangju Massacre, New Community Movement, Korean War, March 1st Movement]",
+			"type":"When"
+		},
+		"Q191":{
+			"answer":"Collapse of the Seongsu Bridge → Collapse of the Sampoong Department Store → Daegu Metro Fire → ROKS Cheonan Sinking",
+			"question":"List the following historic events in timely manner.  [Collapse of the Sampoong Department Store, Collapse of the Seongsu Bridge, Daegu Metro Fire, ROKS Cheonan Sinking]",
+			"type":"When"
+		},
+		"Q192":{
+			"answer":"3. Ancient Egypt - Mississippi River",
+			"question":"Which one does NOT link correctly between a civilization and the related river?  1. Mesopotamia ? Tigris River  2. Indus Valley Civilization - Indus River  3. Ancient Egypt - Mississippi River  4. The Yellow River Civilization - Yellow River",
+			"type":"Where"
+		},
+		"Q193":{
+			"answer":"2. 2002 - South Korea",
+			"question":"Which one does NOT link correctly between the hosting year of World Cup game and the country?   1. 1994 - U.S.A 2. 2002 - South Korea 3. 2010 - South Africa 4. 2014 - Brazil",
+			"type":"When"
+		},
+		"Q194":{
+			"answer":"Beijing",
+			"question":"2004 Olympic was held in Athens, Greece. Then, in which city was 2008 Olympic held?",
+			"type":"Where"
+		},
+		"Q195":{
+			"answer":["South Korea", "Japan"],
+			"answer_criteria":"and",
+			"question":"List two countries hosted jointly the17th FIFA World Cup Game, as the first time in the World Cup history.",
+			"type":"Where"
+		},
+		"Q196":{
+			"answer":"Ministry of Culture, Sports and Tourism",
+			"question":"Korea Football Association is a corporation belonging to  ( ) to contribute to enhancement of national prestige and national sports development, established on October 28, 2005. Which organization needs in the blank?",
+			"type":"What"
+		},
+		"Q197":{
+			"answer":"O",
+			"question":"The National Museum of Korea belongs to the Ministry of Culture, Sports and Tourism. If it is correct, O, and if not, X.",
+			"type":"What"
+		},
+		"Q198":{
+			"answer":"4. Organization for Economic Co-operation and Development",
+			"question":"Which one does NOT belong to the specialized agencies of the united nations?  1. Food and Agriculture Organization   2. International Finance Corporation  3. International Civil Aviation Organization  4. Organization for Economic Co-operation and Development",
+			"type":"What"
+		},
+		"Q199":{
+			"answer":"The National Chorus of Korea (대한민국 국립합창단 (大?民? 國立合唱團))",
+			"question":"What is the foundation belonging to the Ministry of Culture, Sports and Tourism, established in May, 1973 to develop national performance art and contribute to cultivation of national sentiment through chorus music?",
+			"type":"What"
+		},
+		"Q200":{
+			"answer":"3. Changed the name to Korea Scuba Diving Association. → 4. Joined Conf?d?ration Mondiale des Activit?s Subaquatiques (CMAS). → 1. Officially joined the Korea Sports Council. → 2. Changed the name to Korea Underwater Association Corporation.",
+			"question":"List activities of the Korea Underwater Association in timely order.  1. Officially joined the Korea Sports Council.  2. Changed the name to Korea Underwater Association Corporation.  3. Changed the name to Korea Scuba Diving Association.  4. Joined Conf?d?ration Mondiale des Activit?s Subaquatiques (CMAS).",
+			"type":"What"
+		},
+		"Q201":{
+			"answer":"4. Monaco - Rose",
+			"question":"Which one does NOT link correctly between a nation and the national flower?  1. Netherlands - Tulip  2. Korea - Hibiscus syriacus  3. Russia - Sunflower  4. Monaco - Rose",
+			"type":"Where"
+		},
+		"Q202":{
+			"answer":"O",
+			"question":"The following are explanation about a faction of Noron(노론(老論)). If they are ALL correct, O, and if not, X.  * Sipa(시파(時派)) felt sympathy for the death of Crown Prince Sado.   * Byeokpa(벽파(僻派)) defended the death of Crown Prince Sado.",
+			"type":"What"
+		},
+		"Q203":{
+			"answer":"O",
+			"question":"Gyuhap Chongseo was an encyclopedic writing about female life in the Joseon Dynasty. If it is correct, O, and if not, X.",
+			"type":"What"
+		},
+		"Q204":{
+			"answer":"② Lee Myung-bak",
+			"question":"Who made issues regarding the Four Major Rivers Project?  ① Park Geun-hye ② Lee Myung-bak ③ Roh Moo-hyun ④ Kim Dae-jung",
+			"type":"Who"
+		},
+		"Q205":{
+			"answer":"World currency",
+			"question":"American dollar belongs to this currency, which is used in international transaction or financial trade, with gold. It is also called Key currency. What is it?  ",
+			"type":"What"
+		},
+		"Q206":{
+			"answer":["\"The overthrow of Japanese nationalism\"", "\"The allowance of the peasants to own the land\"", "\"The adoption of the eight-hour day labor system\"", "\"The adoption of the educational autonomy system\""],
+			"answer_criteria":"or",
+			"question":"Describe some main contents of the manifesto of the June 10th Movement. ",
+			"type":"What"
+		},
+		"Q207":{
+			"answer":"Commercial law of South Korea (대한민국 상법 (大韓民國 商法))",
+			"question":"Which term needs in the blank?  \"If you didn’t leave your valuables at the counter, we do not take responsibility for losses in appliance with ( )'s Article 153.\"",
+			"type":"What"
+		},
+		"Q208":{
+			"answer":"New Century Financial Corporation → American Home Mortgage Investment Corporation → AIG",
+			"question":"State the order of bankruptcies of the following companies in Subprime Mortgage Crisis.  [AIG, New Century Financial Corporation, American Home Mortgage Investment Corporation]",
+			"type":"When"
+		},
+		"Q209":{
+			"answer":"O",
+			"question":"A school cannot be built in a Greenbelt. If it is correct, O, and if not, X.",
+			"type":"What"
+		},
+		"Q210":{
+			"answer":"Greenmail",
+			"question":"( ) is a letter that a raider sends to main stockholders to sell the stock. Which term needs in the blank?",
+			"type":"What"
+		},
+		"Q211":{
+			"answer":"4. Iraq - Abu Dhabi",
+			"question":"Which one does NOT correctly link between a nation and its capital?  1. Philippines - Manila  2. South Korea - Seoul  3. Japan - Tokyo  4. Iraq - Abu Dhabi",
+			"type":"Where"
+		},
+		"Q212":{
+			"answer":"Goliath",
+			"question":"Who is the figure described as follows?  - A giant Philistine warrior in the Old Testament of Samuel   - His height was 6 cheok and a half (approximately 2.9 meter)",
+			"type":"Who"
+		},
+		"Q213":{
+			"answer":"3. South Korea - FBI",
+			"question":"Which one does NOT correctly link between a country and its organization?  1. U.S.A - CIA 2. Russia - KGB 3. South Korea - FBI",
+			"type":"What"
+		},
+		"Q214":{
+			"answer":["Seoul Metro", "Seoul Metropolitan Rapid Transit Corporation", "Seoul Metro Line 9 Corporation (서울시메트로9호선 주식회사 (서울市메트로九號線 株式會社))"],
+			"answer_criteria":"and",
+			"question":"List all current Seoul subway operators.",
+			"type":"What"
+		},
+		"Q215":{
+			"answer":"O",
+			"question":"If the following is correct, O, and if not, X.  The monetarist, Milton Friedman and Anna Schwartz, claimed that the Great Depression in the U.S.A was created by disruption of money supply. ",
+			"type":"Who"
+		},
+		"Q216":{
+			"answer":"① halt election",
+			"question":"Which one is NOT sole discretion of the National Election Commission?  ① halt election ② investigate electric crime ③ prevent, oversee and control election law violations ④ treat election law violating actions",
+			"type":"What"
+		},
+		"Q217":{
+			"answer":"1946",
+			"question":"When was the year which all 51 members of UN attended in regular general meeting at the first time?",
+			"type":"When"
+		},
+		"Q218":{
+			"answer":["Philosopher's Stone", "Chamber of Secrets", "Prisoner of Azkaban", "Goblet of Fire", "Order of the Phoenix", "Half-Blood Prince", "Deathly Hallows"],
+			"answer_criteria":"or",
+			"question":"List the subtitle of Harry Potter, the main novel of J.K. Rowling.",
+			"type":"What"
+		},
+		"Q219":{
+			"answer":"O",
+			"question":"Kim Gu participated in Donghak Peasant Revolution. It is correct, O, and if not, X.",
+			"type":"Who"
+		},
+		"Q220":{
+			"answer":["1. Gyeongju", "2. Odaesan", "5. Taeanhaean"],
+			"answer_criteria":"and",
+			"question":"Choose a national park from the following.  1. Gyeongju  2. Odaesan  3. Gwanaksan  4. Gajisan  5. Taeanhaean",
+			"type":"What"
+		},
+		"Q221":{
+			"answer":"Westerners (Korean political faction)",
+			"question":"Which Dangpa in late Joseon is explained with the following?  The original leader was Shim Eui-gyeom, and other successors were Yi I, Seong Hon, Jeong Cheol, Kim Ryu, Yi Gwi and Kim Ja-jeom, followed by a disciple of Yi I and Seong Hon, Kim Jang-saeng. After that, Kim Jip’s writers and Kim Yuk’s party led the Dangpa.",
+			"type":"What"
+		},
+		"Q222":{
+			"answer":"Seowoongwan(서운관(書雲觀))",
+			"question":"What is the name of government office in the Goryeo and Joseon Dynasty to undertake Astronomy and Geography?",
+			"type":"What"
+		},
+		"Q223":{
+			"answer":"Kim Gu",
+			"question":"List the name of a historic figure by combining the answers of two following questions.  1. This is called Haeu(해우(海牛)), Haeui(해의(海衣)) and Xiezhi(해태(海苔)) and it is also a popular food ingredient with Koreans and the Japanese.   2. Atomic number of Fluorine(F).",
+			"type":"Who"
+		},
+		"Q224":{
+			"answer":"Mohenjo-daro",
+			"question":"A so-called ‘a hill of death’. Remains of city of Indus Valley civilization near Indus River located at the south of Sindh district, Pakistan. It was prospered approximately in 700 years during BC 2700~2000 years. English archeologist, Marshall had excavated over 31 years from 1922. Where is matched with this description?",
+			"type":"Where"
+		},
+		"Q225":{
+			"answer":["checks", "balances"],
+			"answer_criteria":"or",
+			"question":"Separation of powers is a ruling system dividing national operation into several branches, each with separate and independent powers and areas of responsibility so that the powers of one branch are not in conflict with the powers associated with the other branches. Government systems that employ a separation of powers need a way to control and stabilize each of the branches, and this is often accomplished through a system of mutual \"( )\". Fill in the blank with a proper term.",
+			"type":"What"
+		},
+		"Q226":{
+			"answer":"Goguryeo",
+			"question":"Which country founder was King Dongmyeong who is also known as Jumong(주몽(朱蒙)) with a meaning of ‘a good archer’? [Baekje, Silla, Goguryeo]",
+			"type":"Where"
+		},
+		"Q227":{
+			"answer":"Son Byong-hi",
+			"question":"The religion Donghak(동학(東學)) was made in 1860 and the 1st ~ 3rd leaders (교주(敎主)) were Choe Je-u (최제우(崔濟愚)), Choe Si-hyeong (최시형(崔時亨)), and this person. Who is the one?",
+			"type":"Who"
+		},
+		"Q228":{
+			"answer":"Sung Jae-gi",
+			"question":"Who is the person born in Daegu, a founder of Man of Korea and committed suicide by jumping from the Mapo Bridge?",
+			"type":"Who"
+		},
+		"Q229":{
+			"answer":"Amedeo Avogadro",
+			"question":"Who is the Italian scientist who first clarified the concept of molecule by announcing the law of \"equal volumes of all gases, at the same temperature and pressure, have the same number of molecules\" in 1811?",
+			"type":"Who"
+		},
+		"Q230":{
+			"answer":"Steve Jobs",
+			"question":"Who is associated with the following?  [Dropping out of Reed College / Fighting against pancreatic cancer / a founder of Apple Inc.]",
+			"type":"Who"
+		},
+		"Q231":{
+			"answer":"3. Gwahama(과하마(果下馬))",
+			"question":"Which is the ancient early state Dongye’s specialist among the following?  1. Hippopotamus 2. Bahama(바하마) 3. Gwahama(과하마(果下馬)) 4. Chollima  ('This' was one of the representative specialists of Dongye, along with the archery called 'Dangung(단궁(檀弓))' and the seal's fur called 'Banupi(반어피(班魚皮))’. 'It' was a small horse which could pass under a fruit free with carrying a man.)",
+			"type":"What"
+		},
+		"Q232":{
+			"answer":"Vaslav Nijinsky",
+			"question":"He won fame as the best male dancer at that time after joining Russia Ballet in 1909. By choreographing 'Afternoon of Faun' and 'The Rite of Spring', he became known to a genius dancer. Who is this male dancer and choreographer?",
+			"type":"Who"
+		},
+		"Q233":{
+			"answer":"Robert Schumann",
+			"question":"He was a German and originally wanted to be a pianist. However, as he had been hurt his hands due to excessive practice, he changed his mind to be a composer. As a representative composer of romanticism music,  <Frohliche Landmann>, <Dichterliebe> and <Fantasiest?cke> are his representative works. Who is this composer?",
+			"type":"Who"
+		},
+		"Q234":{
+			"answer":"Ren? Descartes",
+			"question":"He is known as the father of modern philosophy, connecting a scientific view of nature to see the world rationally with metaphysics and drew a basic principle of ‘ I think therefore I am’ based on methodological skepticism.  Who is the person?",
+			"type":"Who"
+		},
+		"Q235":{
+			"answer":"Lame duck",
+			"question":"It is a kind of power leaking phenomena of current president before the end of his or her tenure. It was coined in the eighteenth century at the London Stock Exchange, to refer to a stockbroker who defaulted on his debts. What is the phrase? ",
+			"type":"What"
+		},
+		"Q236":{
+			"answer":"Marcus Aurelius",
+			"question":"‘Meditations(暝想錄)’ is a book written in Greek, by ‘this person’, who was a Rome Emperor and philosopher of Stoic school. In this book, his belief that only philosophy led us and philosophical life was to save human being was clearly shown. Who is the person, the 16th Rome Emperor?",
+			"type":"Who"
+		},
+		"Q237":{
+			"answer":"Murray Gell-Mann",
+			"question":"He is an American physicist, graduated from Yale University, received a doctorate in MIT and participated in establishing Santa Fe Institute in 1980. Later, he won a Nobel Prize in Physics in 1969. Who is the physicist?",
+			"type":"Who"
+		},
+		"Q238":{
+			"answer":"Moon Ik-chum",
+			"question":"He was a scholar in late Goryeo Dynasty and his pen name was ‘Samudang(삼우당(三憂堂))’. When he went to Yuan as an envoy, he took cotton and successfully cultivated it in Korea for the first. Who is this person?",
+			"type":"Who"
+		},
+		"Q239":{
+			"answer":"Rabindranath Tagore",
+			"question":"He was a poet and philosopher in India and won a Nobel Prize in Literature with a book of poetry, <Gitanjali> published in 1909, as the Asian first. Later, he tried to converge the west and east cultures by visiting all around the world. He also left a poem about Korea, <The Lamp of the East>. Who is the poet?",
+			"type":"Who"
+		},
+		"Q240":{
+			"answer":"Martin Luther King, Jr.",
+			"question":"Who is associated with the following?  [Stride Toward Freedom / human right activist / Nobel Peace Prize]",
+			"type":"Who"
+		},
+		"Q241":{
+			"answer":"Park Yeong-Hui (박영희(朴英熙))",
+			"question":"“I gained the ideology and lost the arts” was what he left in leaving from KAPF. Who is the person?  [Hyeon Jin-geon (현진건(玄鎭健)), Park Yeong-Hui (박영희(朴英熙)), Na Do-hyang (나도향(羅稻香))]",
+			"type":"Who"
+		},
+		"Q242":{
+			"answer":"It? Hirobumi",
+			"question":"Who was shot by An Jung-geun(安重根), a patriot at Harbin(哈爾濱) station in 1909?  [Kat? Kiyomasa, Toyotomi Hideyoshi, It? Hirobumi]",
+			"type":"Who"
+		},
+		"Q243":{
+			"answer":"Ronald Reagan",
+			"question":"Who is associated with the following?  [Born in Illinois, America on February 6, 1911/ Elected as the 40th American President in 1980/ Passed away with Alzheimer's disease on June 5, 2004]",
+			"type":"Who"
+		},
+		"Q244":{
+			"question":"He was a German composer, born in 1770. He was suffered from losing his hearing and a main musician and composer in transition period from Classicism and Romanticism. He was widely held in honor. Who is the person? Also, explain about his main works.",
+			"sub-questions":[{
+				"answer":"Ludwig van Beethoven",
+				"question":"He was a German composer, born in 1770. He was suffered from losing his hearing and a main musician and composer in transition period from Classicism and Romanticism. He was widely held in honor. Who is the person?",
+				"type":"Who"
+			},{
+				"answer":["Symphony No. 3", "Symphony No. 5", "Symphony No. 6", "Symphony No. 9", "F?r Elise", "Piano Sonata No. 8", "Piano Sonata No. 14"],
+				"answer_criteria":"or",
+				"question":"He was a German composer, born in 1770. He was suffered from losing his hearing and a main musician and composer in transition period from Classicism and Romanticism. He was widely held in honor. Explain about his main works.",
+				"type":"What"
+			}]
+		},
+		"Q245":{
+			"answer":"Louis XIV of France",
+			"question":"This person, so-called ‘Sun King’, was representative King in golden time of the French House of Bourbon. He was a representative of absolute monarchy, by announcing ‘c'est moi’ and building ‘the Versailles Palace’. Who is the king?",
+			"type":"Who"
+		},
+		"Q246":{
+			"answer":"Banggokryeong(방곡령(防穀令))",
+			"question":"Cho Byeong-sik, Governor of Hamkyongdo announced this to prevent outflow of beans to abroad from Wonsan harbor in 1889. After opening Joseon’s port, economic policy conducted by the central government and local authorities caused a shortage of food. In order to resolve the issue, this prohibited taking grain out of the district. What is the order?  ",
+			"type":"What"
+		},
+		"Q247":{
+			"answer":"Munmu of Silla",
+			"question":"At coastal water of Bonggil-ri, Yangbuk-myeon, Gyeongju-si, Gyeongbuk, there is royal tomb of ( ) of Silla in the middle of the sea. ( ) unified three countries, left will, saying that he would protect the country from Japanese invasion, becoming a dragon, if his body was cremated and buried in the East Sea. Who is the person in the blank?",
+			"type":"Who"
+		},
+		"Q248":{
+			"answer":"Barack Obama",
+			"question":"Who was the winner of 2009 Nobel Peace Prize?",
+			"type":"Who"
+		},
+		"Q249":{
+			"answer":"Gao Xianzhi",
+			"question":"( ) was a refugee of Goguryeo and became a general of Tang, passing the Pamir Mountains. Who is the person in the blank?",
+			"type":"Who"
+		},
+		"Q250":{
+			"answer":"Pope John Paul II",
+			"question":"His visiting of the Umayyad Mosque became a turning point towards reconciliation between not only Catholic and Christianity but also all religions. For the first time, Pope visited Islam mosque in May, 2001, which highlighted communication between religions than Pilgrimage itself. Who is the person? ",
+			"type":"Who"
+		},
+		"Q251":{
+			"answer":"Bernard Weber",
+			"question":"He is a Swiss film producer and explorer. His foundation announced New Seven Wonders of the Ancient World at Stadium in Lisbon, Portugal on July 7, 2007. Who is the person?",
+			"type":"Who"
+		},
+		"Q252":{
+			"answer":"Kyujanggak",
+			"question":"Jeongjo(正祖) of Joseon, who rose to the throne in 1776, instantly established this place.  The place was a royal library. However, Jeongo wanted to cultivate this place as a strong political facility and provided secretary function to this place and let this manage Imperial examination and Bureaucrat education as well. This place actively appointed concubines sons, such as Pak Je-ga(朴齊家). Which place was it? ",
+			"type":"What"
+		},
+		"Q253":{
+			"answer":"3. Shinhan Gongsa (신한공사(新韓公社))",
+			"question":"Which organization did NOT conduct National Liberation Movement among the following?  1.  Provisional Government of Korea in Shanghai (상해임시정부(上海臨時政府)) 2. Provisional Government of the Republic of Korea 3. Shinhan Gongsa (신한공사(新韓公社)) 4. Korean Volunteers Army (조선의용군(朝鮮義勇軍))",
+			"type":"What"
+		},
+		"Q254":{
+			"answer":"Seojeonseosuk(서전서숙(瑞甸書塾))",
+			"question":"It is Korean first modern science national educational organization established at Manchuria in 1906. When Japan?Korea Treaty (乙巳條約) of 1905 was made, Yi Sang-sul (이상설(李相卨)), Yi Dongnyeong (李東寧) and others came to Manchuria(滿洲) as political refugees and established a school at Jiandao(間島) to enhance independent thought among Korean children through education. What is the name of the organization?",
+			"type":"What"
+		},
+		"Q255":{
+			"answer":["Use of solar calendar", "Starting the ordinance prohibiting topknots (단발령(斷髮令))"],
+			"answer_criteria":"and",
+			"question":"Gabo Reform in 1984 was a starting point of modernization. However, the modernization was made only partially due to remained feudalism. Choose 2 items of the contents, which does NOT belong to Gabo Reform among the following.  [Allowance of remarriage of widow, Emancipation of Nobi, Use of solar calendar, Starting the ordinance prohibiting topknots (단발령(斷髮令)), Abolishment of collective punishment]",
+			"type":"What"
+		},
+		"Q256":{
+			"answer":"Gaia hypothesis",
+			"question":"It is a perspective to see the globe, organism on the globe, the atmosphere, the sea and even the soil as a pan-global entity and the globe as an entity consisting of the environment and organism, which was claimed by an English scientist, James Lovelock. What is the name of the perspective? ",
+			"type":"What"
+		},
+		"Q257":{
+			"answer":"John Adams → Abraham Lincoln → Theodore Roosevelt → Franklin D. Roosevelt → Dwight D. Eisenhower",
+			"question":"List the following American presidents in timely order as elected.  [Theodore Roosevelt, Franklin D. Roosevelt, Dwight D. Eisenhower, John Adams, Abraham Lincoln]",
+			"type":"When"
+		},
+		"Q258":{
+			"answer":"Leonardo da Vinci → Ludwig van Beethoven → Vincent van Gogh",
+			"question":"List the following figures in timely order as born.  [Ludwig van Beethoven, Vincent van Gogh, Leonardo da Vinci]",
+			"type":"When"
+		},
+		"Q259":{
+			"answer":["Cheomseongdae", "Hwangnyongsa nine-story wooden pagoda (황룡사9층목탑(皇龍寺九層木塔))"],
+			"answer_criteria":"and",
+			"question":"Queen Seondeok of Silla, a daughter of King Jinpyeong of Silla, was Silla's very first queen. After rising to the throne, she constructed ( ) and ( ). Fill in the blanks.",
+			"type":"What"
+		},
+		"Q260":{
+			"answer":["Queen Seondeok of Silla", "Jindeok of Silla", "Jinseong of Silla"],
+			"answer_criteria":"and",
+			"question":"Due to the bone rank system (골품제(骨品制)), a strong caste system, female could be a queen in Silla. Who were the three queens of Silla?",
+			"type":"Who"
+		},
+		"Q261":{
+			"answer":"Les Mis?rables",
+			"question":"This novel was written by Victor Hugo, a French writer and issued on 1862. The novel described the process in which the main character Jean Valjean who became a criminal and cursed his life, and later saved his soul with pure love. What is the title of the novel?",
+			"type":"What"
+		},
+		"Q262":{
+			"answer":"208",
+			"question":"Currently how many football leagues are recognized by FIFA?",
+			"type":"What"
+		},
+		"Q263":{
+			"answer":"Surprise Symphony",
+			"question":"It is a common name given to Symphony no. 94, in G, composed by Joseph Haydn, an Australian composer. This common name is associated with the sudden chord change in the 2nd movement; in order to alert London ladies, who often dozed in a concert hall, in the 2nd movement, sudden strong chord with Timpani came out in the middle of soft melody. What is the name of the symphony?",
+			"type":"What"
+		},
+		"Q264":{
+			"answer":"Shin Saimdang",
+			"question":"In her life, she was gained respect as a good wife and wise mother and in her death; she was respected as an exemplar mother with her son, Yi I’s political and academicals achievement. Who is the person?",
+			"type":"Who"
+		},
+		"Q265":{
+			"answer":"Mont Blanc",
+			"question":"Which mountain is the highest one in the Alps? The mountain means ‘White Mountain’.",
+			"type":"What"
+		},
+		"Q266":{
+			"answer":"4. A person who is good at shooting an arrow",
+			"question":"King Dongmyeong of Goguryeo has the name, Jumong. What does Jumong mean?  1. A person who is good at handling a sword 2. A person who is good at handling a spear 3. A person who is good at handling axe 4. A person who is good at shooting an arrow",
+			"type":"What"
+		},
+		"Q267":{
+			"answer":"Word-of-mouth marketing is a method of promoting products or services to new customers through referrals, usually word of mouth, by encouraging customers to talk as much as possible about the products or services.",
+			"question":"Explain about word-of-mouth marketing.",
+			"type":"What"
+		},
+		"Q268":{
+			"answer":"X",
+			"question":"It is a part of Pacific Ocean and coastal sea near to South Korea, North Korea and China. As yellow earth and sand are inputted, the color of the sea looks yellow and that is the reason why it is called the East China Sea. If it is correct, O, and if not, X.",
+			"type":"What"
+		},
+		"Q269":{
+			"answer":"Parliamentary immunity",
+			"question":"This right is protected by the article no. 45 of South Korean constitution, in which a member of the Parliament does not need to take responsibility on statement or voting in the parliament.  What is the right?",
+			"type":"What"
+		},
+		"Q270":{
+			"answer":"Maghreb",
+			"question":"( ) has meaning of “the area where the sun set” or “east” in Arabic and refers to today’s North Africa region, such as Libya, Morocco, Algeria and Tunisia.",
+			"type":"Where"
+		},
+		"Q271":{
+			"answer":"3. Double dip",
+			"question":"It is a term in economics, in which economy is recovered from recession and grown in a short term, and then again goes into recession. Which term is used to describe the phenomena?    1. Inflation  2. Deflation  3. Double dip  4. Bubble",
+			"type":"What"
+		},
+		"Q272":{
+			"answer":"O",
+			"question":"The founder of Goguryeo is King Dongmyeong of Goguryeo. If it is correct, O, and if not, X.",
+			"type":"Who"
+		},
+		"Q273":{
+			"answer":"X",
+			"question":"The Korean first professional baseball game was held at Jamsil Baseball Stadium. If it is correct, O, and if not, X.",
+			"type":"What"
+		},
+		"Q274":{
+			"answer":"Tao Yuanming",
+			"question":"[I need to stop communicating with people. As the world and I are not in accord each other, what I should save by riding a wagon again?] It is a part of <Gwigeoraesa(귀거래사(歸去來辭))>, pouring out his heart in the way back to home after giving up his official position. This person was active in the Later Eastern Jin (동진(東晋)) Dynasty, and has been appreciated as ‘the best poet in Six Dynasties (六朝 時代)’. Who is the person?",
+			"type":"Who"
+		},
+		"Q275":{
+			"answer":"Tongnip Sinmun",
+			"question":"Which newspaper does fit in the following descriptions?  - It was the first civil newspaper.   - It was issued in Korean and English.  - It enhanced modern knowledge and state power and civil rights among the general public.",
+			"type":"What"
+		},
+		"Q276":{
+			"answer":"Dictatorship",
+			"question":"What is the political system in which a person or a group has almost unlimited power without legal restriction, based on violence not justification?",
+			"type":"What"
+		},
+		"Q277":{
+			"answer":"Dublin",
+			"question":"It has a meaning of ‘a city on the tightly tramped land’, was chosen the best livable capital in Europe in 2003 and the capital of Ireland. What is the name of the city?",
+			"type":"Where"
+		},
+		"Q278":{
+			"answer":"Commonwealth of Independent States",
+			"question":"What is the Consortium of 10 republics independent from the Soviet Union in deconstruction of the Union in 1991?",
+			"type":"What"
+		},
+		"Q279":{
+			"answer":"Association of Southeast Asian Nations (ASEAN)",
+			"question":"What is the name of the union established by Southeast Asian countries in August 8, 1967, seeking a political and economical union like the EU?",
+			"type":"What"
+		},
+		"Q280":{
+			"answer":"Yangho",
+			"question":"When each letter in the blank are combined, what word is made?  [The world first cloned animal ‘Dolly’ is a sheep, and a \"sheep\" is pronounced as ( ) in Korean language. The name of the 1988 Summer Olympics mascot is '( )dori'.]",
+			"type":"What"
+		},
+		"Q281":{
+			"answer":"Zollverein (German Customs Union)",
+			"question":"What was the first customs union?",
+			"type":"What"
+		},
+		"Q282":{
+			"answer":"Independent Regulatory Agencies (독립규제위원회(獨立規制委員會))",
+			"question":"It is an administrative organization with a collegiate system running with conference and has made to conduct or regulate a special tasks with Quasi-legislative and judicial powers, independent from administration to regulate economic and social issues caused as the capitalism has been developed in America in the late of 19 C. What is the name of the organization?",
+			"type":"What"
+		},
+		"Q283":{
+			"answer":"O",
+			"question":"There was a harvest ceremony called ‘Dongmaeng(동맹(東盟))’ in Goguryeo. If it is correct, O, and if not, X.",
+			"type":"What"
+		},
+		"Q284":{
+			"answer":"1) Buddha Statue at Seokguram Grotto (석굴암 본존불상 (石窟庵 本尊佛像))",
+			"question":"Kings in three countries encouraged Buddhism to enhance royal authority and unify people’s minds. After Silla unified three countries, Buddhism was transferred to the people due to, for example, the effort of Wonhyo. Many Buddhism cultural assets were created in the capital, Geumseong (Gyeongju). Buddhism became a part of everyday life of the people in Goryeo Period. Which one belongs to the cultural assets, described above?  1) Buddha Statue at Seokguram Grotto (석굴암 본존불상 (石窟庵 本尊佛像))  2) Five storied stone pagoda of Jeongnimsa Temple Site  3) Painting of Water Moon Avalokite?vara Bodhisattva (수월관음도(水月觀音圖))  4) Gyeongcheonsa Pagoda",
+			"type":"What"
+		},
+		"Q285":{
+			"answer":"Barista",
+			"question":"What is the term referring to ‘a person who is specially trained in the making and serving of coffee drinks’?  [Barista, Curator, Sommelier]",
+			"type":"Who"
+		},
+		"Q286":{
+			"answer":"Sinheung Military School (신흥무관학교(新興武官學校))",
+			"question":"What was the name of Independence Army cultivating organization, established in West Jiandao (서간도(西間島)) in 1911 and the former body of current Kyung Hee University?",
+			"type":"What"
+		},
+		"Q287":{
+			"answer":"Arab League (League of Arab States)",
+			"question":"This organization is based in Cairo, Egypt and established to secure peace and safety of Middle East area and protect sovereignty and independence of Arabic countries. What is the name of this organization?",
+			"type":"What"
+		},
+		"Q288":{
+			"answer":"Mossad",
+			"question":"What is the name of Islamic information and covering force managing intelligence agency?",
+			"type":"What"
+		},
+		"Q289":{
+			"answer":"Jipgangso(집강소(執綱所))",
+			"question":"What is the name of autonomous organization established by the Donghak Peasant Troops (동학농민군(東學農民軍)) to maintain public order in each county and township in 1894?",
+			"type":"What"
+		},
+		"Q290":{
+			"answer":"Tomb of King Muryeong",
+			"question":"What is the name of the royal tomb, in which was dedicated to Muryeong of Baekje and his queen and excavated total 2,900 historic items, such as gold diadem ornaments (금제관식(金製冠飾)), gold hair accessories (금제뒤꽂이(金製釵)), gold earrings (금제심엽형이식(金製心葉形耳飾)), a memorial stone (지석(誌石)), a stone image of an animal (석수(石獸)) and a bronze mirror decorated with mystical animals (청동신수경(靑銅神獸鏡))?",
+			"type":"What"
+		},
+		"Q291":{
+			"answer":"Electronics and Telecommunications Research Institute (ETRI)",
+			"question":"Which organization does the national security research institute belong to?",
+			"type":"What"
+		},
+		"Q292":{
+			"answer":"4. 1497 - Eulsasahwa(을사사화(乙巳士禍))",
+			"question":"Choose the one does NOT correctly link between the year and the related event among the following.  1. 1519 - Gimyosahwa(기묘사화(己卯士禍))  2. 1504 - Gapjasahwa(갑자사화(甲子士禍))  3. 1498 - Muosahwa(무오사화(戊午士禍))  4. 1497 - Eulsasahwa(을사사화(乙巳士禍))",
+			"type":"What"
+		},
+		"Q293":{
+			"answer":"105-Man Incident",
+			"question":"Japanese police arrested approximately 600 people of members of New People's Association(新民會員) and prosecuted 105 people to suppress the National Movement in 1911. Due to the event, New People's Association(新民會) was collapsed. What is the name of the event? ",
+			"type":"What"
+		},
+		"Q294":{
+			"answer":"Donghak Peasant Revolution",
+			"question":"It occurred due to corruption and graft, and the tyranny over peasants by Jo Byeong-gap, Gobu Governor in 1894 and triggered interference of Japanese in domestic affairs and troops dispatch. What was the event?",
+			"type":"What"
+		},
+		"Q295":{
+			"answer":"1976",
+			"question":"Which year did Steve Jobs, Steve Wozniak and Ronald Wayne found Apple Inc.? ",
+			"type":"When"
+		},
+		"Q296":{
+			"answer":"McJob",
+			"question":"( ) generally refers to low-income, low-technology, heavy-labor and not promising job.",
+			"type":"What"
+		},
+		"Q297":{
+			"answer":"A ria coast is a coastline having several parallel rias formed by the partial submergence of an unglaciated river valley. The sea level change that caused the submergence of a river valley may be either eustatic (where global sea levels rise), or isostatic (where the local land sinks). Typically, rias have a dendritic, treelike outline that results in an extremely irregular and indented coastline.",
+			"question":"Explain about a ria coast.",
+			"type":"What"
+		},
+		"Q298":{
+			"answer":"Baekje → Goguryeo → Silla",
+			"question":"List Goguryeo, Baekje and Silla in timely order of when each country was destroyed. ",
+			"type":"When"
+		},
+		"Q299":{
+			"answer":"1. Silla",
+			"question":"Which one of the following countries ruled for the longest period of time?  1. Silla 2. Goguryeo 3. Baekje",
+			"type":"What"
+		},
+		"Q300":{
+			"answer":"Dragon robe (곤룡포(?龍袍))",
+			"question":"‘This’ was the clothes when king was in working in ordinary day in the Joseon Dynasty and named ‘this’, as a dragon symbolizing King was decorated in the chest and back. What is the name of the clothes?",
+			"type":"What"
+		},
+		"Q301":{
+			"question":"This person was born in 1984 and made internationally famous service when he was a university student in Harvard University. What is his name? Explain the service he created and main achievements.",
+			"sub-questions":[{
+				"answer":"Mark Zuckerberg",
+				"question":"This person was born in 1984 and made internationally famous service when he was a university student in Harvard University. What is his name?",
+				"type":"Who"
+			},{
+				"answer":"Together with his four fellow Harvard University students, Mark Zuckerberg has launched a social networking website called Facebook. Mark Zuckerberg has been named as one of the 100 wealthiest and most influential people in the world.",
+				"question":"This person was born in 1984 and made internationally famous service when he was a university student in Harvard University. Explain the service he created and main achievements.",
+				"type":"What"
+			}]
+		},
+		"Q302":{
+			"answer":"Merrill Lynch",
+			"question":"What is the name of ‘this company’, established in 1914 as one of international stock company and now taken over by Bank of America?",
+			"type":"What"
+		},
+		"Q303":{
+			"answer":"Lehman Brothers",
+			"question":"What is the name of an international financial company, established in 1850 as an American enterprise, and bankrupted in 2008?",
+			"type":"What"
+		},
+		"Q304":{
+			"answer":"Machu Picchu",
+			"question":"What is the name of the ancient city with Inca civilization, located at Peru? The term refers to ‘Old mountaintop’ in local language and it is called ‘the lost city of Inca’ or ‘Tower in the air’.",
+			"type":"Where"
+		},
+		"Q305":{
+			"answer":"Washington, D.C.",
+			"question":"It is the capital of America, formally the District of Columbia and nominated as the capital by President, George Washington on 1790.  What is the name of this independent administrative district not belonging to any 50 states of America?",
+			"type":"Where"
+		},
+		"Q306":{
+			"answer":"2. Gojong of Korea",
+			"question":"Which one of the following kings of the Joseon Dynasty had lived longer than 60 years?  [ 1. Taejong of Joseon, 2. Gojong of Korea, 3. Danjong of Joseon, 4. Seongjong of Joseon, 5. Sejo of Joseon ]",
+			"type":"Who"
+		},
+		"Q307":{
+			"answer":"The Art of War(孫子兵法)",
+			"question":"Which book does include ‘If you know your enemy and yourself(知彼知己), you can win every battle(百戰不殆)’? The book was known as Cao Cao’s favorite according to ‘Records of the Three Kingdoms(三國志)’.   [The Art of War(孫子兵法), Zizhi Tongjian(資治通鑑), Water Margin(水滸傳)] ",
+			"type":"What"
+		},
+		"Q308":{
+			"answer":"The Praise of Folly",
+			"question":"It is a book criticizing religion written by a Dutch humanist Desiderius Erasmus. This book is so called Moriae Encomium. A friend of the writer, Thomas More’s Latin name was Morus, and Erasmus associated it with ‘Moriae[痴愚女神]’ and named the book as ( ).",
+			"type":"What"
+		},
+		"Q309":{
+			"answer":"Hunmongjahoe(훈몽자회(訓蒙字會))",
+			"question":"It was a Chinese studying book, written by Choi Se-jin(崔世珍) in 1527, Jungjong of Joseon 22. It was known as an origin of Consonant of Hangul to articulate giyeok, nieun and digeut. [Hunminjeongeum(훈민정음(訓民正音)), Hunmongjahoe(훈몽자회(訓蒙字會)), Aeongakbi(아언각비(雅言覺非))]",
+			"type":"What"
+		},
+		"Q310":{
+			"question":"This person was born in 1950. He is a Polish-American computer engineer, a friend of Steve Jobs and referred to frequently by the nickname \"The Wonderful Wizard of Woz\". Who is this person? Explain the company he established and his main achievements.",
+			"sub-questions":[{
+				"answer":"Steve Wozniak",
+				"question":"This person was born in 1950. He is a Polish-American computer engineer, a friend of Steve Jobs and referred to frequently by the nickname \"The Wonderful Wizard of Woz\". Who is this person?",
+				"type":"Who"
+			},{
+				"answer":"Steve Wozniak has co-founded Apple Computer (now Apple Inc.) with Steve Jobs and Ronald Wayne. Steve Wozniak single-handedly designed both the Apple I and Apple II computers in the late 1970s. These computers contributed significantly to the microcomputer revolution.",
+				"question":"This person was born in 1950. He is a Polish-American computer engineer, a friend of Steve Jobs and referred to frequently by the nickname \"The Wonderful Wizard of Woz\". Explain the company he established and his main achievements.",
+				"type":"What"
+			}]
+		},
+		"Q311":{
+			"answer":"1) Leo Tolstoy",
+			"question":"Who is NOT a winner of Nobel Prize in Literature?   1) Leo Tolstoy 2) Rabindranath Tagore 3) Andr? Gide 4) Pearl S. Buck 5) Hermann Hesse",
+			"type":"Who"
+		},
+		"Q312":{
+			"answer":"During his presidency, former South Korean President Roh Moo-hyun started operating the Public Participation Portal that supported more active political participation of the citizens of South Korea. Other policy goals for the Roh administration included the continuance of the existing Sunshine Policy of engagement towards North Korea, and Roh successfully pushed for an FTA with the United States as well.",
+			"question":"Briefly explain some policies that former South Korean President Roh Moo-hyun carried out during his presidential term.",
+			"type":"What"
+		},
+		"Q313":{
+			"answer":["Democratic Reunification Party (통일민주당(統一民主黨))", "Democratic Party (민주당(民主黨))", "Unified Democratic Party (통합민주당(統合民主黨))", "Millennium Democratic Party (새천년민주당(새千年民主黨))", "Uri Party (열린우리당(열린우리黨))"],
+			"answer_criteria":"or",
+			"comment":"To be more accurate, ge3 should be added to the answer_criteria, but we have decided not to add it, in order to keep the whole process as simple as possible.",
+			"question":"Write down the names of more than three political parties which former South Korean President Roh Moo-hyun belonged to.",
+			"type":"What"
+		},
+		"Q314":{
+			"answer":"④ Geongukdongmaeng(건국동맹(建國同盟)) - Yu Ja-myeong (유자명(柳子明))",
+			"question":"Which one does NOT correctly link between National Liberation Movement and the member?  ① Singanhoe(신간회(新幹會)) - Hong Myong-hui (홍명희(洪命熹))  ② Korea People's Party (한국국민당(韓國國民黨)) - Kim Gu (김구(金九))  ③ Jaripdan(자립단(自立團)) - Bang Ju-ik (방주익(方周翼))  ④ Geongukdongmaeng(건국동맹(建國同盟)) - Yu Ja-myeong (유자명(柳子明))",
+			"type":"Who"
+		},
+		"Q315":{
+			"answer":"2. Working poor",
+			"question":"Which term refers to the social class who has a job yet whose incomes fall below a given poverty line?  1. House poor  2. Working poor  3. Rent poor  4. Freeter",
+			"type":"What"
+		},
+		"Q316":{
+			"answer":"2. Goldilocks economy",
+			"question":"Which term is related to an English traditional fairy tale?  1. Pareto principle  2. Goldilocks economy  3. Unintended consequences  4. Zaibatsu(자이바쓰(財閥))  5. Reflation",
+			"type":"What"
+		},
+		"Q317":{
+			"answer":"X",
+			"question":"Public assistance is one of the social welfare systems run by municipalities and is intended to provide both material and nonmaterial aid to \"every\" member of society including members of the wealthy class. If it is correct, O, and if not, X.",
+			"type":"What"
+		},
+		"Q318":{
+			"answer":"③ Ahn Cheol-soo (안철수(安哲秀))",
+			"question":"Who is Korean venture businessman famous as a computer virus vaccine V3 developer?  ①  Yi Chan-jin (이찬진(李璨振)) ② Song Seung-hwan (송승환(宋承桓)) ③ Ahn Cheol-soo (안철수(安哲秀)) ④ Park Gyeong-cheol (박경철(朴慶哲))",
+			"type":"Who"
+		},
+		"Q319":{
+			"answer":"Gwanggaeto the Great",
+			"question":"Who was the 19th king of Goguryeo, conquered the Khitan and Sushen and conducted Dongbuyeo(동부여(東夫餘)) Conquest?  ",
+			"type":"Who"
+		},
+		"Q320":{
+			"answer":"4. Kim Chwa-chin - Bongoh Town Battle",
+			"question":"Which one does NOT correctly link between a figure and the related battle?  1. Kwon Yul - Siege of Haengju  2. Eulji Mundeok - Battle of Salsu  3. Yi Sun-sin - Battle of Hansan Island  4. Kim Chwa-chin - Bongoh Town Battle",
+			"type":"Who"
+		},
+		"Q321":{
+			"answer":"Family court",
+			"question":"‘This’ is the court in which mainly organizes family related affairs and juvenile delinquency. There are five of 'this' in Korea. What is the name of this organization?",
+			"type":"What"
+		},
+		"Q322":{
+			"answer":"The National Debt Repayment Movement was a movement by the people of the Korean Empire to repay their country's debt through collecting individual donations. The Movement was started by Seo Sang-dong of Daegu on 30 January, 1907. At that time the national debt was 13 million won.",
+			"question":"Describe National Debt Repayment Movement.",
+			"type":"What"
+		},
+		"Q323":{
+			"answer":"IMF is an international organization of 188 countries, working to promote global economic co-operation and growth, trade, employment, and exchange-rate stability, including by making financial resources available to member countries to meet balance of payments needs.",
+			"question":"Explain about IMF.",
+			"type":"What"
+		},
+		"Q324":{
+			"answer":"17 November 1869",
+			"question":"Suez Canal is connecting Mediterranean Sea and Red Sea. Thanks to this Canal, the sea route has been reduced and there are benefits in terms of time and economy. Previously, the sea route should have passed the African Continent. Which day did this Canal open?",
+			"type":"When"
+		},
+		"Q325":{
+			"answer":"② Song Siyeol (송시열(宋時烈))",
+			"question":"‘Yulgok’ is Yi I’s pen name in Joseon period. Then, ‘Uam’ is whose pen name?  ① Yun Seondo (윤선도(尹善道)) ② Song Siyeol (송시열(宋時烈)) ③ Huh Jing (허징(許?)) ④ Choi Chi-un (최치운(崔致雲))",
+			"type":"Who"
+		},
+		"Q326":{
+			"answer":"4. Gunseondo(군선도(群仙圖))",
+			"question":"Which one does NOT belong to Shin Saimdang?  1. Sansudo(산수도(山水圖)) 2. Chochungdo(초충도(草蟲圖)) 3. Jarido(자리도(紫鯉圖)) 4. Gunseondo(군선도(群仙圖))",
+			"type":"What"
+		},
+		"Q327":{
+			"answer":"1. Socrates → 3. Xiang Yu → 4. Emperor Nero → 2. Kim Yushin",
+			"question":"List the following figures in timely order.  【 1. Socrates / 2. Kim Yushin / 3. Xiang Yu / 4. Emperor Nero 】",
+			"type":"When"
+		},
+		"Q328":{
+			"question":"What year was the World Council of Churches established, and where is its head office?",
+			"sub-questions":[{
+				"answer":"1948",
+				"question":"What year was the World Council of Churches established?",
+				"type":"When"
+			},{	
+				"answer":"Geneva, Switzerland",
+				"question":"Where is the World Council of Churches' head office?",
+				"type":"Where"
+			}]
+		},
+		"Q329":{
+			"answer":"1. Battle of Hansan Island → 3. Battle of Ungpo (웅포해전) → 2. Battle of Myeongnyang → 4. Battle of Noryang",
+			"question":"List the following naval warfares fought by Admiral Yi Sun-sin in timely order.  【 1. Battle of Hansan Island / 2. Battle of Myeongnyang / 3. Battle of Ungpo (웅포해전(熊浦海戰)) / 4. Battle of Noryang 】",
+			"type":"When"
+		},
+		"Q330":{
+			"answer":"2 July 2012",
+			"question":"When was Sejong City founded? It had been developed from Participated Government period in connection with innovation city project to resolve overcrowded population of Seoul and realize balanced national development.",
+			"type":"When"
+		},
+		"Q331":{
+			"answer":"Battle of Salsu → Battle of Guju → Battle of Hansan Island → Siege of Haengju",
+			"question":"List the following events in timely order.  [Battle of Salsu, Battle of Guju, Battle of Hansan Island, Siege of Haengju]",
+			"type":"When"
+		},
+		"Q332":{
+			"answer":"2. National Debt Repayment Movement → 1. Hague Secret Emissary Affair → 3. Abdication of Emperor Gojong → 4. Japan?Korea Treaty of 1907",
+			"question":"List the following events in 1907 in timely order.  1. Hague Secret Emissary Affair 2. National Debt Repayment Movement 3. Abdication of Emperor Gojong 4. Japan?Korea Treaty of 1907",
+			"type":"When"
+		},
+		"Q333":{
+			"answer":"1. April Revolution",
+			"question":"What was the event when Syngman Rhee was a president?  1. April Revolution  2. Red Cross talks between North and South Korea (남북적십자회담(南北赤十字會談))  3. Gwangju massacre  4. June Democracy Movement",
+			"type":"What"
+		},
+		"Q334":{
+			"answer":"Finland → Czech Republic → South Korea → Chile",
+			"question":"List the following countries joining OECD in timely order from the longest history to shortest one.  [Finland, Chile, South Korea, Czech Republic]",
+			"type":"When"
+		},
+		"Q335":{
+			"answer":"LIBOR (London Interbank Offered Rate)",
+			"question":"What is the abbreviated name of the average interest rate that is applied daily in London's financial market at 11 a.m.?",
+			"type":"What"
+		},
+		"Q336":{
+			"answer":"Nobel Memorial Prize in Economic Sciences",
+			"question":"Which category of the Nobel Prize was newly added in 1969?",
+			"type":"What"
+		},
+		"Q337":{
+			"answer":"Sogogun(속오군(束伍軍))",
+			"question":"Which one of the following did not belong to Ohgunyoung(오군영(五軍營)) that was organized to defend the capital city(首都) of Joseon(朝鮮) after the Japanese invasions of Korea (1592?98)(壬辰倭亂)?  [Hunryeonwon(훈련원(訓練院)), Eoyeongcheong(어영청(御營廳)), Geumwiyeong(금위영(禁衛營)), Sogogun(속오군(束伍軍)), Sueocheong(수어청(守禦廳)), Chongyungcheong(총융청(摠戎廳))]",
+			"type":"What"
+		},
+		"Q338":{
+			"answer":"Battle of Waterloo",
+			"question":"Which one of the following events did not occur during World War II?  (Invasion of Normandy. Attack on Pearl Harbor. Holocaust. Potsdam Declaration. Battle of Waterloo)",
+			"type":"What"
+		},
+		"Q339":{
+			"answer":"Nobel Prize in Mathematics",
+			"question":"Which one of the following categories of the Nobel Prize does not exist?  (Nobel Prize in Physiology or Medicine. Nobel Prize in Chemistry. Nobel Prize in Mathematics. Nobel Memorial Prize in Economic Sciences. Nobel Prize in Literature)",
+			"type":"What"
+		},
+		"Q340":{
+			"answer":"Mojave Desert",
+			"question":"Which one of the following deserts is not in the African continent?  (Namib Desert. Kalahari Desert. Mojave Desert. Sahara Desert. Nubian Desert)",
+			"type":"What"
+		},
+		"Q341":{
+			"answer":"Mijo",
+			"question":"Which one of the following ports is not in the Sea of Japan?  (Mukho. Mijo. Daejin. Cheongok. Imwon)",
+			"type":"What"
+		},
+		"Q342":{
+			"answer":"Roman Holiday",
+			"question":"In which one of the following movies did Marilyn Monroe not star?  (Gentlemen Prefer Blondes. Roman Holiday. The Seven Year Itch)",
+			"type":"What"
+		},
+		"Q343":{
+			"answer":"Stonehenge",
+			"question":"Which one of the following cannot be seen in Italy?  [Colosseum, Trevi Fountain, Stonehenge, Pantheon]",
+			"type":"What"
+		},
+		"Q344":{
+			"answer":"Incheon Bridge",
+			"question":"Which one of the following is the longest bridge in South Korea?  [Seohae Bridge, Gwangan Bridge, Incheon Bridge]",
+			"type":"What"
+		},
+		"Q345":{
+			"answer":"Geunwoohoe(근우회(槿友會))",
+			"question":"What was the name of the group that was organized in 1927 by the unified female activists of Socialism and Nationalism, as a sister organization of Singanhoe(新幹會)?",
+			"type":"What"
+		},
+		"Q346":{
+			"answer":"Lucy (Australopithecus)",
+			"question":"This fossil discovered in 1974 in Ethiopia was presumed to be the progenitor of the human race and named after the lady in the discoverer's favorite song of the Beatles.",
+			"type":"What"
+		},
+		"Q347":{
+			"answer":"Sejong the Great",
+			"question":"Which one of the following kings of the Joseon Dynasty was on the throne when the main character of the classical novel 'Hong Gildong' was born?  (Danjong of Joseon, Sejong the Great, Taejo of Joseon)",
+			"type":"What"
+		},
+		"Q348":{
+			"answer":"Wilhelm R?ntgen",
+			"question":"A German scientist and the first winner of the Nobel Prize in Physics. The X-ray discovered by this person has opened the new era of image medical science by making a great contribution to finding various diseases.",
+			"type":"What"
+		},
+		"Q349":{
+			"answer":"Coelacanth",
+			"question":"This fish, known to have already become extinct about 50million years ago, was found in 1938 on the coast of South Africa. This fish, called also as a living fossil, mostly inhabits the waters of Madagascar.",
+			"type":"What"
+		},
+		"Q350":{
+			"answer":"Achasanseong (Acha Mountain Fortress)",
+			"question":"This is a walled mountain fortress in Gwangjang-dong of Seoul's Gwangjin District, where Goguryeo and Silla fought a fierce battle in the era of Three Kingdoms of Korea to occupy the lower reaches of the Han River.",
+			"type":"What"
+		},
+		"Q351":{
+			"answer":"Dadaism",
+			"question":"This was an anti-art movement taken place across Europe at the end of World War I. A group of young artists who gathered in Switzerland to avoid the war, such as a French poet Tristan Tzara and a painter Marcel Duchamp, furiously expressed their perceptions of reality and Nihilism in their works. This movement has greatly influenced the later activities of Surrealism.",
+			"type":"What"
+		},
+		"Q352":{
+			"answer":"Jules Rimet Trophy",
+			"question":"This trophy named in honor of the founder of the World Cup football tournament was first awarded to Uruguay, the first host country and the winner of the World Cup. The Brazilian team won the tournament for the third time in 1970, allowing them to keep the trophy in perpetuity, however, the trophy was stolen soon after and never discovered. What was the name of this trophy in the shape of the octagonal Holy Grail supported by the figure of the ancient Greek goddess of victory, Nike?",
+			"type":"What"
+		},
+		"Q353":{
+			"answer":"Code of Hammurabi",
+			"question":"This is the world's oldest recorded code of laws enacted in around 1750 BC by Hammurabi, the king of Babylonia. The Code consists of 282 laws and they are carved into the cylindrical shape of 2.25m tall basalt stele by using cuneiform script(楔形文字). A French expedition found this Code in 1901 in the ancient Persian city of Susa, and it is now housed in the Louvre in its original form.",
+			"type":"What"
+		},
+		"Q354":{
+			"answer":"Pantheon, Rome",
+			"question":"The name of this ancient temple in Rome, Italy, means \"all the Gods\" in Greek language. It is one of the most representative buildings of the Roman Era that was first built in 27 B.C. by Marcus Vipsanius Agrippa and reconstructed in 115~125 by Emperor Hadrian after having burnt down.",
+			"type":"What"
+		},
+		"Q355":{
+			"answer":"Dongsa Gangmok",
+			"question":"A Korean history book written by Ahn Jeong-bok(安鼎福) during the reign of Yeongjo of Joseon(英祖) by making reference to the Chinese literature 'Tonggam Gangmok(通鑑綱目)' by Zhu Xi(朱熹) of the Song Dynasty. This book describes the Korean history from Gojoseon(古朝鮮) to Goryeo(高麗) in chronological order.",
+			"type":"What"
+		},
+		"Q356":{
+			"answer":"Pulitzer Prize",
+			"question":"This is the most authoritative award for achievements in journalism, literature, and musical composition in the United States. Ever since it was first established in 1917 by an American journalist, this prize has been awarded yearly in 19 categories.",
+			"type":"What"
+		},
+		"Q357":{
+			"answer":"Euibang Yuchui (의방유취(醫方類聚))",
+			"question":"This is an encyclopedia of Kampo published in 1445 according to the order of Sejong the Great. It is one of 'the three most prominent medical books(醫學書)' of the Joseon Dynasty, and the other two are Hyangyak jipseongbang(鄕藥集成方) and Dongui Bogam(東醫寶鑑).",
+			"type":"What"
+		},
+		"Q358":{
+			"answer":"Qatar",
+			"question":"Where is the headquarters of Aljazeera that was launched as a private satellite television network of the Arab world in November 1996?  [Iraq, Qatar, Kuwait]",
+			"type":"Where"
+		},
+		"Q359":{
+			"answer":"Xi'an(시안(西安))",
+			"question":"Chang'an(長安) in the phrase \"to be the talk of Chang'an\" was once the capital of the Tang Dynasty. Where is this city today?",
+			"type":"Where"
+		},
+		"Q360":{
+			"answer":"Yi Sun-sin",
+			"question":"Who is the main character in Kim Hoon's novel 'Ode to the Sword' that was once given the Dong-in Literary Award?",
+			"type":"Who"
+		},
+		"Q361":{
+			"answer":"Jane Goodall",
+			"question":"A British zoologist and a world-renowned chimpanzee researcher who spent over 40 years together with chimpanzees in Tanzania. This person was appointed as a U.N. 'messenger of peace' in 2002 and awarded DBE in 2003 by Queen Elizabeth II of the United Kingdom.",
+			"type":"Who"
+		},
+		"Q362":{
+			"answer":"Confucius → Genghis Khan → Columbus → Napoleon",
+			"question":"List the following people in the order of birthdate : Confucius, Genghis Khan, Napoleon, Columbus",
+			"type":"Who"
+		},
+		"Q363":{
+			"answer":"Aphrodite",
+			"question":"Hera was the goddess of family, and Athena was the goddess of crafts. Who was the goddess of beauty and love?",
+			"type":"Who"
+		},
+		"Q364":{
+			"answer":"Noam Chomsky",
+			"question":"According to the theory of generative grammar, the linguistic competence of human beings is capable of creating new sentences without having them heard or learned before. Who was the founder of such a theory?",
+			"type":"Who"
+		},
+		"Q365":{
+			"answer":"Ivan Pavlov",
+			"question":"A Russian physiologist and the 1904 winner of the Nobel Prize for Physiology or Medicine. This person has been famous for the theory of brain functioning called 'conditioned reflex' that he/she learned from the salivating dogs associating the sound of their owner's footsteps with the presentation of the food.",
+			"type":"Who"
+		},
+		"Q366":{
+			"answer":"Park In-ro (박인로(朴仁老))",
+			"question":"This person was a poet of the time when Seonjo of Joseon (宣祖) was on the throne. He/she wrote the lyrics 'Taepyeongsa(太平詞)' to comfort soldiers during the Japanese invasions of Korea (1592?98). His/Her other works include 'Johongsiga(早紅枾歌)', 'Nuhangsa(陋巷詞)' and 'Youngnamga(嶺南歌)'.",
+			"type":"Who"
+		},
+		"Q367":{
+			"answer":"VANK",
+			"question":"What is the name of cyber diplomatic mission to correctly inform about Korea to the world?",
+			"type":"What"
+		},
+		"Q368":{
+			"answer":"Placebo",
+			"question":"What is the term referring to a phenomenon in which if it has introduced as the medicine to a patient, even if there is no effect, the effect is shown? It was discovered by an English doctor, John Haygarth through experiment for the first time and there is an opposite phenomenon called Nocebo.",
+			"type":"What"
+		},
+		"Q369":{
+			"answer":"Richard Wagner",
+			"question":"What is commonly associated among the following?  [born in Leipzig, composed ‘Siegfried Idyll’ to celebrate his son’s birthday, the representative work of 'Tristan and Iseult']",
+			"type":"Who"
+		},
+		"Q370":{
+			"answer":"Che Guevara",
+			"question":"What is commonly associated among the following?  [doctor, The Motorcycle Diaries, a figure shown on a 3 peso note in Cuba, the last guerrilla in the 20th century]",
+			"type":"Who"
+		},
+		"Q371":{
+			"answer":"Tongyeong",
+			"question":"What is commonly associated among the following?  [cable car, the first undersea tunnel in Asia, the background of Park Kyung-ni's novel ‘The Daughters of Pharmacist Kim’, the International Music Festival to commemorate Isang Yun]",
+			"type":"Where"
+		},
+		"Q372":{
+			"answer":"Geojedo (Geoje Island)",
+			"question":"Which island is associated with the following?  (Giseong Prefecture (기성현(崎城縣)). a place of exile of Uijong of Goryeo. Cheongma Literature Festival. Haegeumgang Island)",
+			"type":"Where"
+		},
+		"Q373":{
+			"answer":"Sri Lanka",
+			"question":"Which country is associated among the following?  (Tear of Indian Ocean. Serendib in 'The Adventures of Sinbad'. Colombo. Ceylon)",
+			"type":"Where"
+		},
+		"Q374":{
+			"answer":"Rio de Janeiro",
+			"question":"What is commonly associated among the following?  (the river of January, one of 3 world most beautiful harbors, Corcovado’s the statue of Christ, Samba Festival)",
+			"type":"Where"
+		},
+		"Q375":{
+			"answer":"Venus",
+			"question":"Which planet is commonly associated among the following?  ‘The White House at Night' of Vincent van Gogh / the evening star / Gaebapbaragi(개밥바라기)",
+			"type":"What"
+		},
+		"Q376":{
+			"answer":"Shinga (Aconogonon alpinum)",
+			"question":"Park Wan-suh(朴婉緖)'s novel ‘Who Ate up All the ( )’, A perennial plant belongs to Polygonum aviculare and Dicotyledon. Which term needs to be filled in the blank?",
+			"type":"What"
+		},
+		"Q377":{
+			"answer":"Long tail",
+			"question":"‘This’ is a theory about that 80% of majority creates better value than 20% of core minority. A portal site advertising program in America applied this theory, focused on small-sized businesses rather than large companies, and made more profits. What is this law famous with the title of a book written by Chris Anderson?",
+			"type":"What"
+		},
+		"Q378":{
+			"answer":"Lion",
+			"question":"Chimera, a mysterious animal in Greek mythology, is with parts from a sheep, a snake and a ( ). Which term needs to be filled in the blank?",
+			"type":"What"
+		},
+		"Q379":{
+			"answer":"Tibetan",
+			"question":"Ancient tea route (車馬古都) was the trade route for Chinese tea and ( ) ponies.",
+			"type":"What"
+		},
+		"Q380":{
+			"answer":"23",
+			"question":"Cheongungyo and Baekungyo in Bulguksa in North South States Period are number ( ) of National Treasure. Which number needs to be filled in the blank?",
+			"type":"What"
+		},
+		"Q381":{
+			"answer":"Gini coefficient",
+			"question":"It is an index showing how much income is evenly distributed. This index is between 0~1; if the index is 0, it means perfectly even income distribution and if it is 1, unfair income distribution. What is this index?",
+			"type":"What"
+		},
+		"Q382":{
+			"answer":"Calais",
+			"question":"‘The Burghers of ( )’ is an art work of Auguste Rodin which is appreciated as it brilliantly expresses Noblesse oblige. It was based on an episode in which 6 people from the high class, including a Mayor of the city, volunteered to death to save the people in this place in France during Hundred Years' War. Which city is the background of the work?",
+			"type":"Where"
+		},
+		"Q383":{
+			"answer":"Interferon",
+			"question":"Glycoprotein created by virus infected animal cell. It functions to halt virus infection and increase. It can be mass-produced by Genetic engineering and used for virus disease treatment, such as Hepatitis B and Herpes simplex. ",
+			"type":"What"
+		},
+		"Q384":{
+			"answer":"Ammonoidea",
+			"question":"One of fossils of Cephalopod in Mollusca. It is one of cone shells, discovered from Silurian period, Paleozoic era to Cretaceous, Mesozoic one, particularly often discovered in Mesozoic period. The shell has wrinkles and important in studying a Mesozoic foundation. ",
+			"type":"What"
+		}
+	}
+}
