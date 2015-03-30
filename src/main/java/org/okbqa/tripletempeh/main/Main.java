@@ -1,4 +1,4 @@
-package org.okbqa.tripletempeh.pipeline;
+package org.okbqa.tripletempeh.main;
 
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
@@ -6,6 +6,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 
 import java.io.IOException;
 import java.net.URI;
+import org.okbqa.tripletempeh.pipeline.TemplatorPipeline;
 
 /**
  * Main class.
@@ -19,8 +20,8 @@ public class Main {
     public static final URI BASE_URI = URI.create(host+"templategeneration/");
     
     // Init template generation pipeline (one for each language)
-    public static final Pipeline pipeline_en = new Pipeline("en",false,true);
-    public static final Pipeline pipeline_ko = new Pipeline("ko",false,true);
+    public static final TemplatorPipeline pipeline_en = new TemplatorPipeline("en",false);
+    public static final TemplatorPipeline pipeline_ko = new TemplatorPipeline("ko",false);
     
     /**
      * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.

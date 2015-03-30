@@ -1,10 +1,11 @@
-package org.okbqa.tripletempeh.pipeline;
+package org.okbqa.tripletempeh.main;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import org.json.simple.JSONArray;
+import org.okbqa.tripletempeh.pipeline.TemplatorPipeline;
 
 /**
  *
@@ -65,7 +66,7 @@ public class Run {
 //                "What is the name of government office in the Goryeo and Joseon Dynasty to undertake Astronomy and Geography?",
 //                "Who is the person born in Daegu, a founder of Man of Korea and committed suicide by jumping from the Mapo Bridge?"
                 
-        Pipeline pipeline = new Pipeline("en",true,true);
+        TemplatorPipeline pipeline = new TemplatorPipeline("en",true);
         Scanner  scanner  = new Scanner(System.in);
         
         for (String question : test_en) {

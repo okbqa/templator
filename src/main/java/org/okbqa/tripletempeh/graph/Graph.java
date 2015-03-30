@@ -127,6 +127,26 @@ public class Graph {
     public void setForward(Map<Integer,Integer> m) {
         forward = m;
     }
+        
+    // Manipulate graph 
+    
+    public void deleteNode(Node n) {
+        nodes.remove(n);
+    }
+    public void deleteEdge(Edge e) {
+        edges.remove(e);
+    }
+    
+    public void delete(Graph g) {
+//      for (Node n : g.getNodes()) {
+//          deleteNode(n);
+//      }
+        for (Edge e : g.getEdges()) {
+            deleteEdge(e);
+        }
+    }
+    
+    // Merging with another graph 
     
     public void merge(Graph other) {
         
@@ -148,24 +168,6 @@ public class Graph {
         
     }
     
-    // Manipulate graph 
-    
-    public void deleteNode(Node n) {
-        nodes.remove(n);
-    }
-    public void deleteEdge(Edge e) {
-        edges.remove(e);
-    }
-    
-    public void delete(Graph g) {
-//      for (Node n : g.getNodes()) {
-//          deleteNode(n);
-//      }
-        for (Edge e : g.getEdges()) {
-            deleteEdge(e);
-        }
-    }
-    
     // Matching
     
     public boolean containsEdge(Edge edge) {
@@ -176,6 +178,20 @@ public class Graph {
             }
         }
         return false;
+    }
+    
+    public Edge findEdgeBetween(Integer i1, Integer i2) {
+        
+        Edge edge = null;
+        
+        for (Edge e : this.getEdges()) {
+             if ((e.getHead() == i1) && e.getDependent() == i2) {
+                 edge = e;
+                 break;
+             }
+        }
+        
+        return edge;
     }
     
     public Node getMatchingNode(Node node) {
