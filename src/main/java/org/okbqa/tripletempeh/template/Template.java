@@ -4,6 +4,7 @@ import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.sparql.syntax.ElementGroup;
 import com.hp.hpl.jena.sparql.syntax.ElementTriplesBlock;
+import static java.lang.Math.log;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -39,6 +40,7 @@ public class Template {
         slots = s;
     }
     
+    
     // Getter 
     
     public Query getQuery() {
@@ -67,6 +69,7 @@ public class Template {
         countvars.add(var);
     }
     
+    
     // Tests 
     
     public boolean containsSlotFor(String var) {
@@ -77,6 +80,7 @@ public class Template {
         }
         return false;
     }
+    
     
     // Assembly
     
@@ -103,8 +107,6 @@ public class Template {
         slots.removeAll(blacklisted);
     }
     
-    // JSON
-    
     public JSONObject toJSON() {
         
         JSONObject template = new JSONObject();
@@ -119,7 +121,7 @@ public class Template {
             // alternative: slotlist.add(slot.toJSON());
         }
         template.put("slots",slotlist);
-        template.put("score",1); // TODO
+        template.put("score",score()); 
         
         return template;
     }
@@ -127,6 +129,21 @@ public class Template {
     private String sanityCheck(String querystring) {
         return querystring.replaceAll("\\.\\s*\\.",".").replaceAll("\\n"," ").replaceAll("\\s+"," ");
     }
+    
+    // Scoring 
+    
+    public double score() {
+        
+        Integer common = 5;       
+        Integer actual = body.getElements().size() + slots.size();
+        
+        if (actual <= common) {
+            return 1.0;
+        } else {
+            return log(common / actual);
+        }
+    }
+    
     
     // Show 
     
