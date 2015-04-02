@@ -24,7 +24,9 @@ public class SemSimTest {
         
         SemSimPipeline pipeline = new SemSimPipeline("en",true);
         
-        pipeline.run(text1,text2);
+        double sim = pipeline.run(text1,text2);
+        
+        System.out.println("Similarity: " + sim);
     }
     
 }
