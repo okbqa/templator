@@ -134,13 +134,13 @@ public class Template {
     
     public double score() {
         
-        Integer common = 5;       
-        Integer actual = body.getElements().size() + slots.size();
+        Integer expected = 5; 
+        Integer actual   = body.getElements().size() + slots.size();
         
-        if (actual <= common) {
+        if (actual <= expected) {
             return 1.0;
         } else {
-            return log(common / actual);
+            return log(expected / actual);
         }
     }
     

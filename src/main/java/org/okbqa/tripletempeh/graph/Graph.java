@@ -50,7 +50,7 @@ public class Graph {
     public ArrayList<Node> getNodes() {
         return nodes;
     }
-    
+      
     public Node getNode(int i,boolean pleaseforward) {
         
         if (pleaseforward && forward.containsKey(i)) {
@@ -63,6 +63,44 @@ public class Graph {
             }
         }
         return null;
+    }
+    
+    public List<Integer> findNode(String s) {
+        
+        List<Integer> ids = new ArrayList<>();
+        
+        for (Node n : nodes) {
+             if (n.form.equals(s)) {
+                 if (forward.containsKey(n.getId())) {
+                     ids.add(forward.get(n.getId()));
+                 } else {
+                     ids.add(n.id);
+                 }
+             }
+        }
+        
+        return ids;
+    }
+    
+    public void renameNode(int n_old, int n_new) {
+        
+        for (Node n : nodes) {
+             if (forward.containsKey(n.getId())) {
+                 if (forward.get(n.getId()) == n_old) {
+                     n.setId(n_new);
+                 }
+             } else if (n.getId() == n_old) {
+                 n.setId(n_new);
+             }
+        }
+        for (Edge e : edges) {
+             if (e.getHead() == n_old) {
+                 e.setHead(n_new);
+             }
+             if (e.getDependent() == n_old) {
+                 e.setDependent(n_new);
+             }
+        }
     }
     
     public List<Edge> getEdges(String label) {
