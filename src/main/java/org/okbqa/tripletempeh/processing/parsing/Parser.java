@@ -1,7 +1,5 @@
 package org.okbqa.tripletempeh.processing.parsing;
 
-import java.util.List;
-
 /**
  *
  * @author cunger
@@ -9,7 +7,6 @@ import java.util.List;
 
 public interface Parser {
     
-    List<String> getSentences(String text);
-    String parse(String sentence);
+    ParseResult parse(String text);
             
 }

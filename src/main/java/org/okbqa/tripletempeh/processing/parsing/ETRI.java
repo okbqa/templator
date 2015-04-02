@@ -25,23 +25,28 @@ public class ETRI implements Parser {
         url = "http://110.45.246.131:8080/myapp/service/post";
         boundaries = "\\.|\\?";
     }
+
     
-    
-    public List<String> getSentences(String text) {
+    public ParseResult parse(String text) {
+        
+        ParseResult result = new ParseResult();
         
         List<String> sentences = new ArrayList<>();
+        List<String> parses    = new ArrayList<>();
         
         // TODO Do something more sophisticated here!
         for (String sentence : text.split(boundaries)) {
+            
             sentences.add(sentence);
+            
+            String parse = request(url,sentence);
+            parses.add(parse);
         }
+              
+        result.setSentences(sentences);
+        result.setParses(parses);
         
-        return sentences;
-    }
-    
-    public String parse(String text) {
-        
-        return request(url,text);
+        return result;
     }
     
     public String request(String url, String text) {

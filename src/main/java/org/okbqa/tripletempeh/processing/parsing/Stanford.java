@@ -1,6 +1,7 @@
 package org.okbqa.tripletempeh.processing.parsing;
 
 import edu.stanford.nlp.dcoref.CorefChain;
+import edu.stanford.nlp.dcoref.CorefChain.CorefMention;
 import edu.stanford.nlp.dcoref.CorefCoreAnnotations.CorefChainAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.SentencesAnnotation;
 import edu.stanford.nlp.pipeline.Annotation;
@@ -24,47 +25,48 @@ public class Stanford implements Parser {
     
     public Stanford() {
     }
-    
-    public List<String> getSentences(String text) {
 
-        List<String> sentences = new ArrayList<>();       
+    
+    public ParseResult parse(String text) {
         
+        ParseResult result = new ParseResult();
+        
+        List<String> parses    = new ArrayList<>();
+        List<String> sentences = new ArrayList<>();
+        List<List<String>> corefChains = new ArrayList<>();
+        
+        // Load Stanford NLP
         Properties props = new Properties();
         props.put("annotators", "tokenize, ssplit, pos, lemma, parse, ner, dcoref");
         pipeline = new StanfordCoreNLP(props);
         
+        // Analyze input
         Annotation document = new Annotation(text);
         pipeline.annotate(document);
         
-        List<CoreMap> result = document.get(SentencesAnnotation.class);
-        for (CoreMap s : result) {
-             sentences.add(s.toString());
-        }
-        
-        return sentences;
-    }
-    
-    public String parse(String sentence) {
-        
-        String parse = "";
-        
-        Properties props = new Properties();
-        props.put("annotators", "tokenize, ssplit, pos, lemma, parse");
-        pipeline = new StanfordCoreNLP(props);
-        
-        Annotation document = new Annotation(sentence);
-        pipeline.annotate(document);
-        
-        List<CoreMap> result = document.get(SentencesAnnotation.class);
-        for (CoreMap s: result) {
+        List<CoreMap> annotations = document.get(SentencesAnnotation.class);
+        for (CoreMap s: annotations) {
+            
+            sentences.add(s.toString());
             
             SemanticGraph dependencies = s.get(BasicDependenciesAnnotation.class);
-            parse += dependencies.toList();
+            parses.add(dependencies.toList().trim());
         }
         
-        //Map<Integer,CorefChain> graph = document.get(CorefChainAnnotation.class);
+        Map<Integer,CorefChain> chains = document.get(CorefChainAnnotation.class);
+        for (CorefChain c : chains.values()) {
+             List<String> mentions = new ArrayList<>(); 
+             for (CorefMention mention : c.getMentionsInTextualOrder()) {
+                  mentions.add(mention.toString());
+             }
+             corefChains.add(mentions);
+        }
         
-        return parse.trim();
+        result.setSentences(sentences);
+        result.setParses(parses);
+        result.setCorefChains(corefChains);
+        
+        return result;
     }
 
 
