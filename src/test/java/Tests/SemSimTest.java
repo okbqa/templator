@@ -1,3 +1,5 @@
+package Tests;
+
 
 import java.io.IOException;
 import org.okbqa.tripletempeh.pipeline.SemSimPipeline;

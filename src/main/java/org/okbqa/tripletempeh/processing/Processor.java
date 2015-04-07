@@ -32,8 +32,13 @@ public class Processor {
     
     
     public Graph process(String text) {
-        
+
         Graph graph = new Graph();
+
+        // Preprocess text
+        // TODO remove &quot;
+        
+        // Parse 
         
         ParseResult result = parser.parse(text);
 

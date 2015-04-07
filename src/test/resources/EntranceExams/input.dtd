@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT topic ((reading-test))>
+<!ATTLIST topic
+	t_id CDATA #REQUIRED
+	t_name CDATA #REQUIRED
+>
+<!ELEMENT test-set ((topic)+)>
+<!ELEMENT reading-test ((doc, question+))>
+<!ATTLIST reading-test
+	r_id CDATA #REQUIRED
+>
+<!ELEMENT question ((q_str, answer+))>
+<!ATTLIST question
+	q_id CDATA #REQUIRED
+>
+<!ELEMENT q_str (#PCDATA)>
+<!ELEMENT doc (#PCDATA)>
+<!ATTLIST doc
+	d_id CDATA #REQUIRED
+>
+<!ELEMENT answer (#PCDATA)>
+<!ATTLIST answer
+	a_id (5 | 4 | 3 | 2 | 1) #REQUIRED
+>
