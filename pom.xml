@@ -69,6 +69,11 @@
 	  <artifactId>deeplearning4j-nlp</artifactId>
 	  <version>0.0.3.3</version>
         </dependency>
+        <dependency>
+          <groupId>edu.cmu.lti</groupId>
+          <artifactId>ws4j</artifactId>
+          <version>1.0.1</version>
+        </dependency>
     </dependencies>
     <name>tripletempeh</name>
     <build>

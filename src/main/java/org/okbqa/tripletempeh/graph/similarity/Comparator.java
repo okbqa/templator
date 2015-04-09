@@ -16,6 +16,10 @@ import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 import org.deeplearning4j.models.embeddings.loader.WordVectorSerializer;
 import org.deeplearning4j.models.word2vec.Word2Vec;
+import edu.cmu.lti.ws4j.util.WS4JConfiguration;
+import edu.cmu.lti.ws4j.impl.WuPalmer;
+import edu.cmu.lti.lexical_db.ILexicalDatabase;
+import edu.cmu.lti.lexical_db.NictWordNet;
 import org.okbqa.tripletempeh.graph.Edge;
 import org.okbqa.tripletempeh.graph.Graph;
 import org.okbqa.tripletempeh.graph.Node;
@@ -46,14 +50,25 @@ public class Comparator {
 
         for (Node n1 : g1.getNodes()) {
             for (Node n2 : g2.getNodes()) {
+                
                 // init nodeMatch
                 if (!nodeMatch.containsKey(n1.getId())) {
                      nodeMatch.put(n1.getId(),n2.getId());
                 }
+                
                 // node similarity
-                //double sim = word2vec.similarity(n1.getForm(),n2.getForm()); 
-                double sim = easyESA(n1.getForm(),n2.getForm());
+                double sim1 = easyESA(n1.getForm(),n2.getForm());
+                double sim2 = ws4j(n1.getForm(),n2.getForm());
+              //double sim3 = word2vec.similarity(n1.getForm(),n2.getForm()); 
+                double sim;
+                if (sim1 != 0.0 && sim2 != 0.0) { 
+                    sim = (sim1 + sim2) / 2;
+                } else {
+                    sim = Math.max(sim1,sim2);
+                }
+                
                 nodeSims.put(n1.getId(),new HashMap<Integer,Double>() {{ put(n2.getId(),sim); }});
+                
                 // update nodeMatch
                 if (sim >= maxSim) {
                     maxSim = sim;
@@ -84,6 +99,11 @@ public class Comparator {
         return (avgNodeSim + avgEdgeSim) / 2 ;
     }
     
+    
+    // Similarity measures
+    
+    // ESA 
+    
     private double easyESA(String s1, String s2) {
                 
         String url = "http://vmdeb20.deri.ie:8890/esaservice?task=esa&term1=" + s1 + "&term2=" + s2; 
@@ -98,10 +118,27 @@ public class Comparator {
             double simval = (double) Float.parseFloat(sim.replaceAll("\"",""));
             if (simval * 100 < 1) {
                 return simval * 100;
+            } else if (simval * 10 < 1) {
+                return simval * 10; 
             } else {
                 return simval;
             }
         
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+            return 0.0;
+        }
+    }
+    
+    // WordNet 
+    
+    private double ws4j(String s1, String s2) {
+        
+        try {
+            ILexicalDatabase db = new NictWordNet();
+            WS4JConfiguration.getInstance().setMFS(true);
+	    double s = new WuPalmer(db).calcRelatednessOfWords(s1,s2);
+	    return s;
         } catch (Exception e) {
             e.printStackTrace(System.out);
             return 0.0;
