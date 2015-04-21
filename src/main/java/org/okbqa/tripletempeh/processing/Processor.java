@@ -36,7 +36,11 @@ public class Processor {
         Graph graph = new Graph();
 
         // Preprocess text
-        // TODO remove &quot;
+        // TODO direct speech 
+        // 1. build graph for string in &quot;
+        // 2. replace by dummy string
+        // 3. build graph for rest 
+        // 4. replace dummy string node by graph from 1
         
         // Parse 
         

@@ -177,9 +177,11 @@ public class RuleEngine {
                      Matcher matcher = pattern.matcher(todo);
                      while  (matcher.find()) {
                              String role = matcher.group(1);
-                             int    head = Integer.parseInt(matcher.group(2));
-                             int    depd = Integer.parseInt(matcher.group(3));
-                             graph.addEdge(new Edge(color,map.get(head),role,map.get(depd)));
+                             int    head = map.get(Integer.parseInt(matcher.group(2)));
+                             int    depd = map.get(Integer.parseInt(matcher.group(3)));
+                             if (!graph.containsRoleEdgeBetween(head,depd)) {
+                                 graph.addEdge(new Edge(color,head,role,depd));
+                             } // i.e. every node can have only one semantic role
                      }
                      break;
                 }

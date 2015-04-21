@@ -24,7 +24,7 @@ public class GraphManipulation {
     // Semantic Role Labeling 
     
     public void doSRL(Graph graph) {
-                
+        
         for (Rule rule : SRL_rules) {
              engine.apply(rule,graph);
         }

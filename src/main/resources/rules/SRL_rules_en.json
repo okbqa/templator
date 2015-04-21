@@ -2,14 +2,14 @@
   {
     "dep": "nsubj(*-1,*-2)",
     "arg": "A0(1,2)"
+  }, 
+  {
+    "dep": "nsubjpass(*-1,*-2) \n prep(*-1,by-3) \n pobj(by-3,*-4)",
+    "arg": "A0(1,4) A1(1,2)"
   },
   {
     "dep": "nsubjpass(*-1,*-2)",
     "arg": "A0(1,2)"
-  }, 
-  {
-    "dep": "nsubjpass(*-1,*-2) \n prep(*-2,by-3) \n pobj(by-3,*-4)",
-    "arg": "A1(1,4)"
   },  
   {
     "dep": "csubj(*-1,*-2)",
@@ -32,8 +32,8 @@
     "arg": "A2(1,2)"
   },
   { 
-    "dep": "prep(*-1,*-2) \n pobj(*-2,*-3)", 
-    "arg": "APREP(1,3)"
+    "dep": "prep(*-1,*-3) \n pobj(*-3,*-2)", 
+    "arg": "APREP(1,2)"
   },
   {
     "dep": "amod(*-1,*-2)",
@@ -77,11 +77,11 @@
   },
   {
     "dep": "conj(*-1,*-2)",
-    "mod": "CONJ(1,2)"
+    "arg": "CONJ(1,2)"
   },
   {
     "dep": "neg(*-1,*-2)",
-    "arg": "NEG(1,2)"
+    "neg": "NEG(1,2)"
   },
   {
     "dep": "num(*-1,*-2)",

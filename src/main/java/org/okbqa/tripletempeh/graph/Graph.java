@@ -232,6 +232,17 @@ public class Graph {
         return edge;
     }
     
+    public boolean containsRoleEdgeBetween(Integer i1, Integer i2) {
+        
+        for (Edge e : edges) {
+            if (e.getHead() == i1 && e.getDependent() == i2
+             && e.getColor() != Color.DEPENDENCY && e.getColor() != Color.COREF) {
+                return true;
+            }
+        }
+        return false;
+    }    
+    
     public Node getMatchingNode(Node node) {
                             
         for (Node n : nodes) {
@@ -240,6 +251,25 @@ public class Graph {
              }
         }
         return null;
+    }
+    
+    public boolean contains(Graph g) {
+        
+        for (Edge e_g : g.getEdges()) {
+             boolean found = false;
+             for (Edge e_this : edges) {
+                  if (e_this.getLabel().equals(e_g.getLabel())
+                   && e_this.getHead() == e_g.getHead() 
+                   && e_this.getDependent() == e_g.getDependent()) {
+                      found = true;
+                      break;
+                  }
+             }
+             if (!found) {
+                 return false;
+             }
+        }
+        return true;
     }
     
     public List<Pair<Graph,Map<Integer,Integer>>> subGraphMatches(Graph g) {
