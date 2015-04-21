@@ -21,6 +21,15 @@ public class SemSimTest {
     
     public static void test() throws IOException {
         
+        SemSimPipeline pipeline = new SemSimPipeline("en",true);
+        
+        // Stanford test examples
+        String stan01 = "We have no information on whether users are at risk";
+        String stan02 = "They heard about you missing classes";
+        String stan03 = "The cookie was eaten by the monster";
+        
+        System.out.println("stan: " + pipeline.run(stan01,stan03));
+        
         // ClausIE patterns
         String text01 = "Albert Einstein died.";
         String text02 = "Albert Einstein remained in Princeton.";
@@ -33,9 +42,7 @@ public class SemSimTest {
         String text09 = "Albert Einstein remained in Princeton until his death.";
         String text10 = "Albert Einstein is a scientist of the 20th century.";
         String text11 = "In 1921, Albert Einstein was awarded the Novel Prize in Sweden.";
-        
-        SemSimPipeline pipeline = new SemSimPipeline("en",true);
-        
+               
         System.out.println("01-08: " + pipeline.run(text01,text08));
         System.out.println("04-05: " + pipeline.run(text04,text05));
         System.out.println("04-11: " + pipeline.run(text04,text11));
