@@ -1,5 +1,6 @@
 package org.okbqa.tripletempeh.template;
 
+import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.sparql.syntax.ElementGroup;
@@ -7,6 +8,7 @@ import com.hp.hpl.jena.sparql.syntax.ElementTriplesBlock;
 import static java.lang.Math.log;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import org.json.simple.JSONArray;
@@ -59,7 +61,10 @@ public class Template {
     }
     
     public void addTriples(ElementTriplesBlock triples) {
-        body.addElement(triples);
+        Iterator<Triple> iter = triples.patternElts();
+        while (iter.hasNext()) {
+            body.addTriplePattern(iter.next());
+        }
     }
     
     public void addProjVar(String var) {
@@ -84,7 +89,7 @@ public class Template {
     
     // Assembly
     
-    public void assemble(List<String> slot_blacklist) {
+    public void assemble(List<String> slot_blacklist) {        
         // query body
         query.setQueryPattern(body);
         // projection variables
