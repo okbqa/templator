@@ -3,6 +3,9 @@ package org.okbqa.tripletempeh.template;
 import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryFactory;
+import com.hp.hpl.jena.sparql.core.Var;
+import com.hp.hpl.jena.sparql.expr.ExprVar;
+import com.hp.hpl.jena.sparql.expr.aggregate.AggCountVar;
 import com.hp.hpl.jena.sparql.syntax.ElementGroup;
 import com.hp.hpl.jena.sparql.syntax.ElementTriplesBlock;
 import static java.lang.Math.log;
@@ -93,8 +96,12 @@ public class Template {
         // query body
         query.setQueryPattern(body);
         // projection variables
-        query.addProjectVars(projvars);  
-        query.addProjectVars(countvars); // TODO how to add COUNT modifier?
+        for (String v : projvars) {
+            query.getProject().add(Var.alloc(v));
+        }
+        for (String v : countvars) {
+            query.getProject().add(Var.alloc(v+"_count"),query.allocAggregate(new AggCountVar(new ExprVar(Var.alloc(v)))));
+        }
         // query type
         if (query.getProjectVars().isEmpty()) {
             query.setQueryAskType();

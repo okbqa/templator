@@ -190,11 +190,11 @@ public class RuleEngine {
     }
     
     public void apply(Rule rule,Graph graph,Template template) {
-        
+                
         List<Pair<Graph,Map<Integer,Integer>>> matches = rule.getTarget().subGraphMatches(graph);
         
         for (Pair<Graph,Map<Integer,Integer>> match : matches) {
-            
+                        
             Graph subgraph = match.getLeft();
             Map<Integer,Integer> forward = subgraph.getForward();
             Map<Integer,Integer> map = match.getRight();
@@ -218,7 +218,7 @@ public class RuleEngine {
                         Matcher count_matcher = count_pattern.matcher(todo);
                         while  (count_matcher.find()) {
                             // add projection variable with count modifier
-                            int projvar = Integer.parseInt(count_matcher.group(1));
+                            int projvar = map.get(Integer.parseInt(count_matcher.group(1)));
                             if (forward.containsKey(projvar)) {
                                 projvar = forward.get(projvar);
                             }
@@ -235,13 +235,14 @@ public class RuleEngine {
                             }
                             template.addProjVar(varString(projvar));
                         }
-                        // triple(1,SORTAL,2)
-                        Pattern sortal_pattern = Pattern.compile("triple\\((\\d+),SORTAL,(\\d+)\\)");
+                        // triple(1,SORTAL|UNSPEC,2)
+                        Pattern sortal_pattern = Pattern.compile("triple\\((\\d+),((SORTAL)|(UNSPEC)),(\\d+)\\)");
                         Matcher sortal_matcher = sortal_pattern.matcher(todo);
                         while  (sortal_matcher.find()) {
+                           String prop = sortal_matcher.group(2);
                            // add triple
                            int     s = map.get(Integer.parseInt(sortal_matcher.group(1)));
-                           int     o = map.get(Integer.parseInt(sortal_matcher.group(2)));
+                           int     o = map.get(Integer.parseInt(sortal_matcher.group(5)));
                            if (forward.containsKey(s)) {
                                    s = forward.get(s);
                            }
@@ -255,8 +256,10 @@ public class RuleEngine {
                            triples.addTriple(new Triple(Var.alloc(vs),Var.alloc(v),Var.alloc(vo)));
                            template.addTriples(triples);
                            // add slots
-                           template.addSlot(new Slot(vo,subgraph.getNode(o,true).getForm(),CLASS));
-                           template.addSlot(new Slot(v,"",PROPERTY,"SORTAL"));
+                           String kindofobject;
+                           if (prop.equals("SORTAL")) { kindofobject = CLASS; } else { kindofobject = RESOURCEorLITERAL; }
+                           template.addSlot(new Slot(vo,subgraph.getNode(o,true).getForm(),kindofobject));
+                           template.addSlot(new Slot(v,"",PROPERTY,prop)); 
                         }
                         // triple(1,2,3)
                         Pattern triple_pattern = Pattern.compile("triple\\((\\d+),(\\d+),(\\d+)\\)");

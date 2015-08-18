@@ -30,5 +30,5 @@ public class Rule {
     public String getTodoType() {
         return todoType;
     }
-    
+
 }
