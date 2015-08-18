@@ -28,7 +28,6 @@ public class TemplatorTest {
         
         List<String> test_en = Arrays.asList(
                 
-            "John has a nice black cat. It often lies on his sofa and sleeps.",      
             "Which rivers flow through Gunsan?",
             "What is the capital of Korea?",
             "Who is the founder of Google?",

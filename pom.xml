@@ -64,16 +64,16 @@
           <version>2.3.16</version>
           <type>jar</type>
         </dependency>
-        <dependency>
+<!--         <dependency>
 	  <groupId>org.deeplearning4j</groupId>
 	  <artifactId>deeplearning4j-nlp</artifactId>
 	  <version>0.0.3.3</version>
-        </dependency>
-        <dependency>
+        </dependency> -->
+<!--         <dependency>
           <groupId>edu.cmu.lti</groupId>
           <artifactId>ws4j</artifactId>
           <version>1.0.1</version>
-        </dependency>
+        </dependency> -->
     </dependencies>
     <name>tripletempeh</name>
     <build>
