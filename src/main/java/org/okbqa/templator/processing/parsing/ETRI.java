@@ -1,7 +1,11 @@
 package org.okbqa.templator.processing.parsing;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -39,8 +43,13 @@ public class ETRI implements Parser {
             
             sentences.add(sentence);
             
-            String parse = request(url,sentence);
-            parses.add(parse);
+            String parse;
+            try {
+                parse = request(url,sentence);
+                parses.add(parse);
+            }
+            catch (Exception e) {
+            }
         }
               
         result.setSentences(sentences);
@@ -49,22 +58,20 @@ public class ETRI implements Parser {
         return result;
     }
     
-    public String request(String url, String text) {
+    public String request(String url, String text) throws UnsupportedEncodingException, IOException, Exception {
  
-        try {
-            HttpClient client = new DefaultHttpClient();
-            HttpPost post = new HttpPost(url);
-            post.addHeader("Accept","text/plain");
-            HttpEntity entity = new ByteArrayEntity(text.getBytes("UTF-8"));
-            post.setEntity(entity);
-            HttpResponse response = client.execute(post);
-            String parse = EntityUtils.toString(response.getEntity(),HTTP.UTF_8);
+        HttpClient client = new DefaultHttpClient();
+        HttpPost post = new HttpPost(url);
+        post.addHeader("Accept","text/plain");
+        HttpEntity entity = new ByteArrayEntity(text.getBytes("UTF-8"));
+        post.setEntity(entity);
+        HttpResponse response = client.execute(post);
             
-            return parse.trim();
-        
-        } catch (Exception e) {
-            e.printStackTrace(System.out);
-            return null;
+        if (response.getStatusLine().getStatusCode() == 200) {
+            return EntityUtils.toString(response.getEntity(),HTTP.UTF_8).trim();
+        }
+        else {
+            throw new Exception("Status code returned by ETRI: " + response.getStatusLine().getStatusCode());
         }
     }
     
