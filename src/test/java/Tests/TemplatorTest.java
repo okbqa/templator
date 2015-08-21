@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import org.json.simple.JSONArray;
-import org.okbqa.tripletempeh.pipeline.TemplatorPipeline;
+import org.okbqa.templator.pipeline.TemplatorPipeline;
 
 
 /**
@@ -66,10 +66,10 @@ public class TemplatorTest {
 //                "What is the name of government office in the Goryeo and Joseon Dynasty to undertake Astronomy and Geography?",
 //                "Who is the person born in Daegu, a founder of Man of Korea and committed suicide by jumping from the Mapo Bridge?"
                 
-        TemplatorPipeline pipeline = new TemplatorPipeline("en",true);
+        TemplatorPipeline pipeline = new TemplatorPipeline("ko",true);
         Scanner scanner = new Scanner(System.in);
         
-        for (String question : test_en) {
+        for (String question : test_ko) {
             
             JSONArray output = pipeline.run(question);
                         
