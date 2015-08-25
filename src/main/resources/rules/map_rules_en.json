@@ -8,7 +8,7 @@
         "action": [ "projvar(1)",
                     "forward(2->1)" ]
     },
-    {   "struct": [ "det(*-2,which-1) \n #ARG#(*-3,*-2)" ],
+    {   "struct": [ "det(*-2,which-1)" ],
         "action": [ "projvar(1)",
                     "triple(1,SORTAL,2)",
                     "forward(2->1)" ]

@@ -176,7 +176,12 @@ public class ETRI implements Parser {
                     String dpnd  = d.get("id").toString();
                     String head  = d.get("head").toString();
                     String label = (String) d.get("label");
-                    label = label.replace("NP_","");
+                    if (label.contains("_")) {
+                        label = label.split("_")[1];
+                    }
+                    if (label.contains("-")) {
+                        label = label.replace("-","");
+                    }
                     
                     if (head.equals("-1")) continue;
                     
