@@ -50,6 +50,8 @@ public class Graph2Template {
         
         // 4. assemble and return template
         template.assemble(slot_blacklist);
+        template.setScore(0.9); 
+        
         return template;
     }
     

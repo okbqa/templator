@@ -30,7 +30,7 @@ public class Main {
     public static HttpServer startServer() {
         // create a resource config that scans for JAX-RS resources and providers
         // in org.okbqa.tripletempeh.pipeline
-        final ResourceConfig rconf = new ResourceConfig().packages("org.okbqa.tripletempeh.pipeline");
+        final ResourceConfig rconf = new ResourceConfig().packages("org.okbqa.templator.main");
 
         // create and start a new instance of grizzly http server
         // exposing the Jersey application at BASE_URI

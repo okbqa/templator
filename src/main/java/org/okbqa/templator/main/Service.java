@@ -10,7 +10,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 
-@Path("tripletempeh")
+@Path("templator")
 public class Service {
     
     @POST

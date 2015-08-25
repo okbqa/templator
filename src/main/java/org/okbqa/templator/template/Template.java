@@ -26,12 +26,15 @@ public class Template {
     Set<String>  projvars;
     Set<String>  countvars;
 
-    ElementGroup body;
+    Set<Triple>  triples;
     Set<Slot>    slots;
     
+    ElementGroup body;
     Query        query; // constructed by assemble()
     
+    double       score;
     
+        
     public Template() {
         projvars   = new HashSet<>();
         countvars  = new HashSet<>();
@@ -48,6 +51,9 @@ public class Template {
     
     // Getter 
     
+    public ElementGroup getBody() {
+        return body;
+    }
     public Query getQuery() {
         return query;
     }
@@ -55,7 +61,11 @@ public class Template {
         return slots;
     }
     
-    // Adder
+    // Setter 
+    
+    public void setScore(double s) {
+        score = s;
+    }
     
     public void addSlot(Slot s) {
         if (!containsSlotFor(s.getVar())) {
@@ -139,21 +149,17 @@ public class Template {
     }
     
     private String sanityCheck(String querystring) {
-        return querystring.replaceAll("\\.\\s*\\.",".").replaceAll("\\n"," ").replaceAll("\\s+"," ");
+        return querystring.replaceAll("\\n"," ").replaceAll("\\s+"," ");
     }
     
     // Scoring 
     
     public double score() {
         
-        Integer expected = 5; 
-        Integer actual   = body.getElements().size() + slots.size();
+        // this.score = start score
+        // reduce depending on number of variables that are neither projvars or countvars, nor slots
         
-        if (actual <= expected) {
-            return 1.0;
-        } else {
-            return log(expected / actual);
-        }
+        return score;
     }
     
     
