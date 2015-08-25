@@ -27,7 +27,7 @@ public class TemplatorTest {
     public static void test() throws IOException {
         
         List<String> test_en = Arrays.asList(
-                
+                                
             "Which rivers flow through Gunsan?",
             "What is the capital of Korea?",
             "Who is the founder of Google?",
@@ -66,10 +66,10 @@ public class TemplatorTest {
 //                "What is the name of government office in the Goryeo and Joseon Dynasty to undertake Astronomy and Geography?",
 //                "Who is the person born in Daegu, a founder of Man of Korea and committed suicide by jumping from the Mapo Bridge?"
                 
-        TemplatorPipeline pipeline = new TemplatorPipeline("ko",true);
+        TemplatorPipeline pipeline = new TemplatorPipeline("en",true);
         Scanner scanner = new Scanner(System.in);
         
-        for (String question : test_ko) {
+        for (String question : test_en) {
             
             JSONArray output = pipeline.run(question);
                         
