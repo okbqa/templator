@@ -29,6 +29,12 @@ public class Slot {
         this.value = val;
     }
     
+    // Boolean 
+    
+    public boolean isSortal() {
+        return this.var.equals("SORTAL");
+    }
+    
     // Getter 
     
     public String getVar() {

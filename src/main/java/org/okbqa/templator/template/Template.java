@@ -6,9 +6,9 @@ import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.sparql.core.Var;
 import com.hp.hpl.jena.sparql.expr.ExprVar;
 import com.hp.hpl.jena.sparql.expr.aggregate.AggCountVar;
+import com.hp.hpl.jena.sparql.syntax.Element;
 import com.hp.hpl.jena.sparql.syntax.ElementGroup;
 import com.hp.hpl.jena.sparql.syntax.ElementTriplesBlock;
-import static java.lang.Math.log;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -28,8 +28,10 @@ public class Template {
 
     Set<Triple>  triples;
     Set<Slot>    slots;
+    Set<String>  blacklist;
     
     ElementGroup body;
+    
     Query        query; // constructed by assemble()
     
     double       score;
@@ -38,9 +40,10 @@ public class Template {
     public Template() {
         projvars   = new HashSet<>();
         countvars  = new HashSet<>();
-        body       = new ElementGroup();        
+        triples    = new HashSet<>();
         slots      = new HashSet<>();
-        query      = QueryFactory.make();
+        blacklist  = new HashSet<>();
+        body       = new ElementGroup();        
     }
     
     public Template(Query q, Set<Slot> s) {
@@ -51,6 +54,9 @@ public class Template {
     
     // Getter 
     
+    public Set<Triple> getTriples() {
+        return triples;
+    }
     public ElementGroup getBody() {
         return body;
     }
@@ -73,11 +79,12 @@ public class Template {
         }
     }
     
-    public void addTriples(ElementTriplesBlock triples) {
-        Iterator<Triple> iter = triples.patternElts();
-        while (iter.hasNext()) {
-            body.addTriplePattern(iter.next());
-        }
+    public void addToBlacklist(String s) {
+        blacklist.add(s);
+    }
+    
+    public void addTriple(Triple triple) {
+        triples.add(triple);
     }
     
     public void addProjVar(String var) {
@@ -99,12 +106,28 @@ public class Template {
         return false;
     }
     
+    // Removing
+    
+    public void removeTriple(Triple t) {
+        triples.remove(t);
+    }
     
     // Assembly
     
-    public void assemble(List<String> slot_blacklist) {        
+    public void assemble() {  
+        
+        query = QueryFactory.make();
+        
         // query body
-        query.setQueryPattern(body);
+        ElementGroup queryBody = new ElementGroup();
+        for (Triple t : triples) {
+            queryBody.addTriplePattern(t);
+        }
+        for (Element e : body.getElements()) {
+            queryBody.addElement(e);
+        }        
+        query.setQueryPattern(queryBody);
+        
         // projection variables
         for (String v : projvars) {
             query.getProject().add(Var.alloc(v));
@@ -112,6 +135,7 @@ public class Template {
         for (String v : countvars) {
             query.getProject().add(Var.alloc(v+"_count"),query.allocAggregate(new AggCountVar(new ExprVar(Var.alloc(v)))));
         }
+
         // query type
         if (query.getProjectVars().isEmpty()) {
             query.setQueryAskType();
@@ -119,10 +143,11 @@ public class Template {
         else {
             query.setQuerySelectType();
         }
+        
         // delete slots that are on the blacklist
         List<Slot> blacklisted = new ArrayList<>();
         for (Slot s : slots) {
-            if (slot_blacklist.contains(s.getForm().toLowerCase())) {
+            if (blacklist.contains(s.getForm().toLowerCase())) {
                 blacklisted.add(s);
             }
         }
@@ -175,7 +200,40 @@ public class Template {
             out += "\n " + slot.toString();
         }
         
-        return out;
+        return out + "\n\nScore: " + score;
+    }
+    
+    // Clone 
+    
+    @Override
+    public Template clone() {
+        
+        Template clone = new Template();
+        
+        Set<String> new_projvars  = new HashSet<>();
+        Set<String> new_countvars = new HashSet<>();
+        new_projvars.addAll(projvars);
+        new_countvars.addAll(countvars);
+
+        Set<Triple> new_triples = new HashSet<>();
+        for (Triple t : triples) {
+            new_triples.add(new Triple(t.getSubject(),t.getPredicate(),t.getObject()));
+        }
+        
+        Set<Slot> new_slots = new HashSet<>();
+        for (Slot s : slots) {
+            new_slots.add(s);
+        }
+        
+        clone.projvars = new_projvars;
+        clone.countvars = new_countvars;
+        clone.triples = new_triples;
+        clone.slots = new_slots;
+        clone.body = body;
+        clone.query = query;
+        clone.score = score;
+        
+        return clone;
     }
     
 }

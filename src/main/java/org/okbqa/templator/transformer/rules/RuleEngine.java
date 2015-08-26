@@ -2,7 +2,6 @@ package org.okbqa.templator.transformer.rules;
 
 import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.sparql.core.Var;
-import com.hp.hpl.jena.sparql.syntax.ElementTriplesBlock;
 import java.io.FileReader;
 import java.net.URL;
 import java.util.ArrayList;
@@ -194,6 +193,8 @@ public class RuleEngine {
         List<Pair<Graph,Map<Integer,Integer>>> matches = rule.getTarget().subGraphMatches(graph);
         
         for (Pair<Graph,Map<Integer,Integer>> match : matches) {
+            
+            // System.out.println("Applying rule to " + match.getLeft().toCompressedString() + ":\n" + rule.toString());
                         
             Graph subgraph = match.getLeft();
             Map<Integer,Integer> forward = subgraph.getForward();
@@ -252,9 +253,7 @@ public class RuleEngine {
                            String vs = varString(s);
                            String vo = varString(o);
                            String v  = varString(fresh());
-                           ElementTriplesBlock triples = new ElementTriplesBlock();
-                           triples.addTriple(new Triple(Var.alloc(vs),Var.alloc(v),Var.alloc(vo)));
-                           template.addTriples(triples);
+                           template.addTriple(new Triple(Var.alloc(vs),Var.alloc(v),Var.alloc(vo)));
                            // add slots
                            String kindofobject;
                            if (prop.equals("SORTAL")) { kindofobject = CLASS; } else { kindofobject = RESOURCEorLITERAL; }
@@ -281,9 +280,7 @@ public class RuleEngine {
                            String vs = varString(s);
                            String vp = varString(p);
                            String vo = varString(o);
-                           ElementTriplesBlock triples = new ElementTriplesBlock();
-                           triples.addTriple(new Triple(Var.alloc(vs),Var.alloc(vp),Var.alloc(vo)));
-                           template.addTriples(triples);
+                           template.addTriple(new Triple(Var.alloc(vs),Var.alloc(vp),Var.alloc(vo)));
                            // add slots
                            String fs = ""; String fp = ""; String fo = "";
                            Node ns = subgraph.getNode(s,true);

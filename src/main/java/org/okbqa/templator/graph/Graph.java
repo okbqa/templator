@@ -405,4 +405,27 @@ public class Graph {
         return out;
     }
     
+    public String toCompressedString() {
+        
+        String out = "";
+        for (Edge e : edges) {
+            String head = "";
+            for (Node n : nodes) { 
+                 if (n.id == e.getHead()) {
+                     head = n.form;
+                     break;
+                 }
+            }
+            String dpnd = "";
+            for (Node n : nodes) { 
+                 if (n.id == e.getDependent()) {
+                     dpnd = n.form;
+                     break;
+                 }
+            }            
+            out += dpnd + " <--" + e.label + "-- " + head + " . ";
+        }
+        return out;
+    }
+    
 }

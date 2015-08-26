@@ -1,5 +1,6 @@
 package org.okbqa.templator.pipeline;
 
+import java.util.Set;
 import org.json.simple.JSONArray;
 import org.okbqa.templator.graph.Graph;
 import org.okbqa.templator.interpreter.Interpreter;
@@ -7,6 +8,7 @@ import org.okbqa.templator.processing.Processor;
 import org.okbqa.templator.template.Template;
 import org.okbqa.templator.transformer.Graph2Template;
 import org.okbqa.templator.transformer.GraphManipulation;
+import org.okbqa.templator.transformer.TemplateRewriting;
 
 /**
  *
@@ -18,17 +20,24 @@ public class TemplatorPipeline {
     Processor         processor; 
     GraphManipulation manipulator;
     Graph2Template    transformer;
+    TemplateRewriting rewriter;
     
-    boolean verbose;
+    boolean verbose = false;
 
+    public TemplatorPipeline(String language) {
+        this(language,0);
+    }
     
-    public TemplatorPipeline(String language, boolean b) {
-      
-        verbose = b;
-          
+    public TemplatorPipeline(String language, int i) {
+                
         processor   = new Processor(language);
         manipulator = new GraphManipulation(language);
         transformer = new Graph2Template(language);
+        rewriter    = new TemplateRewriting(i);
+    }
+    
+    public void debugMode() {
+        verbose = true;
     }
     
  
@@ -39,9 +48,10 @@ public class TemplatorPipeline {
         // 1. Processing (sentence splitting,dependency parsing) :: String -> Graph
         // 2. Semantic role labeling :: Graph -> Graph
         // 3. Mapping :: Graph -> Template 
+        // 4. Template rewriting
         
         if (verbose) {
-            System.out.println("------------INPUT----------------");
+            System.out.println("\n------------INPUT----------------");
             System.out.println(input);
         }
         
@@ -49,7 +59,7 @@ public class TemplatorPipeline {
         manipulator.doSRL(g);
         
         if (verbose) {
-            System.out.println("------------GRAPH----------------");
+            System.out.println("\n------------GRAPH----------------");
             System.out.println(g.toString());  
         }
         
@@ -57,10 +67,31 @@ public class TemplatorPipeline {
         output.add(t.toJSON());
         
         if (verbose) {
-            System.out.println("------------TEMPLATE-------------");
+            System.out.println("\n------------TEMPLATE-------------");
             System.out.println(t.toString()); 
             System.out.println("------------JSON-----------------");
             System.out.println(t.toJSON().toJSONString());
+        }
+        
+        if (verbose) {
+            System.out.println("\n------------VARIATIONS-----------");            
+        }
+        
+        Set<Template> variations = rewriter.rewrite(t);
+        
+        if (verbose && variations.isEmpty()) {
+            System.out.println("NONE");
+        }
+        
+        for (Template v : variations) {
+            output.add(v.toJSON());
+        
+            if (verbose) {
+                System.out.println("------------TEMPLATE");
+                System.out.println(t.toString()); 
+                System.out.println("------------JSON");
+                System.out.println(t.toJSON().toJSONString());
+            }
         }
     
         return output;

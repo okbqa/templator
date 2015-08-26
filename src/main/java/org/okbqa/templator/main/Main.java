@@ -20,8 +20,8 @@ public class Main {
     public static final URI BASE_URI = URI.create(host+"templategeneration/");
     
     // Init template generation pipeline (one for each language)
-    public static final TemplatorPipeline pipeline_en = new TemplatorPipeline("en",false);
-    public static final TemplatorPipeline pipeline_ko = new TemplatorPipeline("ko",false);
+    public static final TemplatorPipeline pipeline_en = new TemplatorPipeline("en");
+    public static final TemplatorPipeline pipeline_ko = new TemplatorPipeline("ko");
     
     /**
      * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.

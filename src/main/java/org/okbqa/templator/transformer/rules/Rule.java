@@ -30,5 +30,8 @@ public class Rule {
     public String getTodoType() {
         return todoType;
     }
-
+    
+    public String toString() {
+        return target.toCompressedString() + "\n >>>> " + todos.toString();
+    }
 }

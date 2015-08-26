@@ -18,13 +18,11 @@ public class Graph2Template {
            
     RuleEngine engine;
     List<Rule> map_rules;
-    List<String> slot_blacklist;
         
     public Graph2Template(String language) {
 
         engine = new RuleEngine(language);
         map_rules = engine.map_rules();
-        slot_blacklist = new ArrayList<>();
     }
     
     
@@ -41,7 +39,7 @@ public class Graph2Template {
             // add edge forms to slot blacklist
              for (Node n : rule.getTarget().getNodes()) {
                  if (!n.getForm().equals("*")) {
-                     slot_blacklist.add(n.getForm().toLowerCase());
+                     template.addToBlacklist(n.getForm().toLowerCase());
                  }
              }
              // apply rule
@@ -49,7 +47,7 @@ public class Graph2Template {
         }
         
         // 4. assemble and return template
-        template.assemble(slot_blacklist);
+        template.assemble();
         template.setScore(0.9); 
         
         return template;
