@@ -179,9 +179,7 @@ public class ETRI implements Parser {
                     if (label.contains("_")) {
                         label = label.split("_")[1];
                     }
-                    if (label.contains("-")) {
-                        label = label.replace("-","");
-                    }
+                    label = label.replace("-","");
                     
                     if (head.equals("-1")) continue;
                     
@@ -204,6 +202,8 @@ public class ETRI implements Parser {
                         JSONObject a = (JSONObject) argument;
                         
                         String role = (String) a.get("type");
+                        role = role.replace("-","");
+
                         String dpnd = a.get("word_id").toString();
                         
                         stanford += "\n" + role + "(" + wordIndex.get(head) + "-" + head + ","
