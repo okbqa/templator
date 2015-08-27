@@ -8,10 +8,8 @@ import com.hp.hpl.jena.sparql.expr.ExprVar;
 import com.hp.hpl.jena.sparql.expr.aggregate.AggCountVar;
 import com.hp.hpl.jena.sparql.syntax.Element;
 import com.hp.hpl.jena.sparql.syntax.ElementGroup;
-import com.hp.hpl.jena.sparql.syntax.ElementTriplesBlock;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import org.json.simple.JSONArray;
@@ -143,7 +141,7 @@ public class Template {
         else {
             query.setQuerySelectType();
         }
-        
+                
         // delete slots that are on the blacklist
         List<Slot> blacklisted = new ArrayList<>();
         for (Slot s : slots) {
@@ -224,11 +222,16 @@ public class Template {
         for (Slot s : slots) {
             new_slots.add(s);
         }
+        Set<String> new_blacklist = new HashSet<>();
+        for (String s : blacklist) {
+            new_blacklist.add(s);
+        }
         
         clone.projvars = new_projvars;
         clone.countvars = new_countvars;
         clone.triples = new_triples;
         clone.slots = new_slots;
+        clone.blacklist = new_blacklist;
         clone.body = body;
         clone.query = query;
         clone.score = score;

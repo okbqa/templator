@@ -12,17 +12,17 @@ public class Slot {
     
     String var;
     String form;
-    String type;
+    SlotType type;
     String value;
     
     public Slot(String var,String f) {
-        this(var,f,"UNSPEC","");
+        this(var,f,SlotType.UNSPEC,"");
     }
-    public Slot(String var,String f,String t) {
+    public Slot(String var,String f,SlotType t) {
         this(var,f,t,"");
     }
     
-    public Slot(String var,String f, String t,String val) {
+    public Slot(String var,String f,SlotType t,String val) {
         this.var   = var;
         this.form  = f;
         this.type  = t;
@@ -43,7 +43,7 @@ public class Slot {
     public String getForm() {
         return form;
     }
-    public String getType() {
+    public SlotType getType() {
         return type;
     }
     
@@ -51,6 +51,10 @@ public class Slot {
     
     public void setValue(String v) {
         value = v;
+    }
+    
+    public void setType(SlotType t) {
+        type = t;
     }
     
     // JSON

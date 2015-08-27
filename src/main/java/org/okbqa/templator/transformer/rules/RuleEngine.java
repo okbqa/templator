@@ -20,6 +20,7 @@ import org.okbqa.templator.graph.Graph;
 import org.okbqa.templator.graph.Node;
 import org.okbqa.templator.interpreter.Interpreter;
 import org.okbqa.templator.template.Slot;
+import org.okbqa.templator.template.SlotType;
 import org.okbqa.templator.template.Template;
 import org.okbqa.templator.utils.Pair;
 
@@ -38,12 +39,6 @@ public class RuleEngine {
         
     JSONParser  parser;
     Interpreter interpreter;
-
-    // slot annotations
-    public String PROPERTY = "rdf:Property";
-    public String CLASS    = "rdf:Class";
-    public String RESOURCE = "rdf:Resource";
-    public String RESOURCEorLITERAL = "rdf:Resource|Literal";
     
     // fresh variable counter (see fresh())
     int i = 0; 
@@ -255,10 +250,13 @@ public class RuleEngine {
                            String v  = varString(fresh());
                            template.addTriple(new Triple(Var.alloc(vs),Var.alloc(v),Var.alloc(vo)));
                            // add slots
-                           String kindofobject;
-                           if (prop.equals("SORTAL")) { kindofobject = CLASS; } else { kindofobject = RESOURCEorLITERAL; }
+                           SlotType kindofobject;
+                           if (prop.equals("SORTAL")) { 
+                               kindofobject = SlotType.CLASS; } 
+                           else { 
+                               kindofobject = SlotType.RESOURCEorLITERAL; }
                            template.addSlot(new Slot(vo,subgraph.getNode(o,true).getForm(),kindofobject));
-                           template.addSlot(new Slot(v,"",PROPERTY,prop)); 
+                           template.addSlot(new Slot(v,"",SlotType.PROPERTY,prop)); 
                         }
                         // triple(1,2,3)
                         Pattern triple_pattern = Pattern.compile("triple\\((\\d+),(\\d+),(\\d+)\\)");
@@ -289,9 +287,9 @@ public class RuleEngine {
                            if (ns != null) { fs = ns.getForm(); }
                            if (np != null) { fp = np.getForm(); }
                            if (no != null) { fo = no.getForm(); }
-                           template.addSlot(new Slot(vs,fs,RESOURCE));
-                           template.addSlot(new Slot(vp,fp,PROPERTY));
-                           template.addSlot(new Slot(vo,fo,RESOURCEorLITERAL));
+                           template.addSlot(new Slot(vs,fs,SlotType.RESOURCE));
+                           template.addSlot(new Slot(vp,fp,SlotType.PROPERTY));
+                           template.addSlot(new Slot(vo,fo,SlotType.RESOURCEorLITERAL));
                         }
                         // forward(1->2)
                         Pattern map_pattern = Pattern.compile("forward\\((\\d+)->(\\d+)\\)");

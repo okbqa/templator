@@ -5,6 +5,7 @@ import com.hp.hpl.jena.graph.Triple;
 import java.util.HashSet;
 import java.util.Set;
 import org.okbqa.templator.template.Slot;
+import org.okbqa.templator.template.SlotType;
 import org.okbqa.templator.template.Template;
 
 /**
@@ -64,6 +65,12 @@ public class TemplateRewriting {
                         Template v = template.clone();
                         v.removeTriple(t);
                         v.addTriple(new Triple(t.getObject(),prop,t.getSubject()));
+                        for (Slot slot : v.getSlots()) {
+                            if (("?"+slot.getVar()).equals(t.getObject().toString())
+                             && slot.getType().equals(SlotType.RESOURCEorLITERAL)) {
+                                slot.setType(SlotType.RESOURCE);
+                            }
+                        }
                         v.assemble();
                         variations.add(v);
                     }

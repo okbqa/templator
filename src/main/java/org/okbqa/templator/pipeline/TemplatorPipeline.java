@@ -84,13 +84,14 @@ public class TemplatorPipeline {
         }
         
         for (Template v : variations) {
+            
             output.add(v.toJSON());
         
             if (verbose) {
                 System.out.println("------------TEMPLATE");
-                System.out.println(t.toString()); 
+                System.out.println(v.toString()); 
                 System.out.println("------------JSON");
-                System.out.println(t.toJSON().toJSONString());
+                System.out.println(v.toJSON().toJSONString());
             }
         }
     
