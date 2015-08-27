@@ -7,7 +7,8 @@ package org.okbqa.templator.template;
 public enum SlotType {
     
     CLASS, 
-    PROPERTY, OBJECTPROPERTY, DATAPROPERTY, RESOURCE, LITERAL, RESOURCEorLITERAL, UNSPEC;
+    PROPERTY, OBJECTPROPERTY, DATAPROPERTY, SORTAL, 
+    RESOURCE, LITERAL, RESOURCEorLITERAL;
     
     @Override
     public String toString() {
@@ -18,6 +19,7 @@ public enum SlotType {
             case PROPERTY: s = "rdf:Property"; break;
             case OBJECTPROPERTY: s = "owl:ObjectProperty"; break;
             case DATAPROPERTY: s = "owl:DatatypeProperty"; break;
+            case SORTAL: s = "SORTAL"; break;
             case RESOURCE: s = "rdf:Resource"; break;
             case LITERAL: s = "rdfs:Literal"; break;
             case RESOURCEorLITERAL: s = "rdf:Resource|rdfs:Literal"; break;

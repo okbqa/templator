@@ -67,7 +67,7 @@ public class TemplatorTest {
 //                "What is the name of government office in the Goryeo and Joseon Dynasty to undertake Astronomy and Geography?",
 //                "Who is the person born in Daegu, a founder of Man of Korea and committed suicide by jumping from the Mapo Bridge?"
                 
-        TemplatorPipeline pipeline = new TemplatorPipeline("ko",1);
+        TemplatorPipeline pipeline = new TemplatorPipeline("ko");
         pipeline.debugMode();
         Scanner scanner = new Scanner(System.in);
         

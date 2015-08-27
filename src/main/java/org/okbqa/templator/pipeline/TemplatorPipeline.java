@@ -23,17 +23,13 @@ public class TemplatorPipeline {
     TemplateRewriting rewriter;
     
     boolean verbose = false;
-
-    public TemplatorPipeline(String language) {
-        this(language,0);
-    }
     
-    public TemplatorPipeline(String language, int i) {
+    public TemplatorPipeline(String language) {
                 
         processor   = new Processor(language);
         manipulator = new GraphManipulation(language);
         transformer = new Graph2Template(language);
-        rewriter    = new TemplateRewriting(i);
+        rewriter    = new TemplateRewriting();
     }
     
     public void debugMode() {

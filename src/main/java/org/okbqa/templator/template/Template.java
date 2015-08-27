@@ -4,7 +4,6 @@ import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryFactory;
-import com.hp.hpl.jena.query.Syntax;
 import com.hp.hpl.jena.sparql.core.Var;
 import com.hp.hpl.jena.sparql.expr.ExprVar;
 import com.hp.hpl.jena.sparql.expr.aggregate.AggCountVar;
@@ -14,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -66,6 +66,9 @@ public class Template {
     public Set<Slot> getSlots() {
         return slots;
     }
+    public double getScore() {
+        return score;
+    }
     
     // Setter 
     
@@ -110,6 +113,15 @@ public class Template {
     
     public void removeTriple(Triple t) {
         triples.remove(t);
+    }
+    
+    public void removeSlot(String varname) {
+        for (Slot s : slots) {
+            if (s.getVar().equals(varname)) {
+                slots.remove(s);
+                break;
+            }
+        }
     }
     
     // Assembly
@@ -205,7 +217,7 @@ public class Template {
         
         double numberOfUnspecSlots = 0.0;
         for (Slot s : slots) {
-            if (s.getType().equals(SlotType.UNSPEC)) {
+            if (s.getForm().isEmpty() && !s.isSortal()) {
                 numberOfUnspecSlots++;
             }
         }
@@ -283,5 +295,42 @@ public class Template {
         
         return clone;
     }
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 61 * hash + Objects.hashCode(this.projvars);
+        hash = 61 * hash + Objects.hashCode(this.countvars);
+        hash = 61 * hash + Objects.hashCode(this.triples);
+        hash = 61 * hash + Objects.hashCode(this.slots);
+        hash = 61 * hash + Objects.hashCode(this.body);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Template other = (Template) obj;
+        if (!Objects.equals(this.projvars, other.projvars)) {
+            return false;
+        }
+        if (!Objects.equals(this.countvars, other.countvars)) {
+            return false;
+        }
+        if (!Objects.equals(this.triples, other.triples)) {
+            return false;
+        }
+        if (!Objects.equals(this.slots, other.slots)) {
+            return false;
+        }
+        if (!Objects.equals(this.body, other.body)) {
+            return false;
+        }
+        return true;
+    }
 }

@@ -250,13 +250,14 @@ public class RuleEngine {
                            String v  = varString(fresh());
                            template.addTriple(new Triple(Var.alloc(vs),Var.alloc(v),Var.alloc(vo)));
                            // add slots
-                           SlotType kindofobject;
                            if (prop.equals("SORTAL")) { 
-                               kindofobject = SlotType.CLASS; } 
-                           else { 
-                               kindofobject = SlotType.RESOURCEorLITERAL; }
-                           template.addSlot(new Slot(vo,subgraph.getNode(o,true).getForm(),kindofobject));
-                           template.addSlot(new Slot(v,"",SlotType.PROPERTY,prop)); 
+                               template.addSlot(new Slot(vo,subgraph.getNode(o,true).getForm(),SlotType.CLASS));
+                               template.addSlot(new Slot(v,"",SlotType.SORTAL));
+                           } 
+                           if (prop.equals("UNSPEC")) {
+                               template.addSlot(new Slot(vo,subgraph.getNode(o,true).getForm(),SlotType.RESOURCEorLITERAL)); 
+                               template.addSlot(new Slot(v,"",SlotType.PROPERTY));
+                           }                                                
                         }
                         // triple(1,2,3)
                         Pattern triple_pattern = Pattern.compile("triple\\((\\d+),(\\d+),(\\d+)\\)");
