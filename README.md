@@ -15,7 +15,7 @@ _Input:_
 
     { "string": "어떤 강이 군산을 흐르는가?", "language":"ko" }
 
-_Output:_ 
+_Output (for expansionDepth=1):_ 
 
 [{"score":"1.0","slots":[{"p":"is","s":"v4","o":"rdf:Resource|rdfs:Literal"},{"p":"verbalization","s":"v4","o":"군산을"},{"p":"is","s":"v1","o":"rdf:Class"},{"p":"verbalization","s":"v1","o":"강이"},{"p":"is","s":"v5","o":"<http:\/\/lodqa.org\/vocabulary\/sort_of>"},{"p":"is","s":"v3","o":"rdf:Property"},{"p":"verbalization","s":"v3","o":"흐르는가"}],"query":"SELECT ?v2 WHERE { ?v2 ?v3 ?v4 ; ?v5 ?v1 . } "},{"score":"1.0","slots":[{"p":"is","s":"v4","o":"rdf:Resource"},{"p":"verbalization","s":"v4","o":"군산을"},{"p":"is","s":"v1","o":"rdf:Class"},{"p":"verbalization","s":"v1","o":"강이"},{"p":"is","s":"v5","o":"<http:\/\/lodqa.org\/vocabulary\/sort_of>"},{"p":"is","s":"v3","o":"rdf:Property"},{"p":"verbalization","s":"v3","o":"흐르는가"}],"query":"SELECT ?v2 WHERE { ?v4 ?v3 ?v2 . ?v2 ?v5 ?v1 . } "},{"score":"0.5714285714285714","slots":[{"p":"is","s":"v31","o":"owl:ObjectProperty"},{"p":"is","s":"v4","o":"rdf:Resource|rdfs:Literal"},{"p":"verbalization","s":"v4","o":"군산을"},{"p":"is","s":"v1","o":"rdf:Class"},{"p":"verbalization","s":"v1","o":"강이"},{"p":"is","s":"v5","o":"<http:\/\/lodqa.org\/vocabulary\/sort_of>"},{"p":"is","s":"v32","o":"rdf:Property"}],"query":"SELECT ?v2 WHERE { ?v40 ?v32 ?v4 . ?v2 ?v31 ?v40 ; ?v5 ?v1 . } "},{"score":"0.5714285714285714","slots":[{"p":"is","s":"v31","o":"owl:ObjectProperty"},{"p":"is","s":"v1","o":"rdf:Class"},{"p":"verbalization","s":"v1","o":"강이"},{"p":"is","s":"v5","o":"<http:\/\/lodqa.org\/vocabulary\/sort_of>"},{"p":"is","s":"v32","o":"rdf:Property"},{"p":"is","s":"v4","o":"rdf:Resource"},{"p":"verbalization","s":"v4","o":"군산을"}],"query":"SELECT ?v2 WHERE { ?v2 ?v5 ?v1 . ?v20 ?v32 ?v2 . ?v4 ?v31 ?v20 . } "}]
 

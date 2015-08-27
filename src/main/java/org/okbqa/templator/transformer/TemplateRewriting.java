@@ -16,11 +16,11 @@ import org.okbqa.templator.template.Template;
 public class TemplateRewriting {
     
     int expansionDepth;
-    int step; 
+    int currentDepth; 
     
     public TemplateRewriting() {
-        expansionDepth = 1;
-        step = 0;
+        expansionDepth = 0; // number of iterations of nextStep 
+        currentDepth = 0;
     }
     
     public Set<Template> rewrite(Template template) {
@@ -32,7 +32,7 @@ public class TemplateRewriting {
         variations.addAll(current);
         
         // repeat operations in nextStep until expansionDepth is reached
-        while (step < expansionDepth) {
+        while (currentDepth < expansionDepth) {
             variations.addAll(nextStep(current));
         }
         
@@ -40,8 +40,6 @@ public class TemplateRewriting {
     }
     
     public Set<Template> firstStep(Template template) {
-        
-        step++;
         
         Set<Template> variations = new HashSet<>();
         variations.add(template);
@@ -63,12 +61,6 @@ public class TemplateRewriting {
             variations3.addAll(replaceCount(t));
         }
         variations.addAll(variations3);
-        
-        Set<Template> variations4 = new HashSet<>();
-        for (Template t : variations) {
-            variations4.addAll(split(t));
-        }
-        variations.addAll(variations4);
 
         variations.remove(template);
         return variations;
@@ -76,7 +68,7 @@ public class TemplateRewriting {
         
     public Set<Template> nextStep(Set<Template> templates) {
         
-        step++;
+        currentDepth++;
         
         Set<Template> variations = new HashSet<>();
 
