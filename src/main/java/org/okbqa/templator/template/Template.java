@@ -52,6 +52,12 @@ public class Template {
     
     // Getter 
     
+    public Set<String> getProjvars() {
+        return projvars;
+    }
+    public Set<String> getCountvars() {
+        return countvars;
+    }
     public Set<Triple> getTriples() {
         return triples;
     }
@@ -166,27 +172,6 @@ public class Template {
         score();
     }
     
-    public JSONObject toJSON() {
-        
-        JSONObject template = new JSONObject();
-        
-        template.put("query",sanityCheck(query.toString()));
-        
-        JSONArray slotlist = new JSONArray();
-        for (Slot slot : slots) {
-            for (JSONObject j : slot.toListofJSONObjects()) {
-                 slotlist.add(j);
-            }
-        }
-        template.put("slots",slotlist);
-        template.put("score",Double.toString(score)); 
-        
-        return template;
-    }
-    
-    private String sanityCheck(String querystring) {
-        return querystring.replaceAll("\\n"," ").replaceAll("\\s+"," ");
-    }
     
     // Scoring 
     
@@ -226,6 +211,29 @@ public class Template {
         return score;
     }
     
+    // JSON
+    
+    public JSONObject toJSON() {
+        
+        JSONObject template = new JSONObject();
+        
+        template.put("query",sanityCheck(query.toString()));
+        
+        JSONArray slotlist = new JSONArray();
+        for (Slot slot : slots) {
+            for (JSONObject j : slot.toListofJSONObjects()) {
+                 slotlist.add(j);
+            }
+        }
+        template.put("slots",slotlist);
+        template.put("score",Double.toString(score)); 
+        
+        return template;
+    }
+    
+    private String sanityCheck(String querystring) {
+        return querystring.replaceAll("\\n"," ").replaceAll("\\s+"," ");
+    }
     
     // Show 
     
@@ -246,9 +254,7 @@ public class Template {
     
     @Override
     public Template clone() {
-        
-        Template clone = new Template();
-        
+                
         Set<String> new_projvars  = new HashSet<>();
         Set<String> new_countvars = new HashSet<>();
         new_projvars.addAll(projvars);
@@ -268,13 +274,15 @@ public class Template {
             new_blacklist.add(s);
         }
         
+        Template clone = new Template();
+        
         clone.projvars = new_projvars;
         clone.countvars = new_countvars;
         clone.triples = new_triples;
         clone.slots = new_slots;
         clone.blacklist = new_blacklist;
         clone.body = body;
-        clone.query = query;
+        clone.query = null;
         clone.score = score;
         
         return clone;
@@ -283,11 +291,11 @@ public class Template {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 61 * hash + Objects.hashCode(this.projvars);
-        hash = 61 * hash + Objects.hashCode(this.countvars);
-        hash = 61 * hash + Objects.hashCode(this.triples);
-        hash = 61 * hash + Objects.hashCode(this.slots);
-        hash = 61 * hash + Objects.hashCode(this.body);
+        hash = 29 * hash + Objects.hashCode(this.projvars);
+        hash = 29 * hash + Objects.hashCode(this.countvars);
+        hash = 29 * hash + Objects.hashCode(this.triples);
+        hash = 29 * hash + Objects.hashCode(this.slots);
+        hash = 29 * hash + Objects.hashCode(this.body);
         return hash;
     }
 
@@ -317,4 +325,6 @@ public class Template {
         }
         return true;
     }
+
+
 }

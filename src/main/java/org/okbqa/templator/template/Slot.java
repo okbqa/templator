@@ -44,6 +44,9 @@ public class Slot {
     public void setType(SlotType t) {
         type = t;
     }
+    public void setForm(String f) {
+        form = f;
+    }
     
     // JSON
       
@@ -87,33 +90,4 @@ public class Slot {
         return new Slot(var,form,type);
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 67 * hash + Objects.hashCode(this.var);
-        hash = 67 * hash + Objects.hashCode(this.form);
-        hash = 67 * hash + Objects.hashCode(this.type);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Slot other = (Slot) obj;
-        if (!Objects.equals(this.var, other.var)) {
-            return false;
-        }
-        if (!Objects.equals(this.form, other.form)) {
-            return false;
-        }
-        if (this.type != other.type) {
-            return false;
-        }
-        return true;
-    }
 }
