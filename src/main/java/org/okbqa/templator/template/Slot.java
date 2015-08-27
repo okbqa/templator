@@ -65,7 +65,7 @@ public class Slot {
         
         slot.put("var",var);
         slot.put("form",form);
-        slot.put("type",type);
+        slot.put("type",type.toString());
         slot.put("value",value);
         
         return slot;
@@ -78,7 +78,7 @@ public class Slot {
         JSONObject t = new JSONObject();
         t.put("s",var);
         t.put("p","is");
-        t.put("o",type);
+        t.put("o",type.toString());
         triples.add(t);
         // form
         if (!form.isEmpty()) {

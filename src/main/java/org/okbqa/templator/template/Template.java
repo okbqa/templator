@@ -1,5 +1,6 @@
 package org.okbqa.templator.template;
 
+import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryFactory;
@@ -10,6 +11,7 @@ import com.hp.hpl.jena.sparql.expr.aggregate.AggCountVar;
 import com.hp.hpl.jena.sparql.syntax.Element;
 import com.hp.hpl.jena.sparql.syntax.ElementGroup;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -34,7 +36,6 @@ public class Template {
     Query        query; // constructed by assemble()
     
     double       score;
-    
         
     public Template() {
         projvars   = new HashSet<>();
@@ -151,6 +152,8 @@ public class Template {
             }
         }
         slots.removeAll(blacklisted);
+        
+        score();
     }
     
     public JSONObject toJSON() {
@@ -164,10 +167,9 @@ public class Template {
             for (JSONObject j : slot.toListofJSONObjects()) {
                  slotlist.add(j);
             }
-            // alternative: slotlist.add(slot.toJSON());
         }
         template.put("slots",slotlist);
-        template.put("score",score()); 
+        template.put("score",Double.toString(score)); 
         
         return template;
     }
@@ -179,9 +181,35 @@ public class Template {
     // Scoring 
     
     public double score() {
+
+        int numberOfTriples = triples.size();
+
+        int numberOfSlots = slots.size() - blacklist.size();
         
-        // this.score = start score
-        // reduce depending on number of variables that are neither projvars or countvars, nor slots
+        Set<Node> nodes = new HashSet<>();
+        
+        int numberOfUnknownVars = 0;
+        for (Triple t : triples) {
+            List<Node> ns = Arrays.asList(
+                                t.getSubject(),
+                                t.getPredicate(),
+                                t.getObject());
+            nodes.addAll(ns);
+            for (Node n : ns) {
+                if (n.isVariable() && !projvars.contains(n.toString())
+                                   && !countvars.contains(n.toString()) 
+                                   && !containsSlotFor(n.toString())) {
+                    numberOfUnknownVars++;
+                }
+            }
+        }
+        
+        int numberOfNodes = nodes.size();
+  
+        score = 0.9;
+//        score = (1/numberOfTriples) 
+//              * (1/numberOfSlots)
+//              * (numberOfUnknownVars / numberOfNodes); 
         
         return score;
     }
