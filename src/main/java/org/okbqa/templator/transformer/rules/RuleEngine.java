@@ -300,12 +300,8 @@ public class RuleEngine {
                             int new_i = map.get(Integer.parseInt(map_matcher.group(2)));
                             graph.addForward(old_i,new_i);
                         }
-                        // delete
-                        if (todo.equals("delete")) {
-                           // delete matched subgraph
-                           graph.delete(subgraph); 
-                        }
                     } 
+                    graph.delete(subgraph);
            }
         }
     }
