@@ -181,14 +181,10 @@ public class Template {
     // Scoring 
     
     public double score() {
-
-        int numberOfTriples = triples.size();
-
-        int numberOfSlots = slots.size() - blacklist.size();
         
         Set<Node> nodes = new HashSet<>();
         
-        int numberOfUnknownVars = 0;
+        double numberOfUnknownVars = 0.0;
         for (Triple t : triples) {
             List<Node> ns = Arrays.asList(
                                 t.getSubject(),
@@ -196,20 +192,40 @@ public class Template {
                                 t.getObject());
             nodes.addAll(ns);
             for (Node n : ns) {
-                if (n.isVariable() && !projvars.contains(n.toString())
-                                   && !countvars.contains(n.toString()) 
-                                   && !containsSlotFor(n.toString())) {
-                    numberOfUnknownVars++;
+                if (n.isVariable()) {
+                    String var = ((Var) n).getVarName();
+                    if (!projvars.contains(var)
+                     && !countvars.contains(var)
+                     && !containsSlotFor(var)) {
+                        numberOfUnknownVars++;
+                    }
                 }
             }
         }
         
-        int numberOfNodes = nodes.size();
+        double numberOfUnspecSlots = 0.0;
+        for (Slot s : slots) {
+            if (s.getType().equals(SlotType.UNSPEC)) {
+                numberOfUnspecSlots++;
+            }
+        }
+        
+        double numberOfNodes = nodes.size();
   
-        score = 0.9;
-//        score = (1/numberOfTriples) 
-//              * (1/numberOfSlots)
-//              * (numberOfUnknownVars / numberOfNodes); 
+        // compute score
+        
+        double score_unknown;
+        if (numberOfNodes == 0.0 || (numberOfUnknownVars == 0.0 && numberOfUnspecSlots == 0.0)) {
+            score_unknown = 1.0;
+        } else { 
+            score_unknown = (numberOfUnknownVars+numberOfUnspecSlots)/numberOfNodes;
+        }
+        
+        if (triples.isEmpty()) {
+            score = 0.0;
+        } else {
+            score = score_unknown;
+        }
         
         return score;
     }
