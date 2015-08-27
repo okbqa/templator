@@ -19,7 +19,7 @@ public enum SlotType {
             case PROPERTY: s = "rdf:Property"; break;
             case OBJECTPROPERTY: s = "owl:ObjectProperty"; break;
             case DATAPROPERTY: s = "owl:DatatypeProperty"; break;
-            case SORTAL: s = "SORTAL"; break;
+            case SORTAL: s = "<http://lodqa.org/vocabulary/sort_of>"; break;
             case RESOURCE: s = "rdf:Resource"; break;
             case LITERAL: s = "rdfs:Literal"; break;
             case RESOURCEorLITERAL: s = "rdf:Resource|rdfs:Literal"; break;

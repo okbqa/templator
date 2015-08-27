@@ -2,6 +2,7 @@ package org.okbqa.templator.template;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import org.json.simple.JSONObject;
 
 /**
@@ -23,7 +24,7 @@ public class Slot {
     // Boolean 
     
     public boolean isSortal() {
-        return this.var.equals("SORTAL");
+        return type.equals(SlotType.SORTAL);
     }
     
     // Getter 
@@ -81,5 +82,38 @@ public class Slot {
         out += " (" + type + ")";
         return out;
     }
+    
+    public Slot clone() {       
+        return new Slot(var,form,type);
+    }
 
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 67 * hash + Objects.hashCode(this.var);
+        hash = 67 * hash + Objects.hashCode(this.form);
+        hash = 67 * hash + Objects.hashCode(this.type);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Slot other = (Slot) obj;
+        if (!Objects.equals(this.var, other.var)) {
+            return false;
+        }
+        if (!Objects.equals(this.form, other.form)) {
+            return false;
+        }
+        if (this.type != other.type) {
+            return false;
+        }
+        return true;
+    }
 }

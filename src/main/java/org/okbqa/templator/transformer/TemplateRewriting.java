@@ -15,86 +15,106 @@ import org.okbqa.templator.template.Template;
  */
 public class TemplateRewriting {
     
-    int step = 0;
-        
+    int expansionDepth;
+    int step; 
+    
     public TemplateRewriting() {
+        expansionDepth = 1;
+        step = 0;
     }
     
     public Set<Template> rewrite(Template template) {
         
-        double threshold = template.getScore() / 2.0;
-        
         Set<Template> variations = new HashSet<>();         
-        Set<Template> current = new HashSet<>();
-        current.add(template);
         
-        int new_variations = 1; // to get while loop started
+        // perform each rewriting operation once
+        Set<Template> current = firstStep(template);
+        variations.addAll(current);
         
-        while (new_variations >= 1) { // i.e. as long as there is at least one new template (with score not below threshold)
-            int old_variations = variations.size();          
-            current = rewriteStep(current);
-            for (Template t : current) {
-                 if (!variations.contains(t) && t.getScore() >= threshold) {
-                     System.out.println(t.toString());
-                     System.out.println(">>>>> "+t.getScore()+">"+threshold);
-                     variations.add(t);
-                 }
-            }
-            new_variations = variations.size() - old_variations;
-            System.out.println("------" + new_variations);
+        // repeat operations in nextStep until expansionDepth is reached
+        while (step < expansionDepth) {
+            variations.addAll(nextStep(current));
         }
         
         return variations;
     }
     
-    public Set<Template> rewriteStep(Set<Template> templates) {
+    public Set<Template> firstStep(Template template) {
         
         step++;
         
         Set<Template> variations = new HashSet<>();
+        variations.add(template);
         
+        Set<Template> variations1 = new HashSet<>();
+        for (Template t : variations) {
+            variations1.addAll(class2Property(t));
+        }
+        variations.addAll(variations1);
+
+        Set<Template> variations2 = new HashSet<>();
+        for (Template t : variations) {
+            variations2.addAll(inversion(t));
+        }   
+        variations.addAll(variations2);
+
+        Set<Template> variations3 = new HashSet<>();
+        for (Template t : variations) {
+            variations3.addAll(replaceCount(t));
+        }
+        variations.addAll(variations3);
+        
+        Set<Template> variations4 = new HashSet<>();
+        for (Template t : variations) {
+            variations4.addAll(split(t));
+        }
+        variations.addAll(variations4);
+
+        variations.remove(template);
+        return variations;
+    }
+        
+    public Set<Template> nextStep(Set<Template> templates) {
+        
+        step++;
+        
+        Set<Template> variations = new HashSet<>();
+
         for (Template template : templates) {
-            if (step == 1) {
-                variations.addAll(inversion(template));
-                variations.addAll(class2Property(template));
-                variations.addAll(replaceCount(template));
-            } else {
-                //variations.addAll(join(template)); 
-                variations.addAll(split(template));
-            }
+               //variations.addAll(join(template)); 
+                 variations.addAll(split(template));
         }
         
         return variations;
     }
     
+    
+    // REWRITING RULES 
+    
     private Set<Template> inversion(Template template) {
         // ?s ?p ?o . -> ?o ?p ?s .
-        // score = score
         
         Set<Template> variations = new HashSet<>();
         
         for (Triple t : template.getTriples()) {
             Node prop = t.getPredicate();
-            if (prop.isVariable()) {
-                for (Slot s : template.getSlots()) {
-                    if ((s.getVar()).equals(((Var)prop).getVarName()) && !s.isSortal()) {
-                        Template v = template.clone();
-                        v.removeTriple(t);
-                        v.addTriple(new Triple(t.getObject(),prop,t.getSubject()));
-                        for (Slot slot : v.getSlots()) {
-                            if (("?"+slot.getVar()).equals(t.getObject().toString())
-                             && slot.getType().equals(SlotType.RESOURCEorLITERAL)) {
-                                slot.setType(SlotType.RESOURCE);
-                            }
-                            if (("?"+slot.getVar()).equals(t.getSubject().toString())
-                             && slot.getType().equals(SlotType.RESOURCE)) {
-                                slot.setType(SlotType.RESOURCEorLITERAL);
-                            }
-                        }
-                        v.assemble();
-                        v.setScore(template.getScore()); 
-                        variations.add(v);
+            for (Slot s : template.getSlots()) {
+                if ((s.getVar().equals(prop.getName())) && !s.isSortal()) {
+                    Template v = template.clone();
+                    v.removeTriple(t);
+                    v.addTriple(new Triple(t.getObject(),prop,t.getSubject()));
+                    for (Slot slot : v.getSlots()) {
+                         if ((slot.getVar()).equals(t.getObject().getName())
+                           && slot.getType().equals(SlotType.RESOURCEorLITERAL)) {
+                              slot.setType(SlotType.RESOURCE);
+                         }
+                         if ((slot.getVar()).equals(t.getSubject().getName())
+                           && slot.getType().equals(SlotType.RESOURCE)) {
+                              slot.setType(SlotType.RESOURCEorLITERAL);
+                         }
                     }
+                    v.assemble();
+                    variations.add(v);
                 }
             }
         }
@@ -124,7 +144,6 @@ public class TemplateRewriting {
     
     private Set<Template> split(Template template) {
         // ?s ?p ?o . -> ?s ?p1 ?x . ?x ?p2 ?o .
-        // score = score/2
         
         Set<Template> variations = new HashSet<>();
         
@@ -144,12 +163,10 @@ public class TemplateRewriting {
                         Node p2 = Var.alloc(t.getPredicate().getName()+"2");
                         v.addTriple(new Triple(t.getSubject(),p1,x));
                         v.addTriple(new Triple(x,p2,t.getObject()));
-                        v.addSlot(new Slot(x.getName(),"",SlotType.RESOURCE));
                         v.addSlot(new Slot(p1.getName(),"",SlotType.OBJECTPROPERTY));
                         v.addSlot(new Slot(p2.getName(),"",SlotType.PROPERTY));
-                        // assemble, ajust score and add to variations
+                        // assemble and add to variations
                         v.assemble();
-                        v.setScore(template.getScore()/2.0); 
                         variations.add(v);
                    }
                 }

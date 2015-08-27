@@ -1,6 +1,5 @@
 package org.okbqa.templator.template;
 
-import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryFactory;
@@ -10,7 +9,6 @@ import com.hp.hpl.jena.sparql.expr.aggregate.AggCountVar;
 import com.hp.hpl.jena.sparql.syntax.Element;
 import com.hp.hpl.jena.sparql.syntax.ElementGroup;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
@@ -194,49 +192,35 @@ public class Template {
     
     public double score() {
         
-        Set<Node> nodes = new HashSet<>();
-        
-        double numberOfUnknownVars = 0.0;
+        Set<String> nodes = new HashSet<>();
         for (Triple t : triples) {
-            List<Node> ns = Arrays.asList(
-                                t.getSubject(),
-                                t.getPredicate(),
-                                t.getObject());
-            nodes.addAll(ns);
-            for (Node n : ns) {
-                if (n.isVariable()) {
-                    String var = ((Var) n).getVarName();
-                    if (!projvars.contains(var)
-                     && !countvars.contains(var)
-                     && !containsSlotFor(var)) {
-                        numberOfUnknownVars++;
-                    }
-                }
-            }
+            nodes.add(t.getSubject().getName());
+            nodes.add(t.getPredicate().getName());
+            nodes.add(t.getObject().getName());
         }
         
-        double numberOfUnspecSlots = 0.0;
+        double numberOfKnownNodes = 0.0;
+        for (String n : nodes) {
+            if (projvars.contains(n)
+             || countvars.contains(n)
+             || containsSlotFor(n)) {
+                numberOfKnownNodes++;
+            }
+        }
         for (Slot s : slots) {
             if (s.getForm().isEmpty() && !s.isSortal()) {
-                numberOfUnspecSlots++;
+                numberOfKnownNodes--;
             }
         }
         
         double numberOfNodes = nodes.size();
   
         // compute score
-        
-        double score_unknown;
-        if (numberOfNodes == 0.0 || (numberOfUnknownVars == 0.0 && numberOfUnspecSlots == 0.0)) {
-            score_unknown = 1.0;
-        } else { 
-            score_unknown = (numberOfUnknownVars+numberOfUnspecSlots)/numberOfNodes;
-        }
-        
-        if (triples.isEmpty()) {
+
+        if (nodes.isEmpty()) {
             score = 0.0;
         } else {
-            score = score_unknown;
+            score = numberOfKnownNodes / numberOfNodes;
         }
         
         return score;
@@ -277,7 +261,7 @@ public class Template {
         
         Set<Slot> new_slots = new HashSet<>();
         for (Slot s : slots) {
-            new_slots.add(s);
+            new_slots.add(s.clone());
         }
         Set<String> new_blacklist = new HashSet<>();
         for (String s : blacklist) {
