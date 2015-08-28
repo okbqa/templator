@@ -11,6 +11,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.HttpEntity;
@@ -153,17 +154,45 @@ public class ETRI implements Parser {
 
             for (Object sentence : sentences) {
                 JSONObject s = (JSONObject) sentence;
+                                
+                // Morphemes
+                
+                ArrayList<String> morphList = new ArrayList<String>();
+
+                JSONArray morphemes = (JSONArray) s.get("morp");
+                for (Object mo : morphemes) {
+                    JSONObject mor = (JSONObject)mo;
+                    String lemma = (String) mor.get("lemma");
+                    morphList.add(lemma);
+    		}
+
+    		int morpCnt = 0; //count the number of characters of morphemes
+    		int wordCnt = 0;
+    			
+    		Iterator<String> morphListIter = morphList.iterator();
                 
                 // Words 
+                
                 Map<String,String> wordIndex = new HashMap<>();
                 
                 JSONArray words = (JSONArray) s.get("word");
                 
-                for (Object word : words) {
+                for (Object word : words) {                	
                     JSONObject w = (JSONObject) word;                   
                     String id = w.get("id").toString();
-                    String text = (String) w.get("text");                   
-                    wordIndex.put(id,text);
+                    String wordText = (String) w.get("text");
+                	
+                    wordCnt += wordText.length();
+
+                    String firstMorph = morphListIter.next();
+                    morpCnt += firstMorph.length();
+            		
+                    while (morpCnt < wordCnt) {
+                        String morph = morphListIter.next();
+                	morpCnt += morph.length();
+                	}
+
+                    wordIndex.put(id,firstMorph);
                 }
                 
                 // Dependency relations 
