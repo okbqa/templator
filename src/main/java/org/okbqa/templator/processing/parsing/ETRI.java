@@ -28,7 +28,7 @@ import org.json.simple.parser.JSONParser;
 
 /**
  *
- * @author cunger
+ * @author cunger, Nam Daehwan, Won Yousung
  */
 public class ETRI implements Parser {
     
