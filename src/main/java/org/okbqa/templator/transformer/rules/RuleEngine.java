@@ -24,12 +24,12 @@ public class RuleEngine {
     
     List<SRLRule> SRL_rules;
     List<MapRule> map_rules;
-        
+            
     JSONParser  parser;
     Interpreter interpreter;
     
-    // fresh variable counter (see fresh())
-    int i = 0; 
+    List<String> blacklist;
+    int i = 0; // counter for fresh variables
 
     
     public RuleEngine(String language) {
@@ -39,6 +39,8 @@ public class RuleEngine {
         
         parser = new JSONParser();
         interpreter = new Interpreter();
+        
+        blacklist = new ArrayList<>();
         
         read_SRL_rules();
         read_map_rules();
@@ -122,13 +124,20 @@ public class RuleEngine {
     // Rule application 
     
     public void apply_SRL_rules(Graph graph) {
-                
+                       
         for (SRLRule r : SRL_rules) {
-             r.apply(graph);
+            for (Node n : r.getTarget().getNodes()) {
+               if (!n.getForm().equals("*")) {
+                    blacklist.add(n.getForm().toLowerCase());
+                }
+            }
+            r.apply(graph);
         }
     }
     
     public void apply_map_rules(Graph graph,Template template) {
+        
+        template.getBlacklist().addAll(blacklist);
         
         for (MapRule r : map_rules) {
              r.set_i(i);

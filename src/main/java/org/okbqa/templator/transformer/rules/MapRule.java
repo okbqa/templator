@@ -39,12 +39,6 @@ public class MapRule {
     
     public void apply(Graph graph, Template template) {
         
-        for (Node n : target.getNodes()) {
-            if (!n.getForm().equals("*")) {
-                template.addToBlacklist(n.getForm().toLowerCase());
-            }
-        }
-        
         List<Pair<Graph,Map<Integer,Integer>>> matches = target.subGraphMatches(graph);
         
         for (Pair<Graph,Map<Integer,Integer>> match : matches) {

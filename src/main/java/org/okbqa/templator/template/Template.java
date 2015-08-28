@@ -70,6 +70,9 @@ public class Template {
     public Set<Slot> getSlots() {
         return slots;
     }
+    public Set<String> getBlacklist() {
+        return blacklist;
+    }
     public double getScore() {
         return score;
     }
@@ -84,10 +87,6 @@ public class Template {
         if (!containsSlotFor(s.getVar())) {
             slots.add(s);
         }
-    }
-    
-    public void addToBlacklist(String s) {
-        blacklist.add(s);
     }
     
     public void addTriple(Triple triple) {
