@@ -116,19 +116,6 @@ public class Graph {
         return results;
     }
     
-    public List<Edge> getEdges(Color color) {
-
-        List<Edge> results = new ArrayList<>();
-        
-        for (Edge e : edges) {
-             if (e.getColor() == color) {
-                 results.add(e);
-             }
-        }
-        
-        return results;
-    }
-    
     public Map<Integer,Integer> getForward() {
         return forward;
     }
@@ -232,11 +219,10 @@ public class Graph {
         return edge;
     }
     
-    public boolean containsRoleEdgeBetween(Integer i1, Integer i2) {
+    public boolean containsEdgeBetween(Integer i1, Integer i2) {
         
         for (Edge e : edges) {
-            if (e.getHead() == i1 && e.getDependent() == i2
-             && e.getColor() != Color.DEPENDENCY && e.getColor() != Color.COREF) {
+            if (e.getHead() == i1 && e.getDependent() == i2) {
                 return true;
             }
         }
@@ -314,8 +300,7 @@ public class Graph {
                     && (indexmap.get(depd_sub) != depd_super)) {
                             match_depd = false;
                     } 
-                    boolean match_label = (e_sub.getLabel().equals("#ARG#") && e_super.getColor() == Color.ARG)
-                                        || e_sub.getLabel().equals(e_super.getLabel());
+                    boolean match_label = e_sub.getLabel().equals(e_super.getLabel());
 
                     if (match_head && match_depd && match_label) {
 
@@ -347,31 +332,6 @@ public class Graph {
         return matches;
     }
 
-    // Pruning 
-    
-    public void prune() {
-        
-        ArrayList<Edge> edgesToKeep = new ArrayList<>();
-        ArrayList<Node> nodesToKeep = new ArrayList<>();
-        ArrayList<Integer> nodeInts = new ArrayList<>();
-        
-        for (Edge e : edges) {
-             if (e.getColor() != Color.DEPENDENCY) {
-                 edgesToKeep.add(e);
-                 nodeInts.add(e.getHead());
-                 nodeInts.add(e.getDependent());
-             }
-        }
-        
-        edges = edgesToKeep;
-        
-        for (Node n : nodes) {
-             if (nodeInts.contains(n.getId())) {
-                 nodesToKeep.add(n);
-             }
-        }
-        nodes = nodesToKeep;
-    }
     
     // Show 
     
@@ -381,16 +341,9 @@ public class Graph {
         String out = "";
                 
         for (Edge e : edges) {
-            if (e.getColor() == Color.DEPENDENCY) {
-                out += " " + e.toString() + ";";
-            }
+             out += " " + e.toString() + ";";
         }
         out += "\n";
-        for (Edge e : edges) {
-            if (e.getColor() != Color.DEPENDENCY) {
-                out += " " + e.toString() + ";";
-            }
-        }
         
         out += "\nRoot node(s):";
         for (int i : roots) {
@@ -423,7 +376,7 @@ public class Graph {
                      break;
                  }
             }            
-            out += dpnd + " <--" + e.label + "-- " + head + " . ";
+            out += dpnd + " <--" + e.label + "-- " + head + "; ";
         }
         return out;
     }

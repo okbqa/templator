@@ -1,6 +1,5 @@
 package org.okbqa.templator.interpreter;
 
-import org.okbqa.templator.graph.Color;
 import org.okbqa.templator.graph.Edge;
 import org.okbqa.templator.graph.Graph;
 import org.okbqa.templator.graph.Format;
@@ -46,7 +45,7 @@ public class GraphConstructor extends DependenciesBaseListener {
             graph.addRoot(i1);
         }
         else {
-            graph.addEdge(new Edge(Color.DEPENDENCY,i2,rel,i1));
+            graph.addEdge(new Edge(i2,rel,i1));
         }
     }
     
@@ -67,7 +66,7 @@ public class GraphConstructor extends DependenciesBaseListener {
             graph.addRoot(i2);
         }
         else {
-            graph.addEdge(new Edge(Color.DEPENDENCY,i1,rel,i2));
+            graph.addEdge(new Edge(i1,rel,i2));
         }
     }
     

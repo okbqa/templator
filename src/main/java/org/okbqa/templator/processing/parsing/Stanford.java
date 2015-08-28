@@ -37,7 +37,7 @@ public class Stanford implements Parser {
         
         // Load Stanford NLP
         Properties props = new Properties();
-        props.put("annotators", "tokenize, ssplit, pos, lemma, parse, ner, dcoref");
+        props.put("annotators", "tokenize, ssplit, pos, lemma, parse");
         pipeline = new StanfordCoreNLP(props);
         
         // Analyze input
@@ -53,18 +53,18 @@ public class Stanford implements Parser {
             parses.add(dependencies.toList().trim());
         }
         
-        Map<Integer,CorefChain> chains = document.get(CorefChainAnnotation.class);
-        for (CorefChain c : chains.values()) {
-             List<String> mentions = new ArrayList<>(); 
-             for (CorefMention mention : c.getMentionsInTextualOrder()) {
-                  mentions.add(mention.toString());
-             }
-             corefChains.add(mentions);
-        }
+//        Map<Integer,CorefChain> chains = document.get(CorefChainAnnotation.class);
+//        for (CorefChain c : chains.values()) {
+//             List<String> mentions = new ArrayList<>(); 
+//             for (CorefMention mention : c.getMentionsInTextualOrder()) {
+//                  mentions.add(mention.toString());
+//             }
+//             corefChains.add(mentions);
+//        }
         
         result.setSentences(sentences);
         result.setParses(parses);
-        result.setCorefChains(corefChains);
+//      result.setCorefChains(corefChains);
         
         return result;
     }

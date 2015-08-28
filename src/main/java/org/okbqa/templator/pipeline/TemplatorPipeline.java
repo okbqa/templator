@@ -7,8 +7,8 @@ import org.okbqa.templator.interpreter.Interpreter;
 import org.okbqa.templator.processing.Processor;
 import org.okbqa.templator.template.Template;
 import org.okbqa.templator.transformer.Graph2Template;
-import org.okbqa.templator.transformer.GraphManipulation;
 import org.okbqa.templator.transformer.TemplateRewriting;
+import org.okbqa.templator.transformer.rules.RuleEngine;
 
 /**
  *
@@ -18,7 +18,7 @@ public class TemplatorPipeline {
         
     Interpreter       interpreter;
     Processor         processor; 
-    GraphManipulation manipulator;
+    RuleEngine        rule_engine;
     Graph2Template    transformer;
     TemplateRewriting rewriter;
     
@@ -27,8 +27,8 @@ public class TemplatorPipeline {
     public TemplatorPipeline(String language) {
                 
         processor   = new Processor(language);
-        manipulator = new GraphManipulation(language);
-        transformer = new Graph2Template(language);
+        rule_engine = new RuleEngine(language);
+        transformer = new Graph2Template(rule_engine);
         rewriter    = new TemplateRewriting();
     }
     
@@ -52,11 +52,17 @@ public class TemplatorPipeline {
         }
         
         Graph g = processor.process(input);
-        manipulator.doSRL(g);
+        
+        if (verbose) {
+            System.out.println("\n------------PARSE----------------");
+            System.out.println(g.toString());  
+        }
+        
+        rule_engine.apply_SRL_rules(g);
         
         if (verbose) {
             System.out.println("\n------------GRAPH----------------");
-            System.out.println(g.toString());  
+            System.out.println(g.toCompressedString());
         }
         
         Template t = transformer.constructTemplate(g);

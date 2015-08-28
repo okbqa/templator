@@ -8,15 +8,12 @@ public class Edge {
     
     int    head;
     int    dependent;
-    String label;
-    Color  color;
-    
+    String label;    
    
-    public Edge(Color c, int t1, String l, int t2) {
+    public Edge(int t1, String l, int t2) {
         head      = t1;
         dependent = t2;
         label     = l;
-        color     = c;
     }
 
     public Edge() {
@@ -31,9 +28,6 @@ public class Edge {
     public void setLabel(String s) {
         label = s;
     }
-    public void setColor(Color c) {
-        color = c;
-    }
     
     public int getHead() {
         return head;
@@ -44,16 +38,14 @@ public class Edge {
     public String getLabel() {
         return label;
     }
-    public Color getColor() {
-        return color;
-    }
     
     // Matching 
     
     public boolean matches(Edge e) {
         
-        return (head == e.getHead() && dependent == e.getDependent()
-             && label.equals(e.getLabel()) && color == e.getColor());
+        return (head == e.getHead() 
+             && dependent == e.getDependent()
+             && label.equals(e.getLabel()));
     }
     
     // Show 

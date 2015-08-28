@@ -1,94 +1,136 @@
 [
+  { 
+    "dep": "cop(what-1,*-2)",
+    "srl": [ "SELECTTHING(1,1)" ]
+  },
+  { 
+    "dep": "cop(who-1,*-2)",
+    "srl": [ "SELECTPERSON(1,1)" ]
+  },
+  { 
+    "dep": "cop(where-1,*-2)",
+    "srl": [ "SELECTPLACE(1,1)" ] 
+  },
+  { 
+    "dep": "cop(when-1,*-2)",
+    "srl": [ "SELECTTIME(1,1)" ]
+  },
+  { 
+    "dep": "det(*-2,which-1)",
+    "srl": [ "SELECT(1,2)" ]
+  },
+  { 
+    "dep": "advmod(many-2,how-1) \n amod(*-3,many-2)",
+    "srl": [ "COUNT(1,3)" ] 
+  },
+  { 
+    "dep": "advmod(*-2,how-1) \n dep(*-3,*-2) \n ARG0(*-3,*-4)",
+    "srl": [ "SELECT(1,1)", "ARG0(2,1)", "ARG1(2,4)" ]
+  },
+  { 
+    "dep": "nsubj(list-1,*-2)",
+    "srl": [ "SELECT(1,2)" ]
+  },
+  { 
+    "dep": "iobj(give-1,me-2) \n nsubj(give-1,*-3)",
+    "srl": [ "SELECT(1,2)" ] 
+  },
+  { 
+    "dep": "nsubj(have-1,*-2) \n dobj(have-1,*-3)",
+    "srl": [ "UNSPEC(1,2)" ]
+  },
+
+    
   {
     "dep": "nsubj(*-1,*-2)",
-    "arg": "ARG0(1,2)"
+    "srl": [ "ARG0(1,2)" ]
   }, 
   {
     "dep": "nsubjpass(*-1,*-2) \n prep(*-1,by-3) \n pobj(by-3,*-4)",
-    "arg": "ARG0(1,4) ARG1(1,2)"
+    "srl": [ "ARG0(1,4) ARG1(1,2)" ]
   },
   {
     "dep": "nsubjpass(*-1,*-2)",
-    "arg": "ARG0(1,2)"
+    "srl": [ "ARG0(1,2)" ]
   },  
   {
     "dep": "csubj(*-1,*-2)",
-    "arg": "ARG0(1,2)"
+    "srl": [ "ARG0(1,2)" ]
   },
   {
     "dep": "xsubj(*-1,*-2)",
-    "arg": "ARG0(1,2)"
+    "srl": [ "ARG0(1,2)" ]
   },
   {
     "dep": "csubjpass(*-1,*-2)",
-    "arg": "ARG0(1,2)"
+    "srl": [ "ARG0(1,2)" ]
   }, 
   {
     "dep": "dobj(*-1,*-2)",
-    "arg": "ARG1(1,2)"
+    "srl": [ "ARG1(1,2)" ]
   },
   {
     "dep": "iobj(*-1,*-2)",
-    "arg": "ARG2(1,2)"
+    "srl": [ "ARG2(1,2)" ]
   },
   { 
     "dep": "prep(*-1,*-3) \n pobj(*-3,*-2)", 
-    "arg": "APREP(1,2)"
+    "srl": [ "APREP(1,2)" ]
   },
   {
     "dep": "amod(*-1,*-2)",
-    "mod": "MOD(1,2)"
+    "srl": [ "MOD(1,2)" ] 
   },
   {
     "dep": "npadvmod(*-1,*-2)",
-    "mod": "MOD(1,2)"
+    "srl": [ "MOD(1,2)" ] 
   },
   {
     "dep": "advmod(*-1,*-2)",
-    "mod": "MOD(1,2)"
+    "srl": [ "MOD(1,2)" ] 
   }, 
   {
     "dep": "rcmod(*-1,*-2)",
-    "mod": "MOD(1,2)"
+    "srl": [ "MOD(1,2)" ] 
   },
   {
     "dep": "tmod(*-1,*-2)",
-    "mod": "MOD(1,2)"
+    "srl": [ "MOD(1,2)" ] 
   },
   {
     "dep": "vmod(*-1,*-2)",
-    "mod": "MOD(1,2)"
+    "srl": [ "MOD(1,2)" ] 
   },
   {
     "dep": "xcomp(*-1,*-2)",
-    "mod": "COMP(1,2)"
+    "srl": [ "COMP(1,2)" ] 
   },
   {
     "dep": "ccomp(*-1,*-2)",
-    "mod": "COMP(1,2)"
+    "srl": [ "COMP(1,2)" ] 
   },
   {
     "dep": "acomp(*-1,*-2)",
-    "mod": "COMP(1,2)"
+    "srl": [ "COMP(1,2)" ] 
   },
   {
     "dep": "pcomp(*-1,*-2)",
-    "mod": "COMP(1,2)"    
+    "srl": [ "COMP(1,2)" ]  
   },
   {
     "dep": "conj(*-1,*-2)",
-    "arg": "CONJ(1,2)"
+    "srl": [ "CONJ(1,2)" ] 
   },
   {
     "dep": "neg(*-1,*-2)",
-    "neg": "NEG(1,2)"
+    "srl": [ "NEG(1,2)" ]
   },
   {
     "dep": "num(*-1,*-2)",
-    "arg": "NUM(1,2)"
+    "srl": [ "NUM(1,2)" ] 
   },
   {
     "dep": "poss(*-1,*-2)",
-    "arg": "NUM(1,2)"
+    "srl": [ "NUM(1,2)" ] 
   }
 ]
