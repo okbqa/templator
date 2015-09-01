@@ -9,7 +9,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
-        <jersey.version>2.14</jersey.version>
     </properties>
     <repositories>
         <repository>
@@ -22,12 +21,12 @@
         <dependency>
             <groupId>org.restlet.jse</groupId>
             <artifactId>org.restlet</artifactId>
-            <version>2.2-RC4</version>
+            <version>2.3.4</version>
         </dependency>
         <dependency>
             <groupId>org.restlet.jse</groupId>
             <artifactId>org.restlet.ext.simple</artifactId>
-            <version>2.2-RC4</version>
+            <version>2.3.4</version>
         </dependency>
         <dependency>
 	  <groupId>com.googlecode.json-simple</groupId>
@@ -70,22 +69,6 @@
           <artifactId>httpclient</artifactId>
           <version>4.3.6</version>
         </dependency>
-        <dependency>
-          <groupId>org.glassfish.grizzly</groupId>
-          <artifactId>grizzly-http-server</artifactId>
-          <version>2.3.16</version>
-          <type>jar</type>
-        </dependency>
-<!--         <dependency>
-	  <groupId>org.deeplearning4j</groupId>
-	  <artifactId>deeplearning4j-nlp</artifactId>
-	  <version>0.0.3.3</version>
-        </dependency> -->
-<!--         <dependency>
-          <groupId>edu.cmu.lti</groupId>
-          <artifactId>ws4j</artifactId>
-          <version>1.0.1</version>
-        </dependency> -->
     </dependencies>
     <name>templator</name>
     <build>
@@ -112,7 +95,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                <mainClass>org.okbqa.templator.main.Main</mainClass>
+                <mainClass>org.okbqa.templator.main.StartWebService</mainClass>
                 </configuration>
             </plugin>
         </plugins>
