@@ -1,5 +1,6 @@
 package org.okbqa.templator.transformer.rules;
 
+import java.io.File;
 import java.io.FileReader;
 import java.net.URL;
 import java.util.ArrayList;
@@ -60,7 +61,7 @@ public class RuleEngine {
         try {
             // read path_SRL file (JSON)
             URL url = this.getClass().getClassLoader().getResource(path_SRL);
-            String file = url.toString().replace("file:","");
+            File file = Paths.get(url.toURI()).toFile();
             JSONArray json = (JSONArray) parser.parse(new FileReader(file));
         
             // get each rule and add it to rules
@@ -89,11 +90,11 @@ public class RuleEngine {
         try {
             // read path_SRL files (JSON)
             URL url;
-            String file;
+            File file;
             JSONArray json;
 
             url  = this.getClass().getClassLoader().getResource(path_map);
-            file = url.toString().replace("file:","");
+            file = Paths.get(url.toURI()).toFile();
             json = (JSONArray) parser.parse(new FileReader(file));
         
             // get each rule and add it to rules
