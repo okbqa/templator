@@ -11,7 +11,6 @@ import edu.stanford.nlp.semgraph.SemanticGraphCoreAnnotations.BasicDependenciesA
 import edu.stanford.nlp.util.CoreMap;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Properties;
 
 
@@ -24,6 +23,10 @@ public class Stanford implements Parser {
     StanfordCoreNLP pipeline;
     
     public Stanford() {
+        
+        Properties props = new Properties();
+        props.put("annotators", "tokenize, ssplit, pos, lemma, parse");
+        pipeline = new StanfordCoreNLP(props);
     }
 
     
@@ -33,14 +36,9 @@ public class Stanford implements Parser {
         
         List<String> parses    = new ArrayList<>();
         List<String> sentences = new ArrayList<>();
-        List<List<String>> corefChains = new ArrayList<>();
         
-        // Load Stanford NLP
-        Properties props = new Properties();
-        props.put("annotators", "tokenize, ssplit, pos, lemma, parse");
-        pipeline = new StanfordCoreNLP(props);
+//        List<List<String>> corefChains = new ArrayList<>();
         
-        // Analyze input
         Annotation document = new Annotation(text);
         pipeline.annotate(document);
         

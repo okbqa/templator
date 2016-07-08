@@ -27,9 +27,9 @@ public class TemplatorTest_en {
     public static void test() throws IOException {
         
         List<String> test = Arrays.asList(
-                                
-            "Which rivers flow through Gunsan?",
+                               
             "What is the capital of Korea?",
+            "Which rivers flow through Gunsan?",
             "Who is the founder of Google?",
             "List all cities in Korea.",
             "How high is Hallasan?",

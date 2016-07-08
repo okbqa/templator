@@ -49,6 +49,10 @@ public class Node {
         id = i;
     }
     
+    public void setForm(String f) {
+        form = f;
+    }
+    
     // Matching 
     
     public boolean matches(Node n) {

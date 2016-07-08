@@ -6,6 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.okbqa.templator.graph.Edge;
 import org.okbqa.templator.graph.Graph;
+import org.okbqa.templator.graph.Node;
 import org.okbqa.templator.utils.Pair;
 
 /**
@@ -37,10 +38,33 @@ public class SRLRule {
             
             Map<Integer,Integer> map = match.getRight();
                         
-            for (String s : effects) {    
-                Pattern pattern = Pattern.compile("(\\w+)\\((\\d+),(\\d+)\\)");
-                Matcher matcher = pattern.matcher(s);
+            for (String s : effects) {
+                
+                Pattern pattern;
+                Matcher matcher;
+                
+                // Functional roots
+                pattern = Pattern.compile("(\\w+)\\((\\d+)\\)");
+                matcher = pattern.matcher(s);
                 while  (matcher.find()) {
+                    String func = matcher.group(1);
+                    int root; 
+                    if (matcher.group(2).equals("0")) {
+                        root = 0; 
+                        map.put(0,0);
+                    } else { 
+                        root = map.get(Integer.parseInt(matcher.group(2)));
+                        graph.getNode(root,true).setForm(func);
+                    }
+                    graph.addNode(new Node(root,func));
+                    break;
+                }
+                
+                // Relations 
+                pattern = Pattern.compile("(\\w+)\\((\\d+),(\\d+)\\)");
+                matcher = pattern.matcher(s);
+                while  (matcher.find()) {
+                    
                     String role = matcher.group(1);
                     int    head = map.get(Integer.parseInt(matcher.group(2)));
                     int    depd = map.get(Integer.parseInt(matcher.group(3)));

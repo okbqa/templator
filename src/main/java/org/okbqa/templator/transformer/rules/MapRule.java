@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.okbqa.templator.graph.Edge;
 import org.okbqa.templator.graph.Graph;
 import org.okbqa.templator.graph.Node;
 import org.okbqa.templator.template.Slot;
@@ -37,6 +38,72 @@ public class MapRule {
         return effects;
     }
     
+    // flatten rules : Graph -> Graph
+    public void apply(Graph graph) {
+        
+        List<Pair<Graph,Map<Integer,Integer>>> matches = target.subGraphMatches(graph);
+        
+        for (Pair<Graph,Map<Integer,Integer>> match : matches) {
+            
+            Graph subgraph = match.getLeft();
+            Map<Integer,Integer> forward = subgraph.getForward();
+            Map<Integer,Integer> map = match.getRight();
+            
+            Pattern edge_pattern;
+            Matcher edge_matcher;
+            
+            String effect;
+            for (String str : effects) {
+                effect = str;
+                                
+                // edge(1,SORTAL|UNSPEC,3)
+//                edge_pattern = Pattern.compile("edge\\((\\d+),(\\w+),(\\d+)\\)");
+//                edge_matcher = edge_pattern.matcher(effect);
+//                while  (edge_matcher.find()) {
+//                        // add edge
+//                        String edge = edge_matcher.group(2);
+//                        int s = map.get(Integer.parseInt(edge_matcher.group(1)));
+//                        int o = map.get(Integer.parseInt(edge_matcher.group(3)));
+//                        if (forward.containsKey(s)) {
+//                            s = forward.get(s);
+//                        }
+//                        if (forward.containsKey(o)) {
+//                            o = forward.get(o);
+//                        }
+//                                                
+//                        graph.addEdge(new Edge(s,edge,o));
+//                }
+                // edge(1,2,3)
+                edge_pattern = Pattern.compile("edge\\((\\d+),(\\d+),(\\d+)\\)");
+                edge_matcher = edge_pattern.matcher(effect);
+                while  (edge_matcher.find()) {
+                        // add edge
+                        int s = map.get(Integer.parseInt(edge_matcher.group(1)));
+                        int p = map.get(Integer.parseInt(edge_matcher.group(2)));
+                        int o = map.get(Integer.parseInt(edge_matcher.group(3)));
+                        if (forward.containsKey(s)) {
+                            s = forward.get(s);
+                        }
+                        if (forward.containsKey(p)) {
+                            p = forward.get(p);
+                        }
+                        if (forward.containsKey(o)) {
+                            o = forward.get(o);
+                        }
+                        
+                        String fp = "edge"; 
+                        
+                        Node np = subgraph.getNode(p,true);
+                        if (np != null) { fp = np.getForm(); }
+                                                
+                        graph.addEdge(new Edge(s,fp,o));
+                }
+            } 
+            graph.delete(subgraph);
+        }
+    }
+    
+    // mapping rules : Graph -> Template
     public void apply(Graph graph, Template template) {
         
         List<Pair<Graph,Map<Integer,Integer>>> matches = target.subGraphMatches(graph);
@@ -147,9 +214,9 @@ public class MapRule {
                 Matcher triple_matcher = triple_pattern.matcher(effect);
                 while  (triple_matcher.find()) {
                         // add triple
-                        int     s = map.get(Integer.parseInt(triple_matcher.group(1)));
-                        int     p = map.get(Integer.parseInt(triple_matcher.group(2)));
-                        int     o = map.get(Integer.parseInt(triple_matcher.group(3)));
+                        int s = map.get(Integer.parseInt(triple_matcher.group(1)));
+                        int p = map.get(Integer.parseInt(triple_matcher.group(2)));
+                        int o = map.get(Integer.parseInt(triple_matcher.group(3)));
                         if (forward.containsKey(s)) {
                             s = forward.get(s);
                         }

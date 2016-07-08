@@ -1,30 +1,42 @@
 [
   { 
-    "dep": "cop(what-1,*-2)",
-    "srl": [ "SELECTTHING(1,1)" ]
-  },
-  { 
-    "dep": "cop(who-1,*-2)",
-    "srl": [ "SELECTPERSON(1,1)" ]
-  },
-  { 
-    "dep": "cop(where-1,*-2)",
-    "srl": [ "SELECTPLACE(1,1)" ] 
-  },
-  { 
-    "dep": "cop(when-1,*-2)",
-    "srl": [ "SELECTTIME(1,1)" ]
+    "dep": "expl(*-1,there-2) \n nsubj(*-1,*-3)",
+    "srl": [ "ASK(0)", "THING(1)", "FUNC(0,1)", "ARG0(3,1)" ]
   },
   { 
     "dep": "det(*-2,which-1)",
-    "srl": [ "SELECT(1,2)" ]
+    "srl": [ "SELECT(0)", "FUNC(0,2)" ]
+  },
+  { 
+    "dep": "cop(what-1,*-2) \n nsubj(what-1,*-3)",
+    "srl": [ "THING(1)", "SELECT(0)", "FUNC(0,1)", "ARG0(3,1)" ]
+  },
+  { 
+    "dep": "det(*-1,what-2) \n dep(*-3,*-1) \n nsubj(*-3,*-4)",
+    "srl": [ "THING(2)", "SELECT(0)", "FUNC(0,2)", "ARG0(1,4)", "ARG1(1,2)" ]
+  },
+  { 
+    "dep": "cop(who-1,*-2) \n nsubj(who-1,*-3)",
+    "srl": [ "PERSON(1)", "SELECT(0)", "FUNC(0,1)", "ARG0(3,1)" ]
+  },
+  { 
+    "dep": "cop(where-1,*-2) \n nsubj(where-1,*-3)",
+    "srl": [ "PLACE(1)", "SELECT(0)", "FUNC(0,1)", "ARG0(3,1)" ] 
+  },
+  { 
+    "dep": "cop(when-1,*-2) \n nsubj(when-1,*-3)",
+    "srl": [ "TIME(1)", "SELECT(0)", "FUNC(0,1)", "ARG0(3,1)" ]
+  },
+  { 
+    "dep": "advmod(*-2,where-1) \n nsubj(*-2,*-3)",
+    "srl": [ "PLACE(1)", "SELECT(0)", "FUNC(0,1)", "ARG0(3,1)" ] 
   },
   { 
     "dep": "advmod(many-2,how-1) \n amod(*-3,many-2)",
     "srl": [ "COUNT(1,3)" ] 
   },
   { 
-    "dep": "advmod(*-2,how-1) \n dep(*-3,*-2) \n ARG0(*-3,*-4)",
+    "dep": "advmod(*-2,how-1) \n dep(*-3,*-2) \n nsubj(*-3,*-4)",
     "srl": [ "SELECT(1,1)", "ARG0(2,1)", "ARG1(2,4)" ]
   },
   { 

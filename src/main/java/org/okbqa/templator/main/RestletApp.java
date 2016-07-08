@@ -1,7 +1,11 @@
 package org.okbqa.templator.main;
 
 import org.restlet.Application;
+import org.restlet.Request;
+import org.restlet.Response;
 import org.restlet.Restlet;
+import org.restlet.data.CharacterSet;
+import org.restlet.routing.Filter;
 import org.restlet.routing.Router;
 
 /**
@@ -18,5 +22,5 @@ public class RestletApp extends Application {
 		Router router = new Router(getContext());
 		router.attachDefault(ProcessRequest.class);
 		return router;
-	}
+        }
 }

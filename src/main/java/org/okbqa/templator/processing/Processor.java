@@ -1,6 +1,5 @@
 package org.okbqa.templator.processing;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.okbqa.templator.graph.Graph;
 import org.okbqa.templator.interpreter.Interpreter;

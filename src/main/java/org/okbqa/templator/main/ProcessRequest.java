@@ -26,16 +26,16 @@ public class ProcessRequest extends ServerResource {
 
     @Post
     public String process(Representation entity) throws Exception {
-
+          
         JSONArray output = new JSONArray();
-
+        
         try {
             JSONParser json  = new JSONParser();
             JSONObject input = (JSONObject) json.parse(entity.getText());
-        
+                    
             String str  = (String) input.get("string");
             String lang = (String) input.get("language");
-                  
+                             
             switch (lang) {
                 case "en": output = pipeline_en.run(str); break;
                 case "ko": output = pipeline_ko.run(str); break;
