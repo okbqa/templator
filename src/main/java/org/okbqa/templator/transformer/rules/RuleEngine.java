@@ -95,9 +95,14 @@ public class RuleEngine {
     private void read_map_rules(List<MapRule> rules, String path) {
                         
         try {
-            URL url  = this.getClass().getClassLoader().getResource(path);
-            File file = Paths.get(url.toURI()).toFile();
-            JSONArray json = (JSONArray) parser.parse(new FileReader(file));
+            // read path_SRL files (JSON)
+            URL url;
+            File file;
+            JSONArray json;
+
+            url  = this.getClass().getClassLoader().getResource(path_map);
+            file = Paths.get(url.toURI()).toFile();
+            json = (JSONArray) parser.parse(new FileReader(file));
         
             // get each rule and add it to rules
             Iterator<JSONObject> iterator = json.iterator();
